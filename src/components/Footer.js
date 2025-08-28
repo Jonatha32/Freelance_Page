@@ -133,7 +133,7 @@ const Footer = () => {
               </h3>
               <div className="space-y-4">
                 <motion.a 
-                  href="mailto:tu@email.com" 
+                  href="mailto:jonaperez.dev@gmail.com" 
                   className="group flex items-center p-4 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-xl border border-red-400/30 hover:border-red-400/60 transition-all duration-300 hover:scale-105"
                   whileHover={{ x: 5 }}
                 >
@@ -142,12 +142,12 @@ const Footer = () => {
                   </div>
                   <div>
                     <div className="font-bold text-white text-lg">Email</div>
-                    <div className="text-red-300 font-medium">tu@email.com</div>
+                    <div className="text-red-300 font-medium">jonaperez.dev@gmail.com</div>
                   </div>
                 </motion.a>
                 
                 <motion.a 
-                  href="https://wa.me/1234567890" 
+                  href="https://wa.me/59892934394" 
                   className="group flex items-center p-4 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-xl border border-green-400/30 hover:border-green-400/60 transition-all duration-300 hover:scale-105"
                   whileHover={{ x: 5 }}
                 >
@@ -186,7 +186,7 @@ const Footer = () => {
         >
           <div className="mb-6">
             <p className="text-2xl font-bold text-white mb-2">
-              © 2025 JONA - <span className="text-red-400 animate-pulse text-3xl">♥</span> HECHO CON AMOR Y ☕ CAFÉ
+              © 2025 JONA<span className="text-red-400 animate-pulse text-3xl"></span>
             </p>
             <p className="text-lg text-white/80">
               🌟 Creando el futuro digital, un pixel épico a la vez 🌟
