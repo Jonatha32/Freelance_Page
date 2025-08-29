@@ -25,7 +25,7 @@ const About = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <span className="bg-gradient-to-r from-coral-400 via-gold-400 to-mint-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-coral-400 via-gold-400 to-mint-400 bg-clip-text text-white">
                 DE ARTISTA
               </span>
               <br />
@@ -38,9 +38,8 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              🎵 Donde la <span className="text-coral-300 font-bold">sensibilidad artística</span> se encuentra con la 
-              <span className="text-gold-300 font-bold">excelencia técnica</span> para crear 
-              <span className="text-mint-300 font-bold">experiencias digitales únicas</span>
+              🎵 Transformo ideas en experiencias digitales memorables,
+              <span className="text-mint-300 font-bold"> combinando sensibilidad artística con excelencia técnica.</span>
             </motion.p>
             
             <motion.div
@@ -65,7 +64,8 @@ const About = () => {
               🎼 MI HISTORIA
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Cada gran proyecto comienza con una historia. Esta es la mía, y cómo puede transformar la tuya.
+              La música me enseñó que cada detalle importa: una nota, un silencio, un ritmo. 
+              <span className="font-bold text-gray-800">Hoy aplico esa filosofía al diseño y al código, creando proyectos que no solo funcionan, sino que emocionan.</span>
             </p>
           </motion.div>
 
@@ -81,7 +81,7 @@ const About = () => {
                 <div className="text-6xl mb-6">🎵</div>
                 <h3 className="text-3xl font-black text-coral-700 mb-6">CAPÍTULO 1: LAS RAÍCES</h3>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Todo comenzó con una guitarra y la obsesión por crear algo que <span className="font-bold text-coral-600">tocara el alma</span>. 
+                  Todo comenzó con un piano y la obsesión por crear algo que <span className="font-bold text-coral-600">tocara el alma</span>. 
                   En el mundo de la música aprendí que <span className="font-bold">cada nota importa, cada pausa tiene significado</span>, 
                   y que la verdadera magia sucede cuando la técnica se encuentra con la emoción.
                 </p>
@@ -94,15 +94,15 @@ const About = () => {
               </div>
               
               <div className="space-y-6">
-                <h4 className="text-2xl font-bold text-gray-900">🎯 ¿Qué significa esto para tu proyecto?</h4>
+                <h4 className="text-2xl font-bold text-gray-900">⚡ Qué aporto a tu proyecto</h4>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4">
                     <div className="w-8 h-8 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white font-bold text-sm">✓</span>
                     </div>
                     <div>
-                      <h5 className="font-bold text-gray-900">Atención al detalle obsesiva</h5>
-                      <p className="text-gray-600">Cada pixel, cada animación, cada interacción está pensada para crear una experiencia memorable.</p>
+                      <h5 className="font-bold text-gray-900">Experiencias digitales con conexión emocional</h5>
+                      <p className="text-gray-600">No solo interfaces bonitas, sino experiencias que tus usuarios recordarán y amarán.</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -110,8 +110,8 @@ const About = () => {
                       <span className="text-white font-bold text-sm">✓</span>
                     </div>
                     <div>
-                      <h5 className="font-bold text-gray-900">Conexión emocional con usuarios</h5>
-                      <p className="text-gray-600">No solo creo interfaces, creo experiencias que tus usuarios van a amar y recordar.</p>
+                      <h5 className="font-bold text-gray-900">Código limpio, escalable y flexible</h5>
+                      <p className="text-gray-600">Arquitectura sólida que crece con tu negocio, como una buena composición musical.</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -119,8 +119,8 @@ const About = () => {
                       <span className="text-white font-bold text-sm">✓</span>
                     </div>
                     <div>
-                      <h5 className="font-bold text-gray-900">Ritmo y fluidez en el diseño</h5>
-                      <p className="text-gray-600">Como en la música, sé cuándo acelerar, cuándo pausar y cómo crear el flujo perfecto.</p>
+                      <h5 className="font-bold text-gray-900">Diseños con ritmo, fluidez y atención obsesiva al detalle</h5>
+                      <p className="text-gray-600">Cada pixel, animación e interacción orquestada para crear la experiencia perfecta.</p>
                     </div>
                   </div>
                 </div>
@@ -135,24 +135,15 @@ const About = () => {
               className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             >
               <div className="order-2 lg:order-1 space-y-6">
-                <h4 className="text-2xl font-bold text-gray-900">🚀 El resultado para tu negocio:</h4>
+                <h4 className="text-2xl font-bold text-gray-900">🎯 Resultados concretos</h4>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4">
                     <div className="w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white font-bold text-sm">✓</span>
                     </div>
                     <div>
-                      <h5 className="font-bold text-gray-900">Soluciones que se adaptan y crecen</h5>
-                      <p className="text-gray-600">Como un músico que improvisa, creo código flexible que evoluciona con tus necesidades.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white font-bold text-sm">✓</span>
-                    </div>
-                    <div>
                       <h5 className="font-bold text-gray-900">Innovación sin perder funcionalidad</h5>
-                      <p className="text-gray-600">Combino creatividad disruptiva con sólidas bases técnicas para resultados extraordinarios.</p>
+                      <p className="text-gray-600">Creatividad disruptiva con bases técnicas sólidas para resultados extraordinarios.</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -160,8 +151,17 @@ const About = () => {
                       <span className="text-white font-bold text-sm">✓</span>
                     </div>
                     <div>
-                      <h5 className="font-bold text-gray-900">Marca que suena diferente</h5>
-                      <p className="text-gray-600">Tu proyecto no será uno más del montón. Será esa melodía que no se olvida.</p>
+                      <h5 className="font-bold text-gray-900">Diferenciación de marca auténtica</h5>
+                      <p className="text-gray-600">Tu proyecto no será uno más del montón. Será esa melodía digital que no se olvida.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold text-sm">✓</span>
+                    </div>
+                    <div>
+                      <h5 className="font-bold text-gray-900">Soluciones escalables que evolucionan</h5>
+                      <p className="text-gray-600">Como un músico que improvisa, creo sistemas flexibles que crecen con tu visión.</p>
                     </div>
                   </div>
                 </div>
@@ -172,8 +172,8 @@ const About = () => {
                 <h3 className="text-3xl font-black text-gold-700 mb-6">CAPÍTULO 2: LA TRANSFORMACIÓN</h3>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                   El día que descubrí que <span className="font-bold text-gold-600">el código podía ser tan expresivo como una canción</span>, 
-                  todo cambió. No abandoné el arte, lo expandi. Ahora cada proyecto es una sinfonía digital donde 
-                  <span className="font-bold">la creatividad y la tecnología danzan juntas</span>.
+                  todo cambió. No abandoné el arte, lo expandí. Ahora cada proyecto es una sinfonía digital donde 
+                  <span className="font-bold"> la creatividad y la tecnología danzan juntas</span>.
                 </p>
                 <div className="bg-gold-200/50 p-4 rounded-xl border-l-4 border-gold-500">
                   <p className="text-gold-800 font-semibold italic">
@@ -196,7 +196,7 @@ const About = () => {
               <p className="text-xl text-gray-700 mb-8 max-w-4xl mx-auto leading-relaxed">
                 Hoy, cada proyecto es una oportunidad de crear algo único. 
                 <span className="font-bold text-mint-600">No hago sitios web, compongo experiencias digitales</span>. 
-                No escribo código, creo sinfonías interactivas que conectan marcas con personas de formas auténticas y memorables.
+                No escribo código, <span className="font-bold text-mint-700">creo sinfonías interactivas que conectan marcas con personas de formas auténticas y memorables</span>.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
@@ -204,22 +204,22 @@ const About = () => {
                   <div className="w-16 h-16 bg-gradient-to-r from-coral-500 to-coral-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <span className="text-white text-2xl">🎨</span>
                   </div>
-                  <h4 className="font-black text-gray-900 mb-2">CREATIVIDAD SIN LÍMITES</h4>
-                  <p className="text-gray-600">Cada proyecto es una obra de arte digital única</p>
+                  <h4 className="font-black text-gray-900 mb-2">EXPERIENCIAS MEMORABLES</h4>
+                  <p className="text-gray-600">Cada proyecto es una sinfonía digital única que emociona</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-gold-500 to-gold-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <span className="text-white text-2xl">⚡</span>
                   </div>
-                  <h4 className="font-black text-gray-900 mb-2">EXCELENCIA TÉCNICA</h4>
-                  <p className="text-gray-600">Código limpio, escalable y optimizado</p>
+                  <h4 className="font-black text-gray-900 mb-2">CÓDIGO LIMPIO & ESCALABLE</h4>
+                  <p className="text-gray-600">Arquitectura sólida que evoluciona con tu visión</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-mint-500 to-mint-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-mint-500 to-mint-500 rounded-2xl flex items-center justify-center mx-auto">
                     <span className="text-white text-2xl">🎯</span>
                   </div>
-                  <h4 className="font-black text-gray-900 mb-2">RESULTADOS MEDIBLES</h4>
-                  <p className="text-gray-600">Estrategia que convierte y hace crecer tu negocio</p>
+                  <h4 className="font-black text-gray-900 mb-2">DIFERENCIACIÓN AUTÉNTICA</h4>
+                  <p className="text-gray-600">Tu marca sonará diferente en el mundo digital</p>
                 </div>
               </div>
             </motion.div>
@@ -237,11 +237,11 @@ const About = () => {
           >
             <h2 className="text-4xl font-black mb-6">
               <span className="bg-gradient-to-r from-coral-400 to-gold-400 bg-clip-text text-transparent">
-                🎹 MI STACK FAVORITO
+                🎹 STACK FAVORITO
               </span>
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              Las herramientas que uso para convertir ideas en realidades digitales épicas
+              Las herramientas que uso para orquestar sinfonías digitales
             </p>
           </motion.div>
 
@@ -262,7 +262,7 @@ const About = () => {
               {
                 category: 'Diseño',
                 icon: '🎨',
-                tools: ['Figma', 'Adobe CC', 'Framer', 'Prototyping'],
+                tools: ['Figma', 'Adobe CC', 'Framer', 'Canva'],
                 gradient: 'from-purple-500 to-pink-500'
               },
               {
@@ -317,13 +317,13 @@ const About = () => {
             className="text-center max-w-5xl mx-auto"
           >
             <h2 className="text-5xl md:text-7xl font-black mb-8">
-              <span className="bg-gradient-to-r from-coral-400 via-gold-400 to-mint-400 bg-clip-text text-transparent">
-                TU PROYECTO
+              <span className="bg-gradient-to-r from-coral-400 via-white to-coral-400-400 bg-clip-text text-white">
+                CONSTRUYAMOS
               </span>
               <br />
-              <span className="text-white">PUEDE SER LA PRÓXIMA</span>
+              <span className="text-white">TU PRÓXIMA</span>
               <br />
-              <span className="bg-gradient-to-r from-mint-400 via-gold-400 to-coral-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-mint-400 via-gold-400 to-coral-400 bg-clip-text text-white">
                 SINFONÍA DIGITAL
               </span>
             </h2>
@@ -334,11 +334,11 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              🎵 Cada gran proyecto comienza con una conversación. 
+              🚀 Tu marca no será una más: será esa melodía que tus usuarios recordarán.
               <br className="hidden md:block" />
-              <span className="text-coral-300 font-bold">Construyamos juntos algo que suene tan bien como una buena canción,</span>
+              <span className="text-coral-300 font-bold">Cada gran proyecto comienza con una conversación.</span>
               <br className="hidden md:block" />
-              <span className="text-gold-300 font-bold">pero en el mundo digital.</span>
+              <span className="text-gold-300 font-bold">¿Listo para crear algo extraordinario juntos?</span>
             </motion.p>
             
             <motion.div
@@ -348,10 +348,10 @@ const About = () => {
               transition={{ delay: 0.7 }}
             >
               <button className="bg-gradient-to-r from-coral-500 via-gold-500 to-mint-500 text-white px-10 py-5 rounded-2xl font-black text-xl hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-3xl">
-                🎵 COMPONGAMOS JUNTOS
+                🎵 CREAR JUNTOS
               </button>
               <button className="border-2 border-white/30 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-white/10 transition-all duration-300">
-                💬 VER MI PORTFOLIO
+                🎨 VER PORTFOLIO
               </button>
             </motion.div>
             
@@ -365,22 +365,22 @@ const About = () => {
                 <div className="w-20 h-20 bg-gradient-to-r from-coral-500 to-coral-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-3xl">🎨</span>
                 </div>
-                <h3 className="text-xl font-black text-white mb-2">ARTE + TECNOLOGÍA</h3>
-                <p className="text-white/70">Donde la creatividad se encuentra con la innovación</p>
+                <h3 className="text-xl font-black text-white mb-2">SENSIBILIDAD ARTÍSTICA</h3>
+                <p className="text-white/70">Donde la creatividad musical se encuentra con el código</p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-gold-500 to-gold-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-3xl">⚡</span>
                 </div>
-                <h3 className="text-xl font-black text-white mb-2">RESULTADOS ÉPICOS</h3>
-                <p className="text-white/70">Proyectos que no solo funcionan, sino que inspiran</p>
+                <h3 className="text-xl font-black text-white mb-2">EXCELENCIA TÉCNICA</h3>
+                <p className="text-white/70">Código limpio que funciona como una sinfonía perfecta</p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-mint-500 to-mint-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-gradient-to-r from-mint-500 to-mint-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-white text-3xl">🎆</span>
                 </div>
-                <h3 className="text-xl font-black text-white mb-2">EXPERIENCIA ÚNICA</h3>
-                <p className="text-white/70">Tu marca sonará diferente en el mundo digital</p>
+                <h3 className="text-xl font-black text-white mb-2">MARCA MEMORABLE</h3>
+                <p className="text-white/70">Tu proyecto será esa melodía digital que no se olvida</p>
               </div>
             </motion.div>
             
@@ -391,13 +391,13 @@ const About = () => {
               transition={{ delay: 1.1 }}
             >
               <p className="text-xl text-white/90 italic font-medium">
-                "🎵 La música me enseñó que la magia sucede cuando la técnica perfecta se encuentra con el alma. 
+                "La música me enseñó que cada detalle importa: una nota, un silencio, un ritmo. 
                 <br className="hidden md:block" />
-                Hoy aplico esa filosofía a cada proyecto digital que creo. 
-                <span className="text-coral-300 font-bold">Tu proyecto puede ser la próxima obra maestra.</span>"
+                Hoy aplico esa sensibilidad artística al mundo digital. 
+                <span className="text-coral-300 font-bold">Tu proyecto puede ser la próxima sinfonía digital que emocione y convierta.</span>"
               </p>
               <div className="mt-6">
-                <span className="text-gold-400 font-bold text-lg">- Jona, Artista & Creador Digital</span>
+                <span className="text-gold-400 font-bold text-lg">- Jonathan Pérez</span>
               </div>
             </motion.div>
           </motion.div>

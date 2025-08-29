@@ -14,8 +14,8 @@ const Blog = () => {
     },
     {
       id: 2,
-      title: 'React vs Vue: ¿Cuál Elegir en 2024?',
-      excerpt: 'Análisis comparativo de los frameworks más populares, con casos de uso reales y recomendaciones basadas en experiencia.',
+      title: 'React vs Vue: La Batalla de 2024 (y cuál elegir según tu proyecto)',
+      excerpt: 'Pros, contras y en qué proyectos usar cada uno. Análisis real sin marketing, solo experiencia práctica.',
       date: '2024-01-10',
       readTime: '8 min',
       category: 'Desarrollo',
@@ -23,8 +23,8 @@ const Blog = () => {
     },
     {
       id: 3,
-      title: 'Branding Digital: Más Allá del Logo',
-      excerpt: 'Por qué una identidad digital exitosa requiere coherencia en cada punto de contacto con el usuario.',
+      title: 'Tu marca no es tu logo: Cómo construir un branding que conecte',
+      excerpt: 'Por qué una identidad digital exitosa va mucho más allá del diseño y cómo crear conexión real con usuarios.',
       date: '2024-01-05',
       readTime: '6 min',
       category: 'Diseño',
@@ -32,8 +32,8 @@ const Blog = () => {
     },
     {
       id: 4,
-      title: 'Optimización Web: Velocidad que Convierte',
-      excerpt: 'Técnicas prácticas para mejorar el rendimiento de tu sitio web y aumentar las conversiones.',
+      title: 'Un sitio lento es un cliente menos: Cómo acelerar tu web y vender más',
+      excerpt: 'Técnicas prácticas para mejorar el rendimiento de tu sitio web y convertir más visitantes en clientes.',
       date: '2023-12-28',
       readTime: '7 min',
       category: 'SEO',
@@ -54,12 +54,20 @@ const Blog = () => {
       excerpt: 'La importancia de la escritura en la experiencia de usuario y cómo crear microcopy efectivo.',
       date: '2023-12-15',
       readTime: '5 min',
-      category: 'UX',
+      category: 'UX & Writing',
       image: '/api/placeholder/400/250'
     }
   ];
 
-  const categories = ['Todos', 'Desarrollo', 'Diseño', 'Personal', 'SEO', 'Freelance', 'UX'];
+  const categories = [
+    { name: 'Todos', emoji: '🌟' },
+    { name: 'Desarrollo', emoji: '💻' },
+    { name: 'Diseño', emoji: '🎨' },
+    { name: 'UX & Writing', emoji: '✍️' },
+    { name: 'SEO', emoji: '📈' },
+    { name: 'Freelance', emoji: '🚀' },
+    { name: 'Personal', emoji: '🌱' }
+  ];
 
   return (
     <div>
@@ -70,9 +78,13 @@ const Blog = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog & Reflexiones</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              <span className="bg-gradient-to-r from-coral-500 to-gold-500 bg-clip-text text-transparent">
+                Entre Notas y Código 🎵💻
+              </span>
+            </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Pensamientos sobre desarrollo, diseño, creatividad y la intersección entre arte y tecnología.
+              Un espacio donde el arte y la tecnología se encuentran. Reflexiones, tutoriales y hacks para darle alma a tus proyectos digitales.
             </p>
           </motion.div>
         </div>
@@ -85,9 +97,10 @@ const Blog = () => {
             {categories.map((category, index) => (
               <button
                 key={index}
-                className="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-primary-100 hover:text-primary-700 transition-colors duration-200"
+                className="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-coral-100 hover:text-coral-700 transition-colors duration-200 inline-flex items-center gap-2"
               >
-                {category}
+                <span>{category.emoji}</span>
+                {category.name}
               </button>
             ))}
           </div>
@@ -156,10 +169,10 @@ const Blog = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              No te pierdas las actualizaciones
+              ¿Querés estar un paso adelante?
             </h2>
             <p className="text-gray-600 mb-8">
-              Recibe los nuevos artículos directamente en tu email. Sin spam, solo contenido de valor.
+              Suscribite y recibí ideas frescas directo en tu inbox. Sin spam, solo valor.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
@@ -168,7 +181,7 @@ const Blog = () => {
                 placeholder="tu@email.com"
                 className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
-              <button className="btn-primary whitespace-nowrap">
+              <button className="bg-gradient-to-r from-coral-500 to-gold-500 text-white px-6 py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300 whitespace-nowrap">
                 Suscribirse
               </button>
             </div>
@@ -181,30 +194,30 @@ const Blog = () => {
       </section>
 
       {/* Próximamente */}
-      <section className="section-padding bg-primary-600">
+      <section className="section-padding bg-gradient-to-br from-gold-600 to-coral-700">
         <div className="container-max text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
           >
             <h2 className="text-3xl font-bold text-white mb-4">
-              Próximamente: Más Contenido
+              Lo que se viene 👀
             </h2>
-            <p className="text-primary-100 mb-8 max-w-2xl mx-auto">
-              Estoy preparando una serie de tutoriales prácticos, casos de estudio detallados y recursos gratuitos para la comunidad.
+            <p className="text-white/90 mb-8 max-w-2xl mx-auto">
+              Estoy cocinando contenido que no vas a encontrar en otro lado:
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <h3 className="text-white font-semibold mb-2">🎥 Video Tutoriales</h3>
-                <p className="text-primary-100 text-sm">Desarrollo paso a paso</p>
+                <h3 className="text-white font-semibold mb-2">🎥 Video-tutoriales paso a paso</h3>
+                <p className="text-white/80 text-sm">Sin bla-bla, solo práctica</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <h3 className="text-white font-semibold mb-2">📚 Guías Completas</h3>
-                <p className="text-primary-100 text-sm">Recursos descargables</p>
+                <h3 className="text-white font-semibold mb-2">📚 Guías descargables con ejemplos reales</h3>
+                <p className="text-white/80 text-sm">Recursos que realmente usás</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <h3 className="text-white font-semibold mb-2">🎙️ Podcast</h3>
-                <p className="text-primary-100 text-sm">Conversaciones tech</p>
+                <h3 className="text-white font-semibold mb-2">🎙️ Podcast tech + creatividad</h3>
+                <p className="text-white/80 text-sm">Donde mezclo arte y código</p>
               </div>
             </div>
           </motion.div>
