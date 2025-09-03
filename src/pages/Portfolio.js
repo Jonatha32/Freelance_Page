@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('todos');
@@ -9,68 +8,56 @@ const Portfolio = () => {
       id: 1,
       title: 'E-commerce Boutique',
       category: 'desarrollo',
-      image: '/api/placeholder/400/300',
       description: 'Tienda online completa con carrito de compras y pasarela de pagos.',
-      technologies: ['React', 'Node.js', 'Stripe', 'MongoDB'],
-      results: ['300% aumento en ventas', '50% mejora en conversión'],
-      link: '#'
+      technologies: ['React', 'Node.js', 'Stripe'],
+      result: '300% aumento en ventas'
     },
     {
       id: 2,
       title: 'Identidad Visual Restaurante',
       category: 'branding',
-      image: '/api/placeholder/400/300',
       description: 'Branding completo para cadena de restaurantes gourmet.',
       technologies: ['Adobe Creative', 'Figma', 'Brand Guidelines'],
-      results: ['Reconocimiento de marca +80%', 'Engagement +120%'],
-      link: '#'
+      result: 'Reconocimiento +80%'
     },
     {
       id: 3,
       title: 'App de Gestión Médica',
       category: 'desarrollo',
-      image: '/api/placeholder/400/300',
       description: 'Aplicación web para gestión de citas y historiales médicos.',
-      technologies: ['React', 'TypeScript', 'PostgreSQL', 'AWS'],
-      results: ['Tiempo de gestión -60%', 'Satisfacción pacientes 95%'],
-      link: '#'
+      technologies: ['React', 'TypeScript', 'PostgreSQL'],
+      result: 'Tiempo de gestión -60%'
     },
     {
       id: 4,
       title: 'Campaña Digital Startup',
       category: 'branding',
-      image: '/api/placeholder/400/300',
       description: 'Estrategia visual y digital para lanzamiento de startup tech.',
       technologies: ['Brand Strategy', 'Social Media', 'Web Design'],
-      results: ['1M+ impresiones', '15K nuevos usuarios'],
-      link: '#'
+      result: '1M+ impresiones'
     },
     {
       id: 5,
       title: 'Portfolio Arquitecto',
       category: 'desarrollo',
-      image: '/api/placeholder/400/300',
       description: 'Sitio web showcase para estudio de arquitectura.',
       technologies: ['Next.js', 'Framer Motion', 'Sanity CMS'],
-      results: ['Clientes premium +200%', 'Tiempo de carga <2s'],
-      link: '#'
+      result: 'Clientes premium +200%'
     },
     {
       id: 6,
       title: 'Rebrand Empresa Familiar',
       category: 'branding',
-      image: '/api/placeholder/400/300',
       description: 'Renovación completa de identidad para empresa de 30 años.',
       technologies: ['Brand Research', 'Logo Design', 'Guidelines'],
-      results: ['Percepción moderna +90%', 'Nuevos mercados +3'],
-      link: '#'
+      result: 'Percepción moderna +90%'
     }
   ];
 
   const filters = [
-    { key: 'todos', label: 'Todos los Proyectos' },
-    { key: 'desarrollo', label: 'Desarrollo Web' },
-    { key: 'branding', label: 'Branding & Diseño' }
+    { key: 'todos', label: 'Todos' },
+    { key: 'desarrollo', label: 'Desarrollo' },
+    { key: 'branding', label: 'Branding' }
   ];
 
   const filteredProjects = activeFilter === 'todos' 
@@ -81,51 +68,43 @@ const Portfolio = () => {
     {
       name: 'María González',
       company: 'Boutique Elena',
-      text: 'El e-commerce que desarrolló superó todas nuestras expectativas. Las ventas se triplicaron en los primeros 3 meses.',
-      rating: 5
+      text: 'El e-commerce superó todas nuestras expectativas. Las ventas se triplicaron en 3 meses.'
     },
     {
       name: 'Dr. Carlos Ruiz',
       company: 'Clínica Salud+',
-      text: 'La aplicación de gestión médica revolucionó nuestro flujo de trabajo. Altamente recomendado.',
-      rating: 5
+      text: 'La aplicación de gestión médica revolucionó nuestro flujo de trabajo. Altamente recomendado.'
     },
     {
       name: 'Ana Martínez',
       company: 'Estudio AM Arquitectura',
-      text: 'Mi nuevo portfolio web ha atraído clientes de alto nivel que antes no podía alcanzar. Excelente trabajo.',
-      rating: 5
+      text: 'Mi nuevo portfolio web ha atraído clientes de alto nivel que antes no podía alcanzar.'
     }
   ];
 
   return (
-    <div>
+    <div className="min-h-screen">
       {/* Header */}
-      <section className="section-padding bg-gradient-to-br from-primary-50 to-white">
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container-max text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Portfolio & Casos de Estudio</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Proyectos reales con resultados medibles. Cada caso representa una historia de éxito y crecimiento.
-            </p>
-          </motion.div>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Portfolio</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Proyectos reales con resultados medibles
+          </p>
         </div>
       </section>
 
       {/* Filtros */}
-      <section className="py-8 bg-white border-b">
+      <section className="py-8 bg-white border-b border-gray-100">
         <div className="container-max">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex justify-center gap-2">
             {filters.map((filter) => (
               <button
                 key={filter.key}
                 onClick={() => setActiveFilter(filter.key)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   activeFilter === filter.key
-                    ? 'bg-primary-600 text-white'
+                    ? 'bg-coral-500 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -137,117 +116,93 @@ const Portfolio = () => {
       </section>
 
       {/* Proyectos */}
-      <section className="section-padding bg-white">
+      <section className="py-20 bg-white">
         <div className="container-max">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <motion.div
+            {filteredProjects.map((project) => (
+              <div
                 key={project.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-coral-200 transition-all duration-300"
               >
-                <div className="aspect-video bg-gray-200 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
-                    <span className="text-white text-lg font-medium">{project.title}</span>
-                  </div>
+                <div className="aspect-video bg-gradient-to-br from-coral-400 to-coral-600 flex items-center justify-center">
+                  <span className="text-white text-lg font-semibold">{project.title}</span>
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
+                  <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
                   
-                  <div className="mb-4">
-                    <h4 className="font-medium text-gray-900 mb-2">Tecnologías:</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {project.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="bg-primary-50 text-primary-700 px-2 py-1 rounded text-xs"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-green-600">
+                      <span className="mr-2">✓</span>
+                      <span className="text-sm font-medium">{project.result}</span>
                     </div>
+                    <button className="text-coral-500 hover:text-coral-600 font-medium text-sm transition-colors">
+                      Ver más →
+                    </button>
                   </div>
-                  
-                  <div className="mb-6">
-                    <h4 className="font-medium text-gray-900 mb-2">Resultados:</h4>
-                    <ul className="space-y-1">
-                      {project.results.map((result, resultIndex) => (
-                        <li key={resultIndex} className="text-sm text-gray-600 flex items-center">
-                          <span className="text-green-500 mr-2">✓</span>
-                          {result}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <button className="w-full btn-primary">
-                    Ver Caso de Estudio
-                  </button>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Testimonios */}
-      <section className="section-padding bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="container-max">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Lo que dicen mis clientes</h2>
-            <p className="text-gray-600">Testimonios reales de proyectos exitosos</p>
-          </motion.div>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Testimonios</h2>
+            <p className="text-gray-600">Lo que dicen mis clientes</p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white p-6 rounded-xl shadow-sm"
+                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400">⭐</span>
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-yellow-400 text-lg">★</span>
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4 italic">"{testimonial.text}"</p>
-                <div>
+                <p className="text-gray-700 mb-6 leading-relaxed italic">
+                  "{testimonial.text}"
+                </p>
+                <div className="border-t pt-4">
                   <div className="font-semibold text-gray-900">{testimonial.name}</div>
                   <div className="text-sm text-gray-500">{testimonial.company}</div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-primary-600">
+      <section className="py-20 bg-coral-500">
         <div className="container-max text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-          >
-            <h2 className="text-3xl font-bold text-white mb-4">
-              ¿Tu proyecto será el próximo caso de éxito?
-            </h2>
-            <p className="text-primary-100 mb-8 max-w-2xl mx-auto">
-              Conversemos sobre tu visión y cómo podemos crear algo extraordinario juntos.
-            </p>
-            <button className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium transition-colors duration-200">
-              Iniciar Proyecto
-            </button>
-          </motion.div>
+          <h2 className="text-3xl font-bold text-white mb-4">
+            ¿Listo para tu próximo proyecto?
+          </h2>
+          <p className="text-coral-100 mb-8 max-w-2xl mx-auto">
+            Conversemos sobre tu visión y creemos algo extraordinario juntos.
+          </p>
+          <button className="bg-white text-coral-500 hover:bg-gray-50 px-8 py-3 rounded-lg font-semibold transition-colors">
+            Iniciar Proyecto
+          </button>
         </div>
       </section>
     </div>
