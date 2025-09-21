@@ -205,6 +205,94 @@ const About = () => {
         </div>
       </section>
 
+      {/* Redes Sociales */}
+      <section className="py-20 bg-white">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Sígueme en mis redes
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Comparto mi proceso creativo, reflexiones sobre tecnología y música, 
+              y el día a día de un artista convertido en desarrollador.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                name: 'Linktree',
+                description: 'Todos mis enlaces en un lugar',
+                icon: '🌳',
+                url: 'https://linktr.ee/jonaperez10',
+                color: 'tech',
+                bgColor: 'bg-wine-50',
+                borderColor: 'border-wine-200',
+                hoverColor: 'hover:border-coral-200'
+              },
+              {
+                name: 'LinkedIn',
+                description: 'Conexiones profesionales',
+                icon: '💼',
+                url: 'https://www.linkedin.com/in/jonathanperez-dev/',
+                color: 'wine',
+                bgColor: 'bg-wine-50',
+                borderColor: 'border-wine-200',
+                hoverColor: 'hover:border-coral-200'
+              },
+              {
+                name: 'Instagram',
+                description: 'Proceso creativo y lifestyle',
+                icon: '📸',
+                url: 'https://www.instagram.com/jonathan_perez018/',
+                color: 'coral',
+                bgColor: 'bg-wine-50',
+                borderColor: 'border-wine-200',
+                hoverColor: 'hover:border-coral-400'
+              },
+              {
+                name: 'Spotify',
+                description: 'Mi música y playlists',
+                icon: '🎵',
+                url: 'https://open.spotify.com/user/31r6ak4edu5t2yrzj7wtzaifvcdm?si=bd7c49bacfde4868',
+                color: 'tech',
+                bgColor: 'bg-wine-50',
+                borderColor: 'border-wine-200',
+                hoverColor: 'hover:border-coral-400'
+              }
+            ].map((social, index) => (
+              <a
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group ${social.bgColor} ${social.borderColor} ${social.hoverColor} border-2 rounded-xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:scale-105 block`}
+              >
+                <div className={`w-16 h-16 group-hover:bg-${social.color}-500 rounded-xl flex items-center justify-center text-2xl mx-auto mb-4 transition-all duration-300`}>
+                  <span className="group-hover:scale-110 transition-transform duration-300">{social.icon}</span>
+                </div>
+                <h3 className={`text-lg font-bold text-coral-700 group-hover:text-${social.color}-600 mb-2 transition-colors duration-300`}>
+                  {social.name}
+                </h3>
+                <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-300">
+                  {social.description}
+                </p>
+                <div className={`mt-4 text-coral-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
+                  Seguir →
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-coral-50 border border-coral-200 rounded-full">
+              <div className="w-2 h-2 bg-coral-400 rounded-full animate-pulse"></div>
+              <span className="text-coral-700 text-sm font-medium">Activo diariamente</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-coral-500 text-black">
         <div className="container-max text-center">

@@ -82,7 +82,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                      placeholder="tu@email.com"
+                      placeholder="jonaperez.dev@email.com"
                     />
                   </div>
                 </div>
@@ -195,10 +195,10 @@ const Contact = () => {
                       <h3 className="font-semibold text-gray-900">Email</h3>
                       <p className="text-gray-600 mb-2">Para propuestas detalladas y documentos</p>
                       <a
-                        href="mailto:tu@email.com"
+                        href="mailto:jonaperez.dev@gmail.com"
                         className="text-primary-600 hover:text-primary-700 font-medium"
                       >
-                        tu@email.com →
+                        jonaperez.dev@gmail.com →
                       </a>
                     </div>
                   </div>

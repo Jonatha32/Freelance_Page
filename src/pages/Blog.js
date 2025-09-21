@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const Blog = () => {
+  const [selectedPost, setSelectedPost] = useState(null);
+  
   const posts = [
     {
       id: 1,
@@ -10,7 +12,26 @@ const Blog = () => {
       date: '2024-01-15',
       readTime: '5 min',
       category: 'Personal',
-      image: '/api/placeholder/400/250'
+      type: 'article',
+      content: `
+        <h2>El momento del cambio</h2>
+        <p>Todo comenzó una tarde de invierno, frente al piano. Llevaba años componiendo, pero algo había cambiado. Las melodías que antes fluían naturalmente ahora se sentían forzadas.</p>
+        
+        <h2>Descubriendo el código</h2>
+        <p>Mi primer "Hello World" fue como tocar mi primera canción completa. Esa sensación de crear algo de la nada, de dar vida a una idea abstracta.</p>
+        
+        <h2>La conexión inesperada</h2>
+        <p>Pronto me di cuenta de que programar y componer tenían más en común de lo que pensaba:</p>
+        <ul>
+          <li>Ambos requieren estructura y creatividad</li>
+          <li>Los patrones son fundamentales</li>
+          <li>La práctica constante es clave</li>
+          <li>El resultado debe emocionar al usuario/oyente</li>
+        </ul>
+        
+        <h2>Mi filosofía actual</h2>
+        <p>Hoy aplico los principios musicales a cada proyecto web. Cada interfaz tiene su ritmo, cada interacción su melodía. El resultado son experiencias que no solo funcionan, sino que conectan emocionalmente.</p>
+      `
     },
     {
       id: 2,
@@ -19,7 +40,8 @@ const Blog = () => {
       date: '2024-01-10',
       readTime: '8 min',
       category: 'Desarrollo',
-      image: '/api/placeholder/400/250'
+      type: 'pdf',
+      pdfUrl: '/pdfs/react-vs-vue-2024.pdf'
     },
     {
       id: 3,
@@ -28,7 +50,8 @@ const Blog = () => {
       date: '2024-01-05',
       readTime: '6 min',
       category: 'Diseño',
-      image: '/api/placeholder/400/250'
+      type: 'pdf',
+      pdfUrl: '/pdfs/branding-que-conecta.pdf'
     },
     {
       id: 4,
@@ -37,7 +60,28 @@ const Blog = () => {
       date: '2023-12-28',
       readTime: '7 min',
       category: 'SEO',
-      image: '/api/placeholder/400/250'
+      type: 'article',
+      content: `
+        <h2>La realidad de la velocidad web</h2>
+        <p>Cada segundo de carga adicional puede costarte hasta un 7% de conversiones. En e-commerce, esto se traduce directamente en pérdidas económicas.</p>
+        
+        <h2>Técnicas que realmente funcionan</h2>
+        <h3>1. Optimización de imágenes</h3>
+        <p>Usa formatos modernos como WebP y comprime sin perder calidad. Una imagen de 2MB puede reducirse a 200KB sin diferencias visuales.</p>
+        
+        <h3>2. Lazy loading inteligente</h3>
+        <p>Carga solo lo que el usuario ve. Implementa intersection observers para un control preciso.</p>
+        
+        <h3>3. Caché estratégico</h3>
+        <p>Configura headers de caché apropiados. Los recursos estáticos pueden cachearse por meses.</p>
+        
+        <h2>Herramientas esenciales</h2>
+        <ul>
+          <li>Google PageSpeed Insights</li>
+          <li>GTmetrix para análisis detallado</li>
+          <li>WebPageTest para testing real</li>
+        </ul>
+      `
     },
     {
       id: 5,
@@ -46,7 +90,8 @@ const Blog = () => {
       date: '2023-12-20',
       readTime: '4 min',
       category: 'Freelance',
-      image: '/api/placeholder/400/250'
+      type: 'pdf',
+      pdfUrl: '/pdfs/futuro-freelancing-tech.pdf'
     },
     {
       id: 6,
@@ -55,9 +100,24 @@ const Blog = () => {
       date: '2023-12-15',
       readTime: '5 min',
       category: 'UX & Writing',
-      image: '/api/placeholder/400/250'
+      type: 'pdf',
+      pdfUrl: '/pdfs/ux-writing-guia.pdf'
     }
   ];
+
+  const handlePostClick = (post) => {
+    if (post.type === 'pdf') {
+      // Descargar PDF
+      const link = document.createElement('a');
+      link.href = post.pdfUrl;
+      link.download = `${post.title.replace(/[^a-zA-Z0-9]/g, '-')}.pdf`;
+      link.click();
+    } else {
+      // Mostrar artículo completo
+      setSelectedPost(post);
+      window.scrollTo(0, 0);
+    }
+  };
 
   const categories = [
     { name: 'Todos', emoji: '🌟' },
@@ -69,10 +129,53 @@ const Blog = () => {
     { name: 'Personal', emoji: '🌱' }
   ];
 
+  if (selectedPost) {
+    return (
+      <div className="min-h-screen bg-white">
+        <div className="container-max py-20">
+          <button 
+            onClick={() => {
+              setSelectedPost(null);
+              window.scrollTo(0, 0);
+            }}
+            className="mb-8 flex items-center text-coral-600 hover:text-coral-700 transition-colors"
+          >
+            ← Volver al blog
+          </button>
+          
+          <article className="max-w-4xl mx-auto">
+            <header className="mb-12 text-center">
+              <div className="mb-4">
+                <span className="bg-coral-100 text-coral-700 px-3 py-1 rounded-full text-sm font-medium">
+                  {selectedPost.category}
+                </span>
+              </div>
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">{selectedPost.title}</h1>
+              <div className="flex items-center justify-center space-x-4 text-gray-500">
+                <span>{new Date(selectedPost.date).toLocaleDateString('es-ES', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}</span>
+                <span>•</span>
+                <span>{selectedPost.readTime}</span>
+              </div>
+            </header>
+            
+            <div 
+              className="prose prose-lg max-w-none"
+              dangerouslySetInnerHTML={{ __html: selectedPost.content }}
+            />
+          </article>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       {/* Header */}
-      <section className="section-padding bg-gradient-to-br from-primary-50 to-white">
+      <section className="section-padding bg-gradient-to-br from-coral-50 to-white">
         <div className="container-max text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -120,20 +223,20 @@ const Blog = () => {
                 className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
               >
                 <div className="aspect-video bg-gray-200 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-br from-coral-500 to-wine-600 flex items-center justify-center">
                     <span className="text-white text-lg font-medium">{post.category}</span>
                   </div>
                 </div>
                 
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-xs font-medium">
+                    <span className="bg-coral-100 text-coral-700 px-3 py-1 rounded-full text-xs font-medium">
                       {post.category}
                     </span>
                     <span className="text-gray-500 text-sm">{post.readTime}</span>
                   </div>
                   
-                  <h2 className="text-xl font-semibold text-gray-900 mb-3 hover:text-primary-600 transition-colors">
+                  <h2 className="text-xl font-semibold text-gray-900 mb-3 hover:text-coral-600 transition-colors">
                     {post.title}
                   </h2>
                   
@@ -149,8 +252,18 @@ const Blog = () => {
                         day: 'numeric'
                       })}
                     </span>
-                    <button className="text-primary-600 hover:text-primary-700 font-medium text-sm">
-                      Leer más →
+                    <button 
+                      onClick={() => handlePostClick(post)}
+                      className="text-coral-600 hover:text-coral-700 font-medium text-sm flex items-center gap-1"
+                    >
+                      {post.type === 'pdf' ? (
+                        <>
+                          <span>📄</span>
+                          Descargar PDF →
+                        </>
+                      ) : (
+                        'Leer más →'
+                      )}
                     </button>
                   </div>
                 </div>
@@ -179,7 +292,7 @@ const Blog = () => {
               <input
                 type="email"
                 placeholder="tu@email.com"
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent"
               />
               <button className="bg-gradient-to-r from-coral-500 to-gold-500 text-white px-6 py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300 whitespace-nowrap">
                 Suscribirse
@@ -212,12 +325,12 @@ const Blog = () => {
                 <p className="text-white/80 text-sm">Sin bla-bla, solo práctica</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <h3 className="text-white font-semibold mb-2">📚 Guías descargables con ejemplos reales</h3>
-                <p className="text-white/80 text-sm">Recursos que realmente usás</p>
+                <h3 className="text-white font-semibold mb-2">📚 Recursos descargables</h3>
+                <p className="text-white/80 text-sm">Templates y guías prácticas</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <h3 className="text-white font-semibold mb-2">🎙️ Podcast tech + creatividad</h3>
-                <p className="text-white/80 text-sm">Donde mezclo arte y código</p>
+                <h3 className="text-white font-semibold mb-2">🎙️ Podcast semanal</h3>
+                <p className="text-white/80 text-sm">Conversaciones reales sobre freelancing</p>
               </div>
             </div>
           </motion.div>
@@ -226,5 +339,6 @@ const Blog = () => {
     </div>
   );
 };
+
 
 export default Blog;

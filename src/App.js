@@ -10,11 +10,13 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import useScrollToTop from './hooks/useScrollToTop';
 import './index.css';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow">
@@ -33,6 +35,11 @@ function App() {
       </div>
     </Router>
   );
+}
+
+function ScrollToTop() {
+  useScrollToTop();
+  return null;
 }
 
 export default App;

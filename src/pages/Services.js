@@ -272,8 +272,8 @@ const Services = () => {
                 }`}
               >
                 {pack.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-gold-400 to-gold-600 text-white px-6 py-2 rounded-full font-bold text-sm">
+                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-gradient-to-r px-6 py-0 rounded font-bold text-20px font-sans shadow-lg">
                       🌟 MÁS POPULAR
                     </span>
                   </div>
@@ -399,7 +399,7 @@ const Services = () => {
             </p>
             <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
               Conversemos sobre tu visión y creemos algo épico juntos. 
-              <span className="text-coral-300 font-bold"> Sin límites, sin moldes, solo resultados.</span>
+              <p className="text-coral-300 font-bold"> Sin límites, sin moldes, solo resultados.</p>
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

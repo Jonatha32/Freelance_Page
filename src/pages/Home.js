@@ -62,13 +62,13 @@ const Home = () => {
               {
                 title: 'Tecnología & Desarrollo',
                 icon: '💻',
-                color: 'tech',
+                color: 'coral',
                 services: ['Frontend Developer', 'Backend Developer', 'Web Developer', 'Tutor freelance']
               },
               {
                 title: 'Comunidades & Estrategia',
                 icon: '🌐',
-                color: 'gold',
+                color: 'coral',
                 services: ['Community Builder', 'Community Manager', 'Estrategias de contenido', 'Growth Marketing']
               }
             ].map((cluster, index) => (
@@ -117,7 +117,7 @@ const Home = () => {
             transition={{ delay: 0.8 }}
             className="text-center mt-12"
           >
-            <Link to="/servicios" className="bg-gradient-to-r from-coral-500 to-wine-500 hover:from-coral-600 hover:to-wine-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+            <Link to="/servicios" className="bg-coral-500 hover:bg-coral-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
               Ver todos los servicios
             </Link>
           </motion.div>
@@ -135,7 +135,7 @@ const Home = () => {
             <h2 className="text-3xl font-bold text-black mb-4">Resultados, no solo páginas</h2>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-gray-200 py-8">
             {[
               {
                 title: 'Velocidad',
@@ -204,7 +204,7 @@ const Home = () => {
           </div>
           
           <div className="text-center">
-            <Link to="/portfolio" className="bg-wine-500 hover:bg-wine-600 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200">
+            <Link to="/portfolio" className="bg-coral-500 hover:bg-coral-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
               Ver más trabajos
             </Link>
           </div>
@@ -244,7 +244,7 @@ const Home = () => {
       </section>
 
       {/* Sobre mí Teaser */}
-      <section className="section-padding bg-gradient-to-br from-black via-wine-900 to-black relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br bg-coral-500  text-lg transition-colors duration-200 relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-coral-500/10 rounded-full blur-3xl animate-pulse" />
@@ -265,21 +265,22 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
+              <span className="text-white">Hola, </span>
               <span className="text-white">Soy </span>
               <span className="text-white">Jona</span> 
             </motion.h2>
             
             <motion.p 
-              className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8 max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-white leading-relaxed mb-8 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              Fusiono <span className="text-coral-400 font-medium">arte</span>, <span className="text-gold-400 font-medium">escritura</span> y <span className="text-mint-400 font-medium">tecnología</span> para crear experiencias digitales con alma.
+              Fusiono <span className="text-white font-medium">arte</span>, <span className="text-gold-400 font-medium">escritura</span> y <span className="text-mint-400 font-medium">tecnología</span> para crear experiencias digitales con alma.
             </motion.p>
             
             <motion.p 
-              className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto"
+              className="text-lg text-white mb-8 max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
@@ -298,28 +299,28 @@ const Home = () => {
                 <div className="w-16 h-16 bg-gradient-to-br from-coral-500/20 to-coral-600/20 border border-coral-400/30 rounded-full flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
                   🎨
                 </div>
-                <span className="text-coral-400 text-sm font-medium">Diseño</span>
+                <span className="text-white text-sm font-medium">Diseño</span>
               </div>
               
               <div className="flex flex-col items-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-gold-500/20 to-gold-600/20 border border-gold-400/30 rounded-full flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
                   ✍️
                 </div>
-                <span className="text-gold-400 text-sm font-medium">Escritura</span>
+                <span className="text-white text-sm font-medium">Escritura</span>
               </div>
               
               <div className="flex flex-col items-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-mint-500/20 to-mint-600/20 border border-mint-400/30 rounded-full flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
                   🎵
                 </div>
-                <span className="text-mint-400 text-sm font-medium">Música</span>
+                <span className="text-white text-sm font-medium">Música</span>
               </div>
               
               <div className="flex flex-col items-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-tech-500/20 to-tech-600/20 border border-tech-400/30 rounded-full flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
                   💻
                 </div>
-                <span className="text-tech-400 text-sm font-medium">Código</span>
+                <span className="text-white text-sm font-medium">Código</span>
               </div>
             </motion.div>
             
@@ -330,7 +331,7 @@ const Home = () => {
             >
               <Link 
                 to="/sobre-mi" 
-                className="inline-flex items-center bg-gradient-to-r from-coral-500 to-wine-500 hover:from-coral-600 hover:to-wine-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group"
+                className="inline-flex items-center bg-coral-500 hover:bg-wine-500 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group"
               >
                 Conoce mi historia
                 <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -427,20 +428,20 @@ const Home = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="section-padding bg-wine-500">
+      <section className="section-padding bg-coral-500 font-semibold">
         <div className="container-max text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl font-semibold text-white mb-4">
               ¿Listo para que tu marca suene fuerte en Internet?
             </h2>
             <p className="text-wine-100 mb-8 max-w-2xl mx-auto">
               Conversemos sobre tu proyecto. Te respondo en menos de 24 horas con una propuesta personalizada.
             </p>
-            <Link to="/contacto" className="bg-coral-500 hover:bg-coral-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
+            <Link to="/contacto" className="bg-coral-500 hover:bg-wine-500 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
               Empezar mi proyecto
             </Link>
           </motion.div>
