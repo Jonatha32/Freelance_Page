@@ -37,11 +37,11 @@ const Blog = () => {
       id: 2,
       title: 'React vs Vue: La Batalla de 2024 (y cuál elegir según tu proyecto)',
       excerpt: 'Pros, contras y en qué proyectos usar cada uno. Análisis real sin marketing, solo experiencia práctica.',
-      date: '2024-01-10',
+      date: '2025-09-21',
       readTime: '8 min',
       category: 'Desarrollo',
       type: 'pdf',
-      pdfUrl: '/pdfs/react-vs-vue-2024.pdf'
+      pdfUrl: '/pdfs/React%20vs%20Vue.pdf'
     },
     {
       id: 3,
@@ -57,51 +57,84 @@ const Blog = () => {
       id: 4,
       title: 'Un sitio lento es un cliente menos: Cómo acelerar tu web y vender más',
       excerpt: 'Técnicas prácticas para mejorar el rendimiento de tu sitio web y convertir más visitantes en clientes.',
-      date: '2023-12-28',
+      date: '2025-08-28',
       readTime: '7 min',
       category: 'SEO',
       type: 'article',
       content: `
-        <h2>La realidad de la velocidad web</h2>
-        <p>Cada segundo de carga adicional puede costarte hasta un 7% de conversiones. En e-commerce, esto se traduce directamente en pérdidas económicas.</p>
+        <h2>Un sitio lento es un cliente menos: Cómo acelerar tu web y vender más</h2>
+        <p>Imagina que tu tienda física tiene la puerta atascada. Los clientes tienen que forcejear, empujar y esperar varios segundos con frustración para poder entrar. ¿Cuántos crees que se irían antes de siquiera ver tu producto?
+
+        Eso es exactamente lo que es una web lenta: una puerta atascada en internet.
+
+        Hoy no hablamos de tecnicismos abstractos. Hablamos de dinero. Porque la velocidad de tu sitio web no es una métrica de ingenieros; es el termómetro más fiel de tu negocio online. Cada milisegundo de demora es un cliente que se aleja, un carrito abandonado y una venta que nunca se concretó.</p>
         
-        <h2>Técnicas que realmente funcionan</h2>
-        <h3>1. Optimización de imágenes</h3>
-        <p>Usa formatos modernos como WebP y comprime sin perder calidad. Una imagen de 2MB puede reducirse a 200KB sin diferencias visuales.</p>
+        <h2>La Cruda Realidad: Lo Que Pierdes con Cada Segundo de Más</h2>
+        <h3>Las cifras no mienten y son brutales:</h3>
+        <p>Google lo dejó claro: Más de 3 segundos de carga y el 53% de los usuarios móviles abandona el sitio.</p>
+
+        <p>Amazon calculó que un retraso de solo 100 milisegundos (0.1 segundos) les costaba 1% en ventas. ¿Puedes calcular tu 1%?</p>
+
+        <p>Pinterest recuperó 40% en búsquedas orgánicas tras reducir sus tiempos de espera percibidos.</p>
+
+        <p> Pero esto va más allá de números. Es psicología. Una web rápida transmite confianza, profesionalidad y eficiencia. Una web lenta grita "descuidado, amateur y poco fiable". ¿En qué lado quieres que te pongan tus clientes?</p>
+
+
+                  
+        <h3>Las 5 Palancas que Puedes Tocar HOY para Acelerar tu Web (y tus Ventas)</h3>
+        <p>No necesitas ser un genio de la programación. Necesitas ser pragmático. Estas son las técnicas prácticas con mayor impacto, explicadas para humanos.</p>
         
-        <h3>2. Lazy loading inteligente</h3>
-        <p>Carga solo lo que el usuario ve. Implementa intersection observers para un control preciso.</p>
+        <h3>1. La Balas Pesadas: Optimiza Tus Imágenes (El Low-Hanging Fruit)</h3>
+        <p>Este es el culpable número uno en el 90% de los sitios lentos que audito. Subimos fotos de 4MB tomadas con el móvil directamente a la web.</p>
+        <p>¿Qué hacer? ¡No uses un elefante para matar una mosca!</p>
+        <p>Acción Práctica: Antes de subir cualquier imagen, pásala por una herramienta de compresión como ShortPixel, TinyPNG o los plugins de tu CMS (WordPress, etc.). Convierte formatos: usa WebP (el formato moderno que pesa un 30% menos) para navegadores modernos, y JPEG para el resto. Esta sola acción puede reducir a la mitad el peso de tu página.</p>
+
+        <h3>2. El Frenazo Invisible: El JavaScript y CSS Bloqueantes</h3>
+        <p>Tu navegador lee el código de tu web como un libro. Si se encuentra con un capítulo enorme y complicado (un script pesado), se detiene para leerlo todo antes de seguir. Mientras lo hace, la pantalla está en blanco.</p>
+        <p>¿Qué hacer? Quita los obstáculos del camino.</p>
+        <p>Acción Práctica: Usa herramientas como Google PageSpeed Insights. Te dirá exactamente qué scripts están bloqueando el renderizado. Luego, con ayuda de un desarrollador o plugins de caching, puedes diferir la carga de esos scripts (cargarlos después de que se muestre el contenido principal) o minificarlos (eliminar espacios y código innecesario). Plugins como WP Rocket o W3 Total Cache hacen gran parte de este trabajo automáticamente.</p>
+
+        <h3>3. La Ventaja Injusta: Usa una CDN (Red de Distribución de Contenidos)</h3>
+        <p>Si tu servidor está en Texas y un usuario intenta cargar tu web desde Madrid, la información tiene que cruzar medio planeta. Eso toma tiempo.</p>
+        <p>¿Qué hacer? Acerca tu contenido a tu cliente.</p>
+        <p>Acción Práctica: Una CDN es una red de servidores alrededor del mundo. Al subir tus imágenes, CSS y JavaScript a una CDN (como Cloudflare – que tiene un plan gratuito excelente –, StackPath, o la de tu hosting), cuando un usuario de Madrid solicita tu web, se sirve esos archivos desde un servidor en Europa, no desde Texas. La mejora de velocidad, especialmente para audiencias globales, es abismal.</p>
+
+        <h3>4. El Código Perezoso: Aplica Lazy Loading</h3>
+        <p>¿Por qué cargar una imagen que está al final de la página (y que el usuario quizás nunca vea) al mismo tiempo que el crítico titular principal?</p>
+        <p>¿Qué hacer? Sé perezoso, de la manera inteligente.</p>
+        <p>Acción Práctica: El Lazy Loading carga los elementos (imágenes, vídeos) solo cuando el usuario se acerca a ellos al hacer scroll. Es nativo en los navegadores modernos, pero para asegurarte, plugins de caching o de optimización de imágenes suelen incluirlo. Actívalo. Liberarás recursos para cargar primero lo importante.</p>
+
+        <h3>5. El Cimiento: Elige un Buen Alojamiento (Hosting)</h3>
+        <p>Puedes tener el coche más tuneado del mundo, pero si el motor es de cortacésped, no vas a ninguna parte. Un hosting barato y compartido donde miles de sitios compiten por recursos es el motor de cortacésped.</p>
+        <p>¿Qué hacer? Invierte en los cimientos.</p>
+        <p>Acción Práctica: Si tu negocio depende de tu web, no escatimes en hosting. Migra a un plan VPS o de hosting gestionado (como Kinsta, WP Engine, SiteGround). Son más caros, pero la diferencia de velocidad, seguridad y soporte es como la noche y el día. Es la mejor inversión que puedes hacer.</p>
         
-        <h3>3. Caché estratégico</h3>
-        <p>Configura headers de caché apropiados. Los recursos estáticos pueden cachearse por meses.</p>
-        
-        <h2>Herramientas esenciales</h2>
-        <ul>
-          <li>Google PageSpeed Insights</li>
-          <li>GTmetrix para análisis detallado</li>
-          <li>WebPageTest para testing real</li>
-        </ul>
+        <h2>Conclusión: Convierte la Velocidad en tu Mejor Vendedor</h2>
+        <p>Acelerar tu web no es una tarea de un día, pero cada cambio tiene un retorno de inversión inmediato. No se trata de alcanzar una puntuación de 100/100, sino de ofrecer una experiencia tan fluida que el usuario se centre en tu producto, no en esperar.</p>
+        <p>Empieza hoy. Abre GTMetrix o PageSpeed Insights, pega la URL de tu web y deja que te digan los principales problemas. Elige el más fácil y arréglalo. Luego el siguiente.</p>
+        <p>Porque en un mundo donde todos compiten por la atención, la velocidad es el nuevo currency. No dejes que un sitio lento cierre la puerta a tus próximos clientes.</p>
+
       `
     },
     {
       id: 5,
       title: 'El Futuro del Freelancing Tech',
       excerpt: 'Tendencias emergentes en el trabajo freelance y cómo adaptarse a un mercado en constante evolución.',
-      date: '2023-12-20',
+      date: '2025-09-12',
       readTime: '4 min',
       category: 'Freelance',
       type: 'pdf',
-      pdfUrl: '/pdfs/futuro-freelancing-tech.pdf'
+      pdfUrl: '/pdfs/El Futuro del Freelance.pdf'
     },
     {
       id: 6,
       title: 'UX Writing: Palabras que Guían',
       excerpt: 'La importancia de la escritura en la experiencia de usuario y cómo crear microcopy efectivo.',
-      date: '2023-12-15',
+      date: '2025-07-15',
       readTime: '5 min',
       category: 'UX & Writing',
       type: 'pdf',
-      pdfUrl: '/pdfs/ux-writing-guia.pdf'
+      pdfUrl: '/pdfs/UX Writing.pdf'
     }
   ];
 
