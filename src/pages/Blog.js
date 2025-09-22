@@ -9,28 +9,21 @@ const Blog = () => {
       id: 1,
       title: 'Del Arte al Código: Mi Transición Creativa',
       excerpt: 'Cómo mi trasfondo musical influyó en mi enfoque del desarrollo web y por qué la creatividad es clave en la tecnología.',
-      date: '2024-01-15',
-      readTime: '5 min',
+      date: '2025-06-15',
+      readTime: '4 min',
       category: 'Personal',
       type: 'article',
       content: `
-        <h2>El momento del cambio</h2>
-        <p>Todo comenzó una tarde de invierno, frente al piano. Llevaba años componiendo, pero algo había cambiado. Las melodías que antes fluían naturalmente ahora se sentían forzadas.</p>
-        
-        <h2>Descubriendo el código</h2>
-        <p>Mi primer "Hello World" fue como tocar mi primera canción completa. Esa sensación de crear algo de la nada, de dar vida a una idea abstracta.</p>
-        
-        <h2>La conexión inesperada</h2>
-        <p>Pronto me di cuenta de que programar y componer tenían más en común de lo que pensaba:</p>
-        <ul>
-          <li>Ambos requieren estructura y creatividad</li>
-          <li>Los patrones son fundamentales</li>
-          <li>La práctica constante es clave</li>
-          <li>El resultado debe emocionar al usuario/oyente</li>
-        </ul>
-        
-        <h2>Mi filosofía actual</h2>
-        <p>Hoy aplico los principios musicales a cada proyecto web. Cada interfaz tiene su ritmo, cada interacción su melodía. El resultado son experiencias que no solo funcionan, sino que conectan emocionalmente.</p>
+        <h2>Del Arte al Código: Mi Transición Creativa</h2>
+        <p>Siempre me he considerado una persona creativa. Antes de entrar de lleno al mundo del desarrollo web, mi vida giraba en torno a la música. Componer, interpretar y explorar sonidos eran mi manera de expresarme y de dar forma a lo que sentía. Con el tiempo, descubrí que esa misma necesidad de crear, de darle estructura a la inspiración, podía transformarse en otro lenguaje: el código.</p>
+        <p>Al principio parecía que ambos mundos estaban separados. La música era intuición, emoción y ritmo. La programación, en cambio, se veía como lógica pura, reglas estrictas y sintaxis. Sin embargo, pronto entendí que comparten más similitudes de las que parecen. Una melodía bien compuesta tiene la misma precisión y armonía que un código bien escrito. Ambos requieren disciplina, paciencia y, sobre todo, creatividad.</p>
+        <p>Cuando tocas un instrumento o escribes una canción, no basta con seguir escalas o acordes: hay que darles vida, buscar nuevas combinaciones, arriesgarse. Lo mismo ocurre en desarrollo web. Cualquiera puede aprender las bases técnicas, pero la diferencia está en cómo usas esas herramientas para construir experiencias únicas, intuitivas y memorables. Ahí es donde entra en juego la creatividad.</p>
+        <p>Mi trasfondo musical me enseñó a pensar de manera no lineal. A veces, la mejor solución no es la más obvia, sino aquella que surge de conectar ideas aparentemente opuestas. Esa mentalidad me ayuda cada día como desarrollador: ya sea al diseñar una interfaz, al resolver un bug complejo o al estructurar un proyecto de forma clara y eficiente.</p>
+        <p>Creo firmemente que la tecnología necesita más creatividad. Porque al final, detrás de cada sitio web, aplicación o producto digital, hay personas. Y las personas no solo buscan que algo funcione: buscan que algo las conecte, que las haga sentir, que les resuelva un problema de forma simple pero con un toque humano.</p>
+        <p>En mi camino del arte al código he descubierto que la creatividad no es un extra: es la base. La música me dio oído, el código me dio estructura, y ambos mundos se unieron para recordarme que la innovación ocurre cuando nos permitimos mezclar disciplinas.</p>
+        <p>Hoy miro atrás y entiendo que no dejé la música para dedicarme al desarrollo web; simplemente cambié de instrumento. Y en lugar de cuerdas o teclas, ahora mi medio de expresión son las líneas de código.</p>
+
+      
       `
     },
     {
@@ -47,11 +40,11 @@ const Blog = () => {
       id: 3,
       title: 'Tu marca no es tu logo: Cómo construir un branding que conecte',
       excerpt: 'Por qué una identidad digital exitosa va mucho más allá del diseño y cómo crear conexión real con usuarios.',
-      date: '2024-01-05',
-      readTime: '6 min',
+      date: '2025-09-22',
+      readTime: '4 min',
       category: 'Diseño',
       type: 'pdf',
-      pdfUrl: '/pdfs/branding-que-conecta.pdf'
+      pdfUrl: '/pdfs/Tu marca.pdf'
     },
     {
       id: 4,
