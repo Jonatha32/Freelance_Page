@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import LeRaffine from './pages/LeRaffine';
 import useScrollToTop from './hooks/useScrollToTop';
 import './index.css';
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/privacidad" element={<Privacy />} />
             <Route path="/terminos" element={<Terms />} />
+            <Route path="/le-raffine" element={<LeRaffine />} />
           </Routes>
         </main>
         <Footer />
