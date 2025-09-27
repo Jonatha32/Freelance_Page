@@ -25,7 +25,7 @@ const Portfolio = () => {
       result: 'Reconocimiento +80%',
       github: null,
       demo: '/le-raffine',
-      image: '/El texto del párrafo-Photoroom.png'
+      image: '/El texto del párrafo-Photoroom (1).png'
     },
     {
       id: 3,
@@ -40,14 +40,14 @@ const Portfolio = () => {
     },
     {
       id: 4,
-      title: 'Campaña Digital Startup',
+      title: 'Campaña Digital Startup - Bytech',
       category: 'branding',
       description: 'Estrategia visual y digital para lanzamiento de startup tech.',
       technologies: ['Brand Strategy', 'Social Media', 'Web Design'],
       result: '1M+ impresiones',
       github: null,
-      demo: 'https://startup-campaign.com',
-      image: '/images/projects/startup-campaign.jpg'
+      demo: 'https://jonatha32.github.io/Startup_App/',
+      image: '/El texto del párrafo-Photoroom.png'
     },
     {
       id: 5,

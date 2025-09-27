@@ -10,7 +10,7 @@ const LeRaffine = () => {
             <div className="relative">
               <div className="absolute inset-0 rounded-full blur-lg opacity-50" style={{ backgroundColor: '#b3afac' }}></div>
               <div className="relative w-16 h-16 rounded-full flex items-center justify-center border-2 shadow-2xl hover:scale-110 transition-all duration-300" style={{ borderColor: '#b3afac', backgroundColor: 'rgba(255, 255, 255, 0.1)' }}>
-                <img src="/El texto del párrafo-Photoroom.png" alt="Le Raffiné" className="w-12 h-12 object-contain drop-shadow-lg" />
+                <img src="/El texto del párrafo-Photoroom (1).png" alt="Le Raffiné" className="w-12 h-12 object-contain drop-shadow-lg" />
               </div>
               </div>
               <span className="text-white text-2xl font-light tracking-wider drop-shadow-lg">Le Raffiné</span>
