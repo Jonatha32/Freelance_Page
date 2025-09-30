@@ -11,6 +11,7 @@ import Blog from './pages/Blog';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import LeRaffine from './pages/LeRaffine';
+import EmpresaFamiliar from './pages/EmpresaFamiliar';
 import useScrollToTop from './hooks/useScrollToTop';
 import './index.css';
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/privacidad" element={<Privacy />} />
             <Route path="/terminos" element={<Terms />} />
             <Route path="/le-raffine" element={<LeRaffine />} />
+            <Route path="/empresa-familiar" element={<EmpresaFamiliar />} />
           </Routes>
         </main>
         <Footer />

@@ -47,7 +47,7 @@ const Portfolio = () => {
       result: '1M+ impresiones',
       github: null,
       demo: 'https://jonatha32.github.io/Startup_App/',
-      image: '/El texto del párrafo-Photoroom.png'
+      image: '/22.png'
     },
     {
       id: 5,
@@ -57,19 +57,19 @@ const Portfolio = () => {
       technologies: ['Next.js', 'Framer Motion', 'Sanity CMS'],
       result: 'Clientes premium +200%',
       github: 'https://github.com/tu-usuario/architect-portfolio',
-      demo: 'https://arquitecto-portfolio.com',
-      image: '/images/projects/architect-portfolio.jpg'
+      demo: 'https://jonatha32.github.io/Portfolio_showcase/',
+      image: '/El texto del párrafo-Photoroom(2).png'
     },
     {
       id: 6,
       title: 'Rebrand Empresa Familiar',
       category: 'branding',
-      description: 'Renovación completa de identidad para empresa de 30 años.',
+      description: 'Renovación completa de identidad para empresa de 50 años.',
       technologies: ['Brand Research', 'Logo Design', 'Guidelines'],
       result: 'Percepción moderna +90%',
       github: null,
-      demo: 'https://empresa-familiar.com',
-      image: '/images/projects/empresa-familiar.jpg'
+      demo: '/empresa-familiar',
+      image: '/wine.png'
     }
   ];
 
@@ -194,7 +194,7 @@ const Portfolio = () => {
                         </a>
                       )}
                       
-                      {project.id === 2 ? (
+                      {(project.id === 2 || project.id === 6) ? (
                         <Link
                           to={project.demo}
                           className="flex items-center gap-2 px-4 py-2 bg-coral-500 text-white rounded-lg hover:bg-coral-600 transition-colors text-sm font-medium"
@@ -212,7 +212,7 @@ const Portfolio = () => {
                           className="flex items-center gap-2 px-4 py-2 bg-coral-500 text-white rounded-lg hover:bg-coral-600 transition-colors text-sm font-medium"
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
                           Ver Demo
                         </a>
