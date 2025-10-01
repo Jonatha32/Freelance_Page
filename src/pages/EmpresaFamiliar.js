@@ -67,8 +67,7 @@ const EmpresaFamiliar = () => {
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Comunicación Anterior</h3>
               <div 
                 className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-gray-400 transition-colors"
-                onClick={() => openModal('/images/old-communication.jpg')}
-              >
+                onClick={() => openModal('/Screenshot 2025-09-30 214613.png')}>
                 <div className="text-gray-400 mb-4">Screenshot Comunicación</div>
                 <div className="w-full h-32 bg-gray-200 rounded flex items-center justify-center">
                   <span className="text-gray-500 text-sm">Click para ver</span>
@@ -149,13 +148,13 @@ const EmpresaFamiliar = () => {
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">El Resultado</h2>
           
           {/* Nuevo Branding */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
             <div className="bg-gray-50 rounded-2xl p-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Nueva Identidad</h3>
               <div className="space-y-6">
                 <div 
                   className="bg-white rounded-lg p-6 text-center cursor-pointer hover:shadow-md transition-shadow"
-                  onClick={() => openModal('/images/new-logo.jpg')}
+                  onClick={() => openModal('/logooo.png')}
                 >
                   <div className="text-gray-600 mb-2 text-sm">Nuevo Logo (Minimalista)</div>
                   <div className="w-40 h-20 bg-gradient-to-r from-coral-400 to-coral-600 rounded mx-auto flex items-center justify-center">
@@ -163,18 +162,17 @@ const EmpresaFamiliar = () => {
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-3">Nueva Paleta (#ff7e70 + complementarios)</h4>
+                  <h4 className="font-medium text-gray-900 mb-3">Nueva Paleta (#4f192a + complementarios)</h4>
                   <div className="flex gap-3">
-                    <div className="w-12 h-12 rounded-lg" style={{backgroundColor: '#ff7e70'}}></div>
-                    <div className="w-12 h-12 bg-gray-800 rounded-lg"></div>
-                    <div className="w-12 h-12 bg-gray-100 rounded-lg border"></div>
-                    <div className="w-12 h-12 bg-blue-500 rounded-lg"></div>
+                    <div className="w-12 h-12 rounded-lg" style={{backgroundColor: '#4f192a'}}></div>
+                    <div className="w-12 h-12 bg-gray-800 rounded-lg" style={{backgroundColor: '#eec374'}}></div>
+                    <div className="w-12 h-12 bg-gray-100 rounded-lg border" style={{backgroundColor: '#000000'}}></div>
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-3">Tipografía (Inter/Poppins)</h4>
+                  <h4 className="font-medium text-gray-900 mb-3">Tipografía (Serif)</h4>
                   <div className="bg-white rounded p-4">
-                    <div className="font-bold text-lg">Aa Bb Cc</div>
+                    <div className="font-serif text-lg">Aa Bb Cc</div>
                     <div className="text-sm text-gray-600">Clean, modern typography</div>
                   </div>
                 </div>
@@ -183,21 +181,37 @@ const EmpresaFamiliar = () => {
             
             <div className="bg-gray-50 rounded-2xl p-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Moodboard</h3>
-              <div 
-                className="grid grid-cols-2 gap-4 cursor-pointer"
-                onClick={() => openModal('/images/moodboard.jpg')}
-              >
-                <div className="aspect-square bg-gradient-to-br from-coral-200 to-coral-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform">
-                  <span className="text-white text-xs">Moderno</span>
+              <div className="grid grid-cols-2 gap-4">
+                <div 
+                  className="aspect-square bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
+                  onClick={() => openModal('/moodboard1.png')}
+                >
+                  <span className="text-white text-xs">Sofisticado</span>
                 </div>
-                <div className="aspect-square bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform">
-                  <span className="text-white text-xs">Elegante</span>
-                </div>
-                <div className="aspect-square bg-gradient-to-br from-blue-200 to-blue-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform">
+                <div 
+                  className="aspect-square bg-gradient-to-br from-blue-200 to-blue-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
+                  onClick={() => openModal('/images/confiable.jpg')}
+                >
                   <span className="text-white text-xs">Confiable</span>
                 </div>
-                <div className="aspect-square bg-gradient-to-br from-green-200 to-green-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform">
+                <div 
+                  className="aspect-square bg-gradient-to-br from-green-200 to-green-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
+                  onClick={() => openModal('/images/fresco.jpg')}
+                >
                   <span className="text-white text-xs">Fresco</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-8 shadow-sm">
+              <h3 className="text-xl font-semibold text-gray-900 mb-6">Comunicación Actual</h3>
+              <div 
+                className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-gray-400 transition-colors"
+                onClick={() => openModal('/scree.png')}
+              >
+                <div className="text-gray-400 mb-4">Screenshot Comunicación</div>
+                <div className="w-full h-32 bg-gray-200 rounded flex items-center justify-center">
+                  <span className="text-gray-500 text-sm">Click para ver</span>
                 </div>
               </div>
             </div>
