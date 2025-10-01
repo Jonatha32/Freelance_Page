@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const EmpresaFamiliar = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const openModal = (imageSrc) => {
+    setSelectedImage(imageSrc);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero - Storytelling */}
@@ -30,28 +40,38 @@ const EmpresaFamiliar = () => {
             <div className="bg-white rounded-2xl p-8 shadow-sm">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Identidad Original</h3>
               <div className="space-y-6">
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                <div 
+                  className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-gray-400 transition-colors"
+                  onClick={() => openModal('/wine.png')}
+                >
                   <div className="text-gray-400 mb-2">Logo Anterior</div>
                   <div className="w-32 h-16 bg-gray-200 rounded mx-auto flex items-center justify-center">
-                    <span className="text-gray-500 text-xs">Logo Tradicional</span>
+                    <span className="text-gray-500 text-xs">Click para ver</span>
                   </div>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900 mb-3">Paleta de Colores Original</h4>
                   <div className="flex gap-3">
-                    <div className="w-12 h-12 bg-gray-600 rounded-lg"></div>
-                    <div className="w-12 h-12 bg-blue-900 rounded-lg"></div>
-                    <div className="w-12 h-12 bg-yellow-600 rounded-lg"></div>
+                    <div
+                      className="w-12 h-12 rounded-lg"
+                      style={{ backgroundColor: '#4a242f' }}
+                    ></div>
+                    <div className="w-12 h-12 bg-blue-900 rounded-lg" 
+                    style={{ backgroundColor: '#efc273' }}></div>
+                    <div className="w-12 h-12 bg-yellow-600 rounded-lg" style={{ backgroundColor: '#94916e' }}></div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-sm">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Comunicación Anterior</h3>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+              <div 
+                className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-gray-400 transition-colors"
+                onClick={() => openModal('/images/old-communication.jpg')}
+              >
                 <div className="text-gray-400 mb-4">Screenshot Comunicación</div>
                 <div className="w-full h-32 bg-gray-200 rounded flex items-center justify-center">
-                  <span className="text-gray-500 text-sm">Diseño desactualizado</span>
+                  <span className="text-gray-500 text-sm">Click para ver</span>
                 </div>
               </div>
             </div>
@@ -133,7 +153,10 @@ const EmpresaFamiliar = () => {
             <div className="bg-gray-50 rounded-2xl p-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Nueva Identidad</h3>
               <div className="space-y-6">
-                <div className="bg-white rounded-lg p-6 text-center">
+                <div 
+                  className="bg-white rounded-lg p-6 text-center cursor-pointer hover:shadow-md transition-shadow"
+                  onClick={() => openModal('/images/new-logo.jpg')}
+                >
                   <div className="text-gray-600 mb-2 text-sm">Nuevo Logo (Minimalista)</div>
                   <div className="w-40 h-20 bg-gradient-to-r from-coral-400 to-coral-600 rounded mx-auto flex items-center justify-center">
                     <span className="text-white font-bold">LOGO</span>
@@ -160,17 +183,20 @@ const EmpresaFamiliar = () => {
             
             <div className="bg-gray-50 rounded-2xl p-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Moodboard</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="aspect-square bg-gradient-to-br from-coral-200 to-coral-400 rounded-lg flex items-center justify-center">
+              <div 
+                className="grid grid-cols-2 gap-4 cursor-pointer"
+                onClick={() => openModal('/images/moodboard.jpg')}
+              >
+                <div className="aspect-square bg-gradient-to-br from-coral-200 to-coral-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform">
                   <span className="text-white text-xs">Moderno</span>
                 </div>
-                <div className="aspect-square bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg flex items-center justify-center">
+                <div className="aspect-square bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform">
                   <span className="text-white text-xs">Elegante</span>
                 </div>
-                <div className="aspect-square bg-gradient-to-br from-blue-200 to-blue-400 rounded-lg flex items-center justify-center">
+                <div className="aspect-square bg-gradient-to-br from-blue-200 to-blue-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform">
                   <span className="text-white text-xs">Confiable</span>
                 </div>
-                <div className="aspect-square bg-gradient-to-br from-green-200 to-green-400 rounded-lg flex items-center justify-center">
+                <div className="aspect-square bg-gradient-to-br from-green-200 to-green-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform">
                   <span className="text-white text-xs">Fresco</span>
                 </div>
               </div>
@@ -182,20 +208,29 @@ const EmpresaFamiliar = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Mockups</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-gray-100 rounded-2xl p-6 text-center">
-                <div className="w-full h-32 bg-white rounded-lg mb-4 flex items-center justify-center shadow-sm">
-                  <span className="text-gray-500 text-sm">Tarjetas de Presentación</span>
+                <div 
+                  className="w-full h-32 bg-white rounded-lg mb-4 flex items-center justify-center shadow-sm cursor-pointer hover:shadow-md transition-shadow"
+                  onClick={() => openModal('/images/mockup-papeleria.jpg')}
+                >
+                  <span className="text-gray-500 text-sm">Click para ver</span>
                 </div>
                 <h4 className="font-medium text-gray-900">Papelería</h4>
               </div>
               <div className="bg-gray-100 rounded-2xl p-6 text-center">
-                <div className="w-full h-32 bg-white rounded-lg mb-4 flex items-center justify-center shadow-sm">
-                  <span className="text-gray-500 text-sm">Packaging</span>
+                <div 
+                  className="w-full h-32 bg-white rounded-lg mb-4 flex items-center justify-center shadow-sm cursor-pointer hover:shadow-md transition-shadow"
+                  onClick={() => openModal('/images/mockup-packaging.jpg')}
+                >
+                  <span className="text-gray-500 text-sm">Click para ver</span>
                 </div>
                 <h4 className="font-medium text-gray-900">Empaques</h4>
               </div>
               <div className="bg-gray-100 rounded-2xl p-6 text-center">
-                <div className="w-full h-32 bg-white rounded-lg mb-4 flex items-center justify-center shadow-sm">
-                  <span className="text-gray-500 text-sm">Redes Sociales</span>
+                <div 
+                  className="w-full h-32 bg-white rounded-lg mb-4 flex items-center justify-center shadow-sm cursor-pointer hover:shadow-md transition-shadow"
+                  onClick={() => openModal('/images/mockup-digital.jpg')}
+                >
+                  <span className="text-gray-500 text-sm">Click para ver</span>
                 </div>
                 <h4 className="font-medium text-gray-900">Digital</h4>
               </div>
@@ -245,6 +280,29 @@ const EmpresaFamiliar = () => {
           </div>
         </div>
       </section>
+
+      {/* Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
+        >
+          <div className="relative max-w-4xl max-h-full">
+            <img 
+              src={selectedImage} 
+              alt="Imagen ampliada" 
+              className="max-w-full max-h-full object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button 
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-75 transition-colors"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
