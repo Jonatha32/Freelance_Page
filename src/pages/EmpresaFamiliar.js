@@ -190,13 +190,13 @@ const EmpresaFamiliar = () => {
                 </div>
                 <div 
                   className="aspect-square bg-gradient-to-br from-blue-200 to-blue-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
-                  onClick={() => openModal('/images/confiable.jpg')}
+                  onClick={() => openModal('/moodboard2.png')}
                 >
                   <span className="text-white text-xs">Confiable</span>
                 </div>
                 <div 
                   className="aspect-square bg-gradient-to-br from-green-200 to-green-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
-                  onClick={() => openModal('/images/fresco.jpg')}
+                  onClick={() => openModal('/moodboard3.png')}
                 >
                   <span className="text-white text-xs">Fresco</span>
                 </div>
