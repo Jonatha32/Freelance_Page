@@ -3,13 +3,57 @@ import { Link } from 'react-router-dom';
 
 const EmpresaFamiliar = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedGallery, setSelectedGallery] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const mockupGalleries = {
+    papeleria: [
+      { src: '/mockups/presentationtarget.png', description: 'Tarjetas de presentación con nuevo branding' },
+      { src: '/mockups/carta2.png', description: 'Membrete y papel carta corporativo' },
+      { src: '/mockups/1.jpg', description: 'Sobres y carpetas institucionales (1)' },
+      { src: '/mockups/2.jpg', description: 'Sobres y carpetas institucionales (2)' }
+    ],
+    empaques: [
+      { src: '/mockups/Red Classic Wine Stationery Page Border A4 Document.png', description: 'Diseño de caja principal del producto - Línea Clásica' },
+      { src: '/mockups/Copilot_20251003_143538.png', description: 'Diseño Clásico en Botella - Mockup' },
+      { src: '/mockups/PixVerse_V5_Image_Text_360P_A_breathtaking_cin.mp4', description: 'Video Edición Limitada - Especial 50 Años', type: 'video' }
+    ],
+    digital: [
+      { src: '/images/digital1.jpg', description: 'Posts para redes sociales' },
+      { src: '/images/digital2.jpg', description: 'Diseño web responsive' },
+      { src: '/images/digital3.jpg', description: 'Banners y material publicitario digital' }
+    ]
+  };
 
   const openModal = (imageSrc) => {
     setSelectedImage(imageSrc);
   };
 
+  const openGallery = (galleryType) => {
+    setSelectedGallery(galleryType);
+    setCurrentImageIndex(0);
+  };
+
   const closeModal = () => {
     setSelectedImage(null);
+    setSelectedGallery(null);
+    setCurrentImageIndex(0);
+  };
+
+  const nextImage = () => {
+    if (selectedGallery) {
+      setCurrentImageIndex((prev) => 
+        prev === mockupGalleries[selectedGallery].length - 1 ? 0 : prev + 1
+      );
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedGallery) {
+      setCurrentImageIndex((prev) => 
+        prev === 0 ? mockupGalleries[selectedGallery].length - 1 : prev - 1
+      );
+    }
   };
 
   return (
@@ -186,19 +230,31 @@ const EmpresaFamiliar = () => {
                   className="aspect-square bg-gradient-to-br from-gray-200 to-gray-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
                   onClick={() => openModal('/moodboard1.png')}
                 >
-                  <span className="text-white text-xs">Sofisticado</span>
+                  <img src="/moodboard1.png" alt="Sofisticado" className="w-full h-full object-cover rounded-lg" onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }} />
+                  <span className="text-white text-xs hidden">Sofisticado</span>
                 </div>
                 <div 
                   className="aspect-square bg-gradient-to-br from-blue-200 to-blue-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
                   onClick={() => openModal('/moodboard2.png')}
                 >
-                  <span className="text-white text-xs">Confiable</span>
+                  <img src="/moodboard2.png" alt="Confiable" className="w-full h-full object-cover rounded-lg" onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }} />
+                  <span className="text-white text-xs hidden">Confiable</span>
                 </div>
                 <div 
                   className="aspect-square bg-gradient-to-br from-green-200 to-green-400 rounded-lg flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
                   onClick={() => openModal('/moodboard3.png')}
                 >
-                  <span className="text-white text-xs">Fresco</span>
+                  <img src="/moodboard3.png" alt="Fresco" className="w-full h-full object-cover rounded-lg" onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }} />
+                  <span className="text-white text-xs hidden">Fresco</span>
                 </div>
               </div>
             </div>
@@ -224,27 +280,27 @@ const EmpresaFamiliar = () => {
               <div className="bg-gray-100 rounded-2xl p-6 text-center">
                 <div 
                   className="w-full h-32 bg-white rounded-lg mb-4 flex items-center justify-center shadow-sm cursor-pointer hover:shadow-md transition-shadow"
-                  onClick={() => openModal('/images/mockup-papeleria.jpg')}
+                  onClick={() => openGallery('papeleria')}
                 >
-                  <span className="text-gray-500 text-sm">Click para ver</span>
+                  <span className="text-gray-500 text-sm">Click para ver galería</span>
                 </div>
                 <h4 className="font-medium text-gray-900">Papelería</h4>
               </div>
               <div className="bg-gray-100 rounded-2xl p-6 text-center">
                 <div 
                   className="w-full h-32 bg-white rounded-lg mb-4 flex items-center justify-center shadow-sm cursor-pointer hover:shadow-md transition-shadow"
-                  onClick={() => openModal('/images/mockup-packaging.jpg')}
+                  onClick={() => openGallery('empaques')}
                 >
-                  <span className="text-gray-500 text-sm">Click para ver</span>
+                  <span className="text-gray-500 text-sm">Click para ver galería</span>
                 </div>
                 <h4 className="font-medium text-gray-900">Empaques</h4>
               </div>
               <div className="bg-gray-100 rounded-2xl p-6 text-center">
                 <div 
                   className="w-full h-32 bg-white rounded-lg mb-4 flex items-center justify-center shadow-sm cursor-pointer hover:shadow-md transition-shadow"
-                  onClick={() => openModal('/images/mockup-digital.jpg')}
+                  onClick={() => openGallery('digital')}
                 >
-                  <span className="text-gray-500 text-sm">Click para ver</span>
+                  <span className="text-gray-500 text-sm">Click para ver galería</span>
                 </div>
                 <h4 className="font-medium text-gray-900">Digital</h4>
               </div>
@@ -295,19 +351,77 @@ const EmpresaFamiliar = () => {
         </div>
       </section>
 
-      {/* Modal */}
+      {/* Modal para imagen individual */}
       {selectedImage && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
           onClick={closeModal}
         >
-          <div className="relative max-w-4xl max-h-full">
+          <div className="relative max-w-2xl max-h-[90vh]">
             <img 
               src={selectedImage} 
               alt="Imagen ampliada" 
               className="max-w-full max-h-full object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />
+            <button 
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-75 transition-colors"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Modal para galería de mockups */}
+      {selectedGallery && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
+        >
+          <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <div className="relative max-w-[30vw] max-h-[80vh] flex items-center justify-center">
+              {mockupGalleries[selectedGallery][currentImageIndex].type === 'video' ? (
+                <video 
+                  src={mockupGalleries[selectedGallery][currentImageIndex].src}
+                  controls
+                  autoPlay
+                  muted
+                  className="max-w-full max-h-full object-contain rounded-lg"
+                />
+              ) : (
+                <img 
+                  src={mockupGalleries[selectedGallery][currentImageIndex].src} 
+                  alt={mockupGalleries[selectedGallery][currentImageIndex].description}
+                  className="max-w-full max-h-full object-contain rounded-lg"
+                />
+              )}
+            </div>
+            
+            {/* Descripción */}
+            <div className="absolute bottom-4 left-4 right-4 bg-black bg-opacity-75 text-white p-4 rounded-lg">
+              <p className="text-center">{mockupGalleries[selectedGallery][currentImageIndex].description}</p>
+              <div className="text-center text-sm mt-2 opacity-75">
+                {currentImageIndex + 1} de {mockupGalleries[selectedGallery].length}
+              </div>
+            </div>
+            
+            {/* Botones de navegación */}
+            <button 
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center hover:bg-opacity-75 transition-colors"
+            >
+              ←
+            </button>
+            <button 
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center hover:bg-opacity-75 transition-colors"
+            >
+              →
+            </button>
+            
+            {/* Botón cerrar */}
             <button 
               onClick={closeModal}
               className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-75 transition-colors"
