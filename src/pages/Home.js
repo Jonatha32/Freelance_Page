@@ -51,25 +51,25 @@ const Home = () => {
                 title: 'Diseño & Branding',
                 icon: '🎨',
                 color: 'coral',
-                services: ['UX/UI Designer', 'Product Designer', 'Diseño gráfico & Logo', 'Brand Strategist']
+                services: ['UX/UI Designer', 'Product Designer', 'Diseño gráfico & Logo', 'Brand Strategist'],
               },
               {
                 title: 'Escritura & Creatividad',
                 icon: '✍️',
                 color: 'coral',
-                services: ['UX Writer', 'Copywriter creativo', 'Escritor de eBooks', 'Creador de contenido']
+                services: ['UX Writer', 'Copywriter creativo', 'Escritor de eBooks', 'Creador de contenido'],
               },
               {
                 title: 'Tecnología & Desarrollo',
                 icon: '💻',
                 color: 'coral',
-                services: ['Frontend Developer', 'Backend Developer', 'Web Developer', 'Tutor freelance']
+                services: ['Frontend Developer', 'Backend Developer', 'Web Developer', 'Tutor freelance'],
               },
               {
                 title: 'Comunidades & Estrategia',
                 icon: '🌐',
                 color: 'coral',
-                services: ['Community Builder', 'Community Manager', 'Estrategias de contenido', 'Growth Marketing']
+                services: ['Community Builder', 'Community Manager', 'Estrategias de contenido', 'Growth Marketing'],
               }
             ].map((cluster, index) => (
               <motion.div
@@ -101,12 +101,6 @@ const Home = () => {
                     </motion.li>
                   ))}
                 </ul>
-                
-                <div className={`mt-6 pt-4 border-t border-gray-100 group-hover:border-${cluster.color}-200 transition-colors duration-300`}>
-                  <span className={`text-${cluster.color}-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
-                    Ver más →
-                  </span>
-                </div>
               </motion.div>
             ))}
           </div>
@@ -181,23 +175,77 @@ const Home = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
-              { title: 'E-commerce Boutique', category: 'Tienda Online', color: 'coral' },
-              { title: 'Estudio Creativo', category: 'Portfolio', color: 'wine' },
-              { title: 'SaaS Platform', category: 'Web App', color: 'tech' }
+              {
+                title: 'App de Compra y Venta de Productos en desuso',
+                category: 'Desarrollo Web',
+                color: 'coral',
+                image: 'https://github.com/Jonatha32/Casse_Landing_Page/blob/main/images/Cass%C3%A9.png?raw=true',
+                demo: 'https://jonatha32.github.io/Casse_Landing_Page/'
+              },
+              {
+                title: 'Portfolio Arquitecto',
+                category: 'Sitio Web',
+                color: 'wine',
+                image: '/El texto del párrafo-Photoroom(2).png',
+                demo: 'https://jonatha32.github.io/Portfolio_showcase/'
+              },
+              {
+                title: 'Rebrand Empresa Familiar',
+                category: 'Branding',
+                color: 'tech',
+                image: '/wine.png',
+                demo: '/empresa-familiar'
+              }
             ].map((project, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className={`group bg-white border-2 border-gray-100 hover:border-${project.color}-300 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300`}
               >
-                <div className={`h-48 bg-${project.color}-100 flex items-center justify-center`}>
-                  <span className={`text-${project.color}-600 font-semibold`}>{project.title}</span>
+                <div className="aspect-video bg-gray-100 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className={`w-full h-full bg-gradient-to-br from-${project.color}-400 to-${project.color}-600 items-center justify-center hidden`}>
+                    <span className="text-white text-lg font-semibold">{project.title}</span>
+                  </div>
                 </div>
+                
                 <div className="p-6">
-                  <h3 className="font-semibold text-black mb-2">{project.title}</h3>
-                  <p className="text-gray-600 text-sm">{project.category}</p>
+                  <div className={`text-${project.color}-600 text-sm font-medium mb-2`}>{project.category}</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{project.title}</h3>
+                  
+                  {project.demo.startsWith('http') ? (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-2 font-medium transition-colors duration-200`}
+                    >
+                      Ver proyecto
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  ) : (
+                    <Link
+                      to={project.demo}
+                      className={`inline-flex items-center gap-2 font-medium transition-colors duration-200`}
+                    >
+                      Ver proyecto
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </Link>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -244,7 +292,7 @@ const Home = () => {
       </section>
 
       {/* Sobre mí Teaser */}
-      <section className="section-padding bg-gradient-to-br bg-coral-500  text-lg transition-colors duration-200 relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br bg-red-800  text-lg transition-colors duration-200 relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-coral-500/10 rounded-full blur-3xl animate-pulse" />
@@ -331,7 +379,7 @@ const Home = () => {
             >
               <Link 
                 to="/sobre-mi" 
-                className="inline-flex items-center bg-coral-500 hover:bg-wine-500 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group"
+                className="inline-flex items-center bg-coral-500 hover:bg-coral-600 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group"
               >
                 Conoce mi historia
                 <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -428,7 +476,7 @@ const Home = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="section-padding bg-coral-500 font-semibold">
+      <section className="section-padding bg-red-800 font-semibold">
         <div className="container-max text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -441,7 +489,7 @@ const Home = () => {
             <p className="text-wine-100 mb-8 max-w-2xl mx-auto">
               Conversemos sobre tu proyecto. Te respondo en menos de 24 horas con una propuesta personalizada.
             </p>
-            <Link to="/contacto" className="bg-coral-500 hover:bg-wine-500 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
+            <Link to="/contacto" className="inline-flex items-center bg-coral-500 hover:bg-coral-600 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group">
               Empezar mi proyecto
             </Link>
           </motion.div>

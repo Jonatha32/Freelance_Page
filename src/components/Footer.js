@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-wine-700 to-wine-700 text-white border-t border-black font-semibold">
+    <footer className="bg-gradient-to-b bg-black text-white border-t border-black font-semibold">
       <div className="container-max py-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Descripción */}
@@ -41,7 +41,7 @@ const Footer = () => {
           {/* Navegación */}
           <div>
             <h4 className="font-semibold text-lg mb-6 text-white">Navegación</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-3 text-white hover:text-green-400">
               {[
                 { name: 'Servicios', href: '/servicios' },
                 { name: 'Portfolio', href: '/portfolio' },

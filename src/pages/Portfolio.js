@@ -259,7 +259,7 @@ const Portfolio = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-coral-500">
+      <section className="py-20 bg-red-800">
         <div className="container-max text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             ¿Listo para tu próximo proyecto?
@@ -267,7 +267,7 @@ const Portfolio = () => {
           <p className="text-coral-100 mb-8 max-w-2xl mx-auto">
             Conversemos sobre tu visión y creemos algo extraordinario juntos.
           </p>
-          <button className="bg-white text-coral-500 hover:bg-gray-50 px-8 py-3 rounded-lg font-semibold transition-colors">
+          <button className="inline-flex items-center bg-coral-500 hover:bg-coral-600 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group">
             Iniciar Proyecto
           </button>
         </div>
