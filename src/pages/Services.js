@@ -1,7 +1,89 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const Services = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [formData, setFormData] = useState({});
+
+  const openModal = (categoryId) => {
+    setSelectedCategory(categoryId);
+    setShowModal(true);
+    setCurrentStep(0);
+    setFormData({});
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedCategory(null);
+    setCurrentStep(0);
+    setFormData({});
+  };
+
+  const nextStep = () => {
+    setCurrentStep(prev => prev + 1);
+  };
+
+  const prevStep = () => {
+    setCurrentStep(prev => prev - 1);
+  };
+
+  const updateFormData = (key, value) => {
+    setFormData(prev => ({ ...prev, [key]: value }));
+  };
+
+  const universalFormQuestions = [
+    {
+      question: "Contame brevemente qué querés lograr con este proyecto",
+      type: "text",
+      placeholder: "Ej: Aumentar ventas online, mejorar mi imagen profesional, automatizar procesos...",
+      required: true
+    },
+    {
+      question: "¿En qué estado está tu proyecto?",
+      type: "choice",
+      options: ["Tengo una idea, pero aún no lo desarrollé", "Ya tengo algo hecho, quiero mejorarlo", "Necesito comenzar de cero", "No estoy seguro"],
+      required: false
+    },
+    {
+      question: "¿Tenés un presupuesto definido o querés que te ayude a estimarlo?",
+      type: "choice",
+      options: ["Necesito cotización personalizada", "Estoy dentro del rango de precios que figura en tu web", "No tengo idea aún"],
+      required: false
+    },
+    {
+      question: "¿Cuándo necesitas el proyecto terminado?",
+      type: "choice",
+      options: ["Lo antes posible", "En 1 mes", "En 2-3 meses", "Tengo flexibilidad"],
+      required: false
+    },
+    {
+      question: "Datos personales",
+      type: "personal"
+    },
+    {
+      question: "¿Querés adjuntar algún archivo o referencia visual?",
+      type: "file",
+      placeholder: "Logo actual, web de inspiración, bocetos, etc.",
+      required: false
+    },
+    {
+      question: "Consentimiento",
+      type: "consent"
+    }
+  ];
+
+  const formQuestions = {
+    desarrollo: universalFormQuestions,
+    diseno: universalFormQuestions,
+    contenido: universalFormQuestions,
+    marketing: universalFormQuestions,
+    educacion: universalFormQuestions,
+    'pack-raiz': universalFormQuestions,
+    'pack-presencia': universalFormQuestions,
+    'pack-fuego': universalFormQuestions
+  };
   const servicePillars = [
     {
       id: 'desarrollo',
@@ -300,8 +382,16 @@ const Services = () => {
                   ))}
                 </ul>
                 
-                <button className={`w-full py-4 rounded-xl font-bold text-white transition-all duration-300 bg-gradient-to-r ${pack.gradient} hover:scale-105 hover:shadow-lg`}>
-                  🚀 Elegir Pack
+                <button 
+                  onClick={() => {
+                    const packKey = pack.name === 'Pack Raíz' ? 'pack-raiz' : 
+                                   pack.name === 'Pack Presencia' ? 'pack-presencia' : 
+                                   pack.name === 'Pack Fuego' ? 'pack-fuego' : 'general';
+                    openModal(packKey);
+                  }}
+                  className={`w-full py-4 rounded-xl font-bold text-white transition-all duration-300 bg-gradient-to-r ${pack.gradient} hover:scale-105 hover:shadow-lg`}
+                >
+                  📝 Solicitar Propuesta
                 </button>
               </motion.div>
             ))}
@@ -362,8 +452,11 @@ const Services = () => {
                       </ul>
                     </div>
                     
-                    <button className={`w-full py-3 rounded-lg font-bold text-white transition-all duration-300 bg-gradient-to-r ${pillar.gradient} hover:scale-105 hover:shadow-md`}>
-                      Solicitar Cotización
+                    <button 
+                      onClick={() => openModal(pillar.id)}
+                      className={`w-full py-3 rounded-lg font-bold text-white transition-all duration-300 bg-gradient-to-r ${pillar.gradient} hover:scale-105 hover:shadow-md group-hover:shadow-lg`}
+                    >
+                      📝 Solicitar Propuesta
                     </button>
                   </motion.div>
                 ))}
@@ -403,12 +496,12 @@ const Services = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-gradient-to-r from-coral-500 to-gold-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl">
-                🚀 Consulta Personalizada
-              </button>
-              <button className="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all duration-300">
-                💬 Hablemos por WhatsApp
-              </button>
+              <a href="/contacto" className="bg-gradient-to-r from-coral-500 to-gold-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl inline-block">
+                📝 Solicitar Propuesta Gratuita
+              </a>
+              <a href="https://wa.me/1234567890?text=Hola%20Jona,%20me%20interesa%20conocer%20más%20sobre%20tus%20servicios" target="_blank" rel="noopener noreferrer" className="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all duration-300 inline-block">
+                💬 Consulta Rápida WhatsApp
+              </a>
             </div>
             
             <div className="mt-8 flex justify-center items-center space-x-6 text-white/70">
@@ -427,6 +520,193 @@ const Services = () => {
             </div>
           </div>
         </motion.div>
+
+        {/* Modal Typeform */}
+        {showModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
+              <div className="p-8">
+                {/* Header */}
+                <div className="flex justify-between items-center mb-8">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">Solicitar Propuesta</h3>
+                    <p className="text-gray-600">Paso {currentStep + 1} de {selectedCategory && formQuestions[selectedCategory] ? formQuestions[selectedCategory].length : 5}</p>
+                  </div>
+                  <button onClick={closeModal} className="text-gray-400 hover:text-gray-600">
+                    ✕
+                  </button>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="w-full bg-gray-200 rounded-full h-2 mb-8">
+                  <div 
+                    className="bg-gradient-to-r from-coral-500 to-wine-500 h-2 rounded-full transition-all duration-300"
+                    style={{ width: `${((currentStep + 1) / (selectedCategory && formQuestions[selectedCategory] ? formQuestions[selectedCategory].length : 5)) * 100}%` }}
+                  ></div>
+                </div>
+
+                {/* Question */}
+                {selectedCategory && formQuestions[selectedCategory] && formQuestions[selectedCategory][currentStep] && (
+                  <div className="mb-8">
+                    <h4 className="text-xl font-semibold text-gray-900 mb-6">
+                      {formQuestions[selectedCategory][currentStep].question}
+                      {!formQuestions[selectedCategory][currentStep].required && <span className="text-gray-400 text-sm ml-2">(opcional)</span>}
+                    </h4>
+
+                    {formQuestions[selectedCategory][currentStep].type === 'choice' && (
+                      <div className="space-y-3">
+                        {formQuestions[selectedCategory][currentStep].options.map((option, index) => (
+                          <button
+                            key={index}
+                            onClick={() => {
+                              updateFormData(`step_${currentStep}`, option);
+                              setTimeout(nextStep, 300);
+                            }}
+                            className="w-full p-4 text-left border-2 border-gray-200 rounded-lg hover:border-coral-400 hover:bg-coral-50 transition-all duration-200"
+                          >
+                            {option}
+                          </button>
+                        ))}
+                        {!formQuestions[selectedCategory][currentStep].required && (
+                          <button
+                            onClick={nextStep}
+                            className="w-full p-4 text-center border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:border-gray-400 transition-all duration-200"
+                          >
+                            Omitir esta pregunta →
+                          </button>
+                        )}
+                      </div>
+                    )}
+
+                    {formQuestions[selectedCategory][currentStep].type === 'text' && (
+                      <div>
+                        <textarea
+                          placeholder={formQuestions[selectedCategory][currentStep].placeholder}
+                          className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-coral-400 focus:outline-none resize-none h-32"
+                          value={formData[`step_${currentStep}`] || ''}
+                          onChange={(e) => updateFormData(`step_${currentStep}`, e.target.value)}
+                        />
+                        <button
+                          onClick={nextStep}
+                          disabled={formQuestions[selectedCategory][currentStep].required && !formData[`step_${currentStep}`]}
+                          className="mt-4 bg-coral-500 text-white px-6 py-2 rounded-lg hover:bg-coral-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                          Continuar →
+                        </button>
+                      </div>
+                    )}
+
+                    {formQuestions[selectedCategory][currentStep].type === 'personal' && (
+                      <div className="space-y-4">
+                        <input
+                          type="text"
+                          placeholder="Nombre completo *"
+                          className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-coral-400 focus:outline-none"
+                          value={formData.name || ''}
+                          onChange={(e) => updateFormData('name', e.target.value)}
+                        />
+                        <input
+                          type="email"
+                          placeholder="Correo electrónico *"
+                          className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-coral-400 focus:outline-none"
+                          value={formData.email || ''}
+                          onChange={(e) => updateFormData('email', e.target.value)}
+                        />
+                        <input
+                          type="tel"
+                          placeholder="Número de teléfono (opcional)"
+                          className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-coral-400 focus:outline-none"
+                          value={formData.phone || ''}
+                          onChange={(e) => updateFormData('phone', e.target.value)}
+                        />
+                        <input
+                          type="text"
+                          placeholder="País"
+                          className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-coral-400 focus:outline-none"
+                          value={formData.country || ''}
+                          onChange={(e) => updateFormData('country', e.target.value)}
+                        />
+                        <button
+                          onClick={nextStep}
+                          disabled={!formData.name || !formData.email}
+                          className="mt-4 bg-coral-500 text-white px-6 py-2 rounded-lg hover:bg-coral-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                          Continuar →
+                        </button>
+                      </div>
+                    )}
+
+                    {formQuestions[selectedCategory][currentStep].type === 'file' && (
+                      <div>
+                        <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-coral-400 transition-colors">
+                          <div className="text-4xl mb-4">📁</div>
+                          <p className="text-gray-600 mb-4">{formQuestions[selectedCategory][currentStep].placeholder}</p>
+                          <input
+                            type="file"
+                            multiple
+                            accept="image/*,.pdf,.doc,.docx"
+                            className="hidden"
+                            id="file-upload"
+                            onChange={(e) => updateFormData('files', e.target.files)}
+                          />
+                          <label
+                            htmlFor="file-upload"
+                            className="bg-gray-100 text-gray-700 px-6 py-2 rounded-lg cursor-pointer hover:bg-gray-200 transition-colors"
+                          >
+                            Seleccionar archivos
+                          </label>
+                        </div>
+                        <button
+                          onClick={nextStep}
+                          className="mt-4 bg-coral-500 text-white px-6 py-2 rounded-lg hover:bg-coral-600"
+                        >
+                          Continuar →
+                        </button>
+                      </div>
+                    )}
+
+                    {formQuestions[selectedCategory][currentStep].type === 'consent' && (
+                      <div className="space-y-6">
+                        <div className="flex items-start space-x-3">
+                          <input
+                            type="checkbox"
+                            id="consent"
+                            className="mt-1 w-5 h-5 text-coral-500 border-2 border-gray-300 rounded focus:ring-coral-400"
+                            checked={formData.consent || false}
+                            onChange={(e) => updateFormData('consent', e.target.checked)}
+                          />
+                          <label htmlFor="consent" className="text-gray-700 leading-relaxed">
+                            Autorizo que Jonathan Pérez reciba mi solicitud y me contacte por correo o WhatsApp para brindarme información sobre sus servicios.
+                          </label>
+                        </div>
+                        <button
+                          onClick={() => {
+                            alert('¡Propuesta enviada! Te contactaremos en 24h.');
+                            closeModal();
+                          }}
+                          disabled={!formData.consent}
+                          className="w-full bg-gradient-to-r from-coral-500 to-wine-500 text-white py-4 rounded-lg font-bold hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                          🚀 Solicitar Propuesta Personalizada
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Navigation */}
+                {currentStep > 0 && formQuestions[selectedCategory][currentStep].type !== 'choice' && (
+                  <button
+                    onClick={prevStep}
+                    className="text-gray-500 hover:text-gray-700 font-medium"
+                  >
+                    ← Anterior
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -22,10 +22,10 @@ const Home = () => {
               Un solo universo creativo: diseño, código, escritura y música. Trabajo para marcas que quieren ser memorables.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contacto" className="bg-coral-500 hover:bg-coral-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
+              <Link to="/contacto" className="inline-flex items-center bg-coral-500 hover:bg-coral-900 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group">
                 Empezar mi proyecto 
               </Link>
-              <Link to="/portfolio" className="border-2 border-wine-500 text-wine-500 hover:bg-wine-500 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200">
+              <Link to="/portfolio" className="border-2 border-wine-500 text-wine-500 hover:bg-wine-500 hover:text-white inline-flex items-center px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group">
                 Ver trabajos
               </Link>
             </div>
@@ -111,7 +111,7 @@ const Home = () => {
             transition={{ delay: 0.8 }}
             className="text-center mt-12"
           >
-            <Link to="/servicios" className="bg-coral-500 hover:bg-coral-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
+            <Link to="/servicios" className="inline-flex items-center bg-coral-500 hover:bg-coral-900 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group">
               Ver todos los servicios
             </Link>
           </motion.div>
@@ -252,7 +252,7 @@ const Home = () => {
           </div>
           
           <div className="text-center">
-            <Link to="/portfolio" className="bg-coral-500 hover:bg-coral-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200">
+            <Link to="/portfolio" className="inline-flex items-center bg-coral-500 hover:bg-coral-900 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group">
               Ver más trabajos
             </Link>
           </div>
@@ -292,7 +292,7 @@ const Home = () => {
       </section>
 
       {/* Sobre mí Teaser */}
-      <section className="section-padding bg-gradient-to-br bg-red-800  text-lg transition-colors duration-200 relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br bg-coral-600  text-lg transition-colors duration-200 relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-coral-500/10 rounded-full blur-3xl animate-pulse" />
@@ -379,7 +379,7 @@ const Home = () => {
             >
               <Link 
                 to="/sobre-mi" 
-                className="inline-flex items-center bg-coral-500 hover:bg-coral-600 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group"
+                className="inline-flex items-center bg-coral-500 hover:bg-coral-900 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group"
               >
                 Conoce mi historia
                 <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -476,7 +476,7 @@ const Home = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="section-padding bg-red-800 font-semibold">
+      <section className="section-padding bg-coral-600 font-semibold">
         <div className="container-max text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -489,7 +489,7 @@ const Home = () => {
             <p className="text-wine-100 mb-8 max-w-2xl mx-auto">
               Conversemos sobre tu proyecto. Te respondo en menos de 24 horas con una propuesta personalizada.
             </p>
-            <Link to="/contacto" className="inline-flex items-center bg-coral-500 hover:bg-coral-600 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group">
+            <Link to="/contacto" className="inline-flex items-center bg-coral-500 hover:bg-coral-900 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group">
               Empezar mi proyecto
             </Link>
           </motion.div>

@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b bg-black text-white border-t border-black font-semibold">
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white border-t border-gray-700/30">
       <div className="container-max py-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Descripción */}
           <div className="md:col-span-2">
             <div className="mb-6">
-              <h3 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-white to-coral-400 bg-clip-text text-transparent">
-                Jona Pérez
+              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-coral-400 to-wine-400 bg-clip-text text-white">
+                Jonathan Pérez
               </h3>
-              <p className="text-coral-400 text-sm font-medium">Desarrollador Web Full Stack</p>
+              <p className="text-coral-300 text-sm font-medium">Artista Digital & Desarrollador Creativo</p>
             </div>
             
-            <p className="text-gray-300 mb-8 leading-relaxed max-w-md">
-              Especializado en crear experiencias web modernas y efectivas que 
-              impulsan el crecimiento de tu negocio digital.
+            <p className="text-gray-400 mb-8 leading-relaxed max-w-md">
+              Fusiono arte, tecnología y estrategia para crear experiencias digitales 
+              que conectan, convierten y trascienden.
             </p>
             
             {/* Redes Sociales */}
@@ -30,7 +30,7 @@ const Footer = () => {
               ].map((social) => (
                 <a key={social.label}
                    href={social.href} 
-                   className={`w-12 h-12 bg-gray-800/50 ${social.color} rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg backdrop-blur-sm border border-gray-700/50`}
+                   className={`w-12 h-12 bg-gray-800/30 ${social.color} rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg backdrop-blur-sm border border-gray-600/20 hover:border-coral-400/30`}
                    title={social.label}>
                   <span className="text-lg">{social.icon}</span>
                 </a>
@@ -40,8 +40,8 @@ const Footer = () => {
 
           {/* Navegación */}
           <div>
-            <h4 className="font-semibold text-lg mb-6 text-white">Navegación</h4>
-            <ul className="space-y-3 text-white hover:text-green-400">
+            <h4 className="font-bold text-lg mb-6 text-white">Navegación</h4>
+            <ul className="space-y-3">
               {[
                 { name: 'Servicios', href: '/servicios' },
                 { name: 'Portfolio', href: '/portfolio' },
@@ -50,7 +50,7 @@ const Footer = () => {
               ].map((link) => (
                 <li key={link.name}>
                   <Link to={link.href} 
-                        className="text-white hover:text-coral-400 transition-colors duration-300 hover:translate-x-1 inline-block">
+                        className="text-gray-300 hover:text-coral-400 transition-colors duration-300 hover:translate-x-1 inline-block">
                     {link.name}
                   </Link>
                 </li>
@@ -60,7 +60,7 @@ const Footer = () => {
 
           {/* Contacto */}
           <div>
-            <h4 className="font-semibold text-lg mb-6 text-white">Contacto</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">Contacto</h4>
             <div className="space-y-4">
               <div>
                 <p className="text-white text-sm mb-1">Email</p>
@@ -70,7 +70,7 @@ const Footer = () => {
                 </a>
               </div>
               <div>
-                <p className="text-white-500 text-sm mb-1">WhatsApp</p>
+                <p className="text-white text-sm mb-1">WhatsApp</p>
                 <a href="https://wa.me/59892934394" target='_blank' rel='noreferrer'
                    className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm">
                   Respuesta rápida
@@ -81,25 +81,25 @@ const Footer = () => {
         </div>
 
         {/* Divisor */}
-        <div className="border-t border-black mt-16 pt-8">
+        <div className="border-t border-gray-700/30 mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white mb-4 md:mb-0 text-sm">
+            <p className="text-gray-400 mb-4 md:mb-0 text-sm">
               © 2025 Jona Pérez. Todos los derechos reservados.
             </p>
             
             <div className="flex items-center space-x-8">
               <div className="flex items-center space-x-4">
-                <Link to="/privacidad" className="text-white-500 hover:text-gray-300 transition-colors text-sm">
+                <Link to="/privacidad" className="text-gray-400 hover:text-gray-300 transition-colors text-sm">
                   Privacidad
                 </Link>
-                <Link to="/terminos" className="font-semibold text-white-500 hover:text-gray-300 transition-colors text-sm">
+                <Link to="/terminos" className="text-gray-400 hover:text-gray-300 transition-colors text-sm">
                   Términos
                 </Link>
               </div>
               
-              <div className="flex items-center space-x-2 px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-green-400 text-xs font-medium font-semibold">Disponible para proyectos</span>
+              <div className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-coral-500/10 to-wine-500/10 border border-coral-400/20 rounded-full">
+                <div className="w-2 h-2 bg-coral-400 rounded-full animate-pulse"></div>
+                <span className="text-coral-300 text-xs font-medium">Disponible para proyectos</span>
               </div>
             </div>
           </div>

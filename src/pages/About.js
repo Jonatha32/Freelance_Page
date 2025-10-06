@@ -294,7 +294,7 @@ const About = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-coral-500 text-black">
+      <section className="py-20 bg-coral-600 text-black">
         <div className="container-max text-center">
           <h2 className="text-4xl font-bold mb-6">
             ¿Listo para tu próximo proyecto?
