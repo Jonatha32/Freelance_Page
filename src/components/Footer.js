@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from './LanguageSelector';
 
 const Footer = () => {
+  const { language } = useLanguage();
+  
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white border-t border-gray-700/30">
       <div className="container-max py-20">
@@ -12,12 +15,16 @@ const Footer = () => {
               <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-coral-400 to-wine-400 bg-clip-text text-white">
                 Jonathan Pérez
               </h3>
-              <p className="text-coral-300 text-sm font-medium">Artista Digital & Desarrollador Creativo</p>
+              <p className="text-coral-300 text-sm font-medium">
+                {language === 'es' ? 'Artista Digital & Desarrollador Creativo' : 'Digital Artist & Creative Developer'}
+              </p>
             </div>
             
             <p className="text-gray-400 mb-8 leading-relaxed max-w-md">
-              Fusiono arte, tecnología y estrategia para crear experiencias digitales 
-              que conectan, convierten y trascienden.
+              {language === 'es'
+                ? 'Fusiono arte, tecnología y estrategia para crear experiencias digitales que conectan, convierten y trascienden.'
+                : 'I merge art, technology and strategy to create digital experiences that connect, convert and transcend.'
+              }
             </p>
             
             {/* Redes Sociales */}
@@ -40,12 +47,14 @@ const Footer = () => {
 
           {/* Navegación */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Navegación</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">
+              {language === 'es' ? 'Navegación' : 'Navigation'}
+            </h4>
             <ul className="space-y-3">
               {[
-                { name: 'Servicios', href: '/servicios' },
+                { name: language === 'es' ? 'Servicios' : 'Services', href: '/servicios' },
                 { name: 'Portfolio', href: '/portfolio' },
-                { name: 'Sobre mí', href: '/sobre-mi' },
+                { name: language === 'es' ? 'Sobre mí' : 'About', href: '/sobre-mi' },
                 { name: 'Blog', href: '/blog' }
               ].map((link) => (
                 <li key={link.name}>
@@ -60,7 +69,9 @@ const Footer = () => {
 
           {/* Contacto */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Contacto</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">
+              {language === 'es' ? 'Contacto' : 'Contact'}
+            </h4>
             <div className="space-y-4">
               <div>
                 <p className="text-white text-sm mb-1">Email</p>
@@ -73,7 +84,7 @@ const Footer = () => {
                 <p className="text-white text-sm mb-1">WhatsApp</p>
                 <a href="https://wa.me/59892934394" target='_blank' rel='noreferrer'
                    className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm">
-                  Respuesta rápida
+                  {language === 'es' ? 'Respuesta rápida' : 'Quick response'}
                 </a>
               </div>
             </div>
@@ -84,22 +95,27 @@ const Footer = () => {
         <div className="border-t border-gray-700/30 mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 mb-4 md:mb-0 text-sm">
-              © 2025 Jona Pérez. Todos los derechos reservados.
+              {language === 'es' 
+                ? '© 2025 Jona Pérez. Todos los derechos reservados.'
+                : '© 2025 Jona Pérez. All rights reserved.'
+              }
             </p>
             
             <div className="flex items-center space-x-8">
               <div className="flex items-center space-x-4">
                 <Link to="/privacidad" className="text-gray-400 hover:text-gray-300 transition-colors text-sm">
-                  Privacidad
+                  {language === 'es' ? 'Privacidad' : 'Privacy'}
                 </Link>
                 <Link to="/terminos" className="text-gray-400 hover:text-gray-300 transition-colors text-sm">
-                  Términos
+                  {language === 'es' ? 'Términos' : 'Terms'}
                 </Link>
               </div>
               
               <div className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-coral-500/10 to-wine-500/10 border border-coral-400/20 rounded-full">
                 <div className="w-2 h-2 bg-coral-400 rounded-full animate-pulse"></div>
-                <span className="text-coral-300 text-xs font-medium">Disponible para proyectos</span>
+                <span className="text-coral-300 text-xs font-medium">
+                  {language === 'es' ? 'Disponible para proyectos' : 'Available for projects'}
+                </span>
               </div>
             </div>
           </div>

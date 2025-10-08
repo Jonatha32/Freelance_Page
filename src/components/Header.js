@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useLanguage } from './LanguageSelector';
 
 const Header = () => {
+  const { language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   const navigation = [
-    { name: 'Inicio', href: '/' },
-    { name: 'Servicios', href: '/servicios' },
+    { name: language === 'es' ? 'Inicio' : 'Home', href: '/' },
+    { name: language === 'es' ? 'Servicios' : 'Services', href: '/servicios' },
     { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Sobre mí', href: '/sobre-mi' },
+    { name: language === 'es' ? 'Sobre mí' : 'About', href: '/sobre-mi' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Contacto', href: '/contacto' },
+    { name: language === 'es' ? 'Contacto' : 'Contact', href: '/contacto' },
   ];
 
   useEffect(() => {
@@ -111,7 +113,7 @@ const Header = () => {
                 to="/contacto"
                 className="bg-gradient-to-r from-coral-500 to-coral-600 hover:from-coral-600 hover:to-coral-700 text-white px-6 py-2 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
-                Cotizar
+                {language === 'es' ? 'Cotizar' : 'Quote'}
               </Link>
             </motion.div>
           </div>
@@ -197,7 +199,7 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className="block w-full text-center bg-coral-500 hover:bg-coral-600 text-white py-3 px-4 rounded-lg font-semibold transition-colors duration-200"
               >
-                Cotizar Proyecto
+                {language === 'es' ? 'Cotizar Proyecto' : 'Get Quote'}
               </Link>
             </motion.div>
           </div>

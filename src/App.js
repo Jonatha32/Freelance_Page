@@ -12,32 +12,37 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import LeRaffine from './pages/LeRaffine';
 import EmpresaFamiliar from './pages/EmpresaFamiliar';
+import { LanguageProvider } from './components/LanguageSelector';
+import LanguageSelector from './components/LanguageSelector';
 import useScrollToTop from './hooks/useScrollToTop';
 import './index.css';
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/servicios" element={<Services />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/sobre-mi" element={<About />} />
-            <Route path="/contacto" element={<Contact />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/privacidad" element={<Privacy />} />
-            <Route path="/terminos" element={<Terms />} />
-            <Route path="/le-raffine" element={<LeRaffine />} />
-            <Route path="/empresa-familiar" element={<EmpresaFamiliar />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/servicios" element={<Services />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/sobre-mi" element={<About />} />
+              <Route path="/contacto" element={<Contact />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/privacidad" element={<Privacy />} />
+              <Route path="/terminos" element={<Terms />} />
+              <Route path="/le-raffine" element={<LeRaffine />} />
+              <Route path="/empresa-familiar" element={<EmpresaFamiliar />} />
+            </Routes>
+          </main>
+          <Footer />
+          <LanguageSelector />
+        </div>
+      </Router>
+    </LanguageProvider>
   );
 }
 

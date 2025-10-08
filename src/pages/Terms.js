@@ -1,29 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../components/LanguageSelector';
 
 const Terms = () => {
+  const { language } = useLanguage();
+  
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container-max py-20">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Términos y Condiciones</h1>
-            <p className="text-gray-600">Última actualización: Octubre 2025</p>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              {language === 'es' ? 'Términos y Condiciones' : 'Terms and Conditions'}
+            </h1>
+            <p className="text-gray-600">
+              {language === 'es' ? 'Última actualización: Octubre 2025' : 'Last updated: October 2025'}
+            </p>
           </div>
 
           <div className="bg-white rounded-2xl p-8 shadow-sm">
             {/* Introducción */}
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Introducción</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                {language === 'es' ? '1. Introducción' : '1. Introduction'}
+              </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Estos términos y condiciones rigen el uso de los servicios ofrecidos por Jonathan Pérez 
-                (en adelante "el Proveedor") a través de este sitio web y cualquier contrato de servicios 
-                profesionales establecido entre las partes.
+                {language === 'es'
+                  ? 'Estos términos y condiciones rigen el uso de los servicios ofrecidos por Jonathan Pérez (en adelante "el Proveedor") a través de este sitio web y cualquier contrato de servicios profesionales establecido entre las partes.'
+                  : 'These terms and conditions govern the use of services offered by Jonathan Pérez (hereinafter "the Provider") through this website and any professional services contract established between the parties.'
+                }
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Al contratar nuestros servicios o utilizar este sitio web, usted acepta estar sujeto 
-                a estos términos y condiciones en su totalidad.
+                {language === 'es'
+                  ? 'Al contratar nuestros servicios o utilizar este sitio web, usted acepta estar sujeto a estos términos y condiciones en su totalidad.'
+                  : 'By contracting our services or using this website, you agree to be bound by these terms and conditions in their entirety.'
+                }
               </p>
             </section>
 
@@ -147,13 +159,13 @@ const Terms = () => {
                   to="/privacidad" 
                   className="text-coral-600 hover:text-coral-700 font-medium transition-colors"
                 >
-                  ← Política de Privacidad
+                  {language === 'es' ? '← Política de Privacidad' : '← Privacy Policy'}
                 </Link>
                 <Link 
                   to="/" 
                   className="bg-coral-500 hover:bg-coral-600 text-white px-6 py-2 rounded-lg font-medium transition-colors"
                 >
-                  Volver al Inicio
+                  {language === 'es' ? 'Volver al Inicio' : 'Back to Home'}
                 </Link>
               </div>
             </div>

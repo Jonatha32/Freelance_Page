@@ -1,25 +1,35 @@
 import React from 'react';
+import { useLanguage } from '../components/LanguageSelector';
+import { translations } from '../utils/translations';
 
 const About = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
       <section className="py-20 bg-gradient-to-b from-gray-900 to-black text-white">
         <div className="container-max text-center">
+          <div className="text-4xl mb-6">🚀</div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-white">
-              De Artista
+            <span className="bg-gradient-to-r from-coral-400 to-salmon-400 bg-clip-text text-white">
+              {language === 'es' ? 'De Artista' : 'From Artist'}
             </span>
             <br />
-            <span className="text-white">a Creador Digital</span>
+            <span className="bg-gradient-to-r from-wine-400 to-coral-400 bg-clip-text text-white">
+              {language === 'es' ? 'a Creador Digital' : 'to Digital Creator'}
+            </span>
           </h1>
           
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Transformo ideas en experiencias digitales memorables, 
-            combinando sensibilidad artística con excelencia técnica.
+          <p className="text-xl text-white-300 mb-6 max-w-3xl mx-auto leading-relaxed">
+            {t.about.hero.subtitle}
+          </p>
+          <p className="text-lg text-white-400 mb-8 max-w-3xl mx-auto leading-relaxed">
+            {t.about.hero.description}
           </p>
           
-          <div className="w-32 h-1 bg-gradient-to-r from-coral-500 to-gold-500 mx-auto rounded-full" />
+          <div className="w-32 h-1 bg-coral-900 mx-auto rounded-full" />
         </div>
       </section>
 
@@ -27,60 +37,102 @@ const About = () => {
       <section className="py-20 bg-white">
         <div className="container-max">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Mi Historia</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              La música me enseñó que cada detalle importa. 
-              Hoy aplico esa sensibilidad al mundo digital.
+            <div className="text-4xl mb-4">💡</div>
+            <h2 className="text-4xl font-bold text-black-900 mb-6">{t.about.story.title}</h2>
+            <p className="text-xl text-black-600 max-w-3xl mx-auto mb-4">
+              {t.about.story.subtitle}
             </p>
+            <p className="text-lg text-black-600 max-w-3xl mx-auto">
+              {t.about.story.description}
+            </p>
+            <div className="mt-8 p-6 bg-black-50 rounded-xl max-w-2xl mx-auto border-l-4 border-coral-500">
+              <p className="text-black-800 italic font-medium">
+                "{t.about.story.quote}"
+              </p>
+            </div>
           </div>
 
           <div className="space-y-16">
             {/* Las Raíces */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="bg-coral-50 p-8 rounded-2xl border border-coral-100">
-                <div className="text-4xl mb-4">🎵</div>
-                <h3 className="text-2xl font-bold text-coral-700 mb-4">Las Raíces</h3>
+              <div className="bg-gradient-to-br from-coral-50 to-salmon-50 p-8 rounded-2xl border border-coral-100">
+                <div className="text-4xl mb-4">🌱</div>
+                <h3 className="text-2xl font-bold text-coral-700 mb-4">
+                  {language === 'es' ? 'Las Raíces' : 'The Roots'}
+                </h3>
                 <p className="text-gray-700 mb-4 leading-relaxed">
-                  Todo comenzó con un piano y la obsesión por crear algo que tocara el alma. 
-                  En la música aprendí que cada nota importa y que la magia sucede cuando 
-                  la técnica se encuentra con la emoción.
+                  {language === 'es' 
+                    ? 'Todo comenzó con un piano. Quería crear algo que tocara el alma, y terminé descubriendo que el arte también puede vivir en el código.'
+                    : 'It all started with a piano. I wanted to create something that touched the soul, and I ended up discovering that art can also live in code.'
+                  }
+                </p>
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  {language === 'es'
+                    ? 'No abandoné la música: la expandí. Ahora cada proyecto es una composición donde la lógica y la emoción se encuentran.'
+                    : 'I didn\'t abandon music: I expanded it. Now each project is a composition where logic and emotion meet.'
+                  }
                 </p>
                 <div className="bg-coral-100 p-4 rounded-lg border-l-4 border-coral-400">
-                  <p className="text-coral-800 italic">
-                    "La perfección técnica sin alma es solo ruido. 
-                    Hoy aplico esa filosofía a cada línea de código."
+                  <p className="text-coral-800 italic font-medium">
+                    "{language === 'es' 
+                      ? 'El código también puede tener ritmo, y el diseño también puede tener alma.'
+                      : 'Code can also have rhythm, and design can also have soul.'
+                    }"
                   </p>
                 </div>
               </div>
               
               <div className="space-y-4">
-                <h4 className="text-xl font-bold text-gray-900">Lo que aporto</h4>
-                <div className="space-y-3">
+                <h4 className="text-xl font-bold text-gray-900">
+                  {language === 'es' ? 'Lo que aporto' : 'What I bring'}
+                </h4>
+                <div className="space-y-4">
                   <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-xs">✓</span>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-gray-900">Experiencias con conexión emocional</h5>
-                      <p className="text-gray-600 text-sm">Interfaces que tus usuarios recordarán y amarán</p>
+                      <h5 className="font-semibold text-gray-900">
+                        {language === 'es' ? 'Experiencias con conexión emocional' : 'Emotionally connected experiences'}
+                      </h5>
+                      <p className="text-gray-600 text-sm">
+                        {language === 'es' 
+                          ? 'Diseños y flujos que hacen sentir. Interfaces que tus usuarios recordarán y amarán.'
+                          : 'Designs and flows that make you feel. Interfaces your users will remember and love.'
+                        }
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-xs">✓</span>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-gray-900">Código limpio y escalable</h5>
-                      <p className="text-gray-600 text-sm">Arquitectura que crece con tu negocio</p>
+                      <h5 className="font-semibold text-gray-900">
+                        {language === 'es' ? 'Código limpio y escalable' : 'Clean and scalable code'}
+                      </h5>
+                      <p className="text-gray-600 text-sm">
+                        {language === 'es'
+                          ? 'Arquitectura sólida, mantenible y lista para crecer con tu visión.'
+                          : 'Solid, maintainable architecture ready to grow with your vision.'
+                        }
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 bg-coral-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-xs">✓</span>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-gray-900">Atención obsesiva al detalle</h5>
-                      <p className="text-gray-600 text-sm">Cada pixel orquestado para la experiencia perfecta</p>
+                      <h5 className="font-semibold text-gray-900">
+                        {language === 'es' ? 'Atención obsesiva al detalle' : 'Obsessive attention to detail'}
+                      </h5>
+                      <p className="text-gray-600 text-sm">
+                        {language === 'es'
+                          ? 'Cada pixel orquestado como parte de una melodía visual.'
+                          : 'Every pixel orchestrated as part of a visual melody.'
+                        }
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -90,50 +142,78 @@ const About = () => {
             {/* La Transformación */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="order-2 lg:order-1 space-y-4">
-                <h4 className="text-xl font-bold text-gray-900">Resultados</h4>
-                <div className="space-y-3">
+                <h4 className="text-xl font-bold text-gray-900">
+                  {language === 'es' ? 'Resultados' : 'Results'}
+                </h4>
+                <div className="space-y-4">
                   <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 bg-wine-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-xs">✓</span>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-gray-900">Innovación funcional</h5>
-                      <p className="text-gray-600 text-sm">Creatividad con bases técnicas sólidas</p>
+                      <h5 className="font-semibold text-gray-900">
+                        {language === 'es' ? 'Innovación funcional' : 'Functional innovation'}
+                      </h5>
+                      <p className="text-gray-600 text-sm">
+                        {language === 'es'
+                          ? 'Creatividad sustentada en bases técnicas sólidas'
+                          : 'Creativity supported by solid technical foundations'
+                        }
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 bg-wine-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-xs">✓</span>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-gray-900">Diferenciación auténtica</h5>
-                      <p className="text-gray-600 text-sm">Tu proyecto será memorable</p>
+                      <h5 className="font-semibold text-gray-900">
+                        {language === 'es' ? 'Diferenciación auténtica' : 'Authentic differentiation'}
+                      </h5>
+                      <p className="text-gray-600 text-sm">
+                        {language === 'es'
+                          ? 'Tu marca contará su historia con una voz única'
+                          : 'Your brand will tell its story with a unique voice'
+                        }
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 bg-wine-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-xs">✓</span>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-gray-900">Soluciones escalables</h5>
-                      <p className="text-gray-600 text-sm">Sistemas que crecen con tu visión</p>
+                      <h5 className="font-semibold text-gray-900">
+                        {language === 'es' ? 'Soluciones escalables' : 'Scalable solutions'}
+                      </h5>
+                      <p className="text-gray-600 text-sm">
+                        {language === 'es'
+                          ? 'Sistemas que evolucionan contigo y con tu visión'
+                          : 'Systems that evolve with you and your vision'
+                        }
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="order-1 lg:order-2 bg-gold-50 p-8 rounded-2xl border border-gold-100">
-                <div className="text-4xl mb-4">⚡</div>
-                <h3 className="text-2xl font-bold text-gold-700 mb-4">La Transformación</h3>
+              <div className="order-1 lg:order-2 bg-gradient-to-br from-wine-50 to-coral-50 p-8 rounded-2xl border border-wine-100">
+                <div className="text-4xl mb-4">🔥</div>
+                <h3 className="text-2xl font-bold text-wine-700 mb-4">
+                  {language === 'es' ? 'La Transformación' : 'The Transformation'}
+                </h3>
                 <p className="text-gray-700 mb-4 leading-relaxed">
-                  Descubrí que el código podía ser tan expresivo como una canción. 
-                  No abandoné el arte, lo expandí. Ahora cada proyecto es una sinfonía 
-                  donde creatividad y tecnología danzan juntas.
+                  {language === 'es'
+                    ? 'Descubrí que la tecnología no tenía por qué ser fría. El diseño puede emocionar, el desarrollo puede inspirar, y un buen sitio web puede ser una experiencia sensorial.'
+                    : 'I discovered that technology didn\'t have to be cold. Design can excite, development can inspire, and a good website can be a sensory experience.'
+                  }
                 </p>
-                <div className="bg-gold-100 p-4 rounded-lg border-l-4 border-gold-400">
-                  <p className="text-gold-800 italic">
-                    "La mejor tecnología es invisible. Como una buena canción, 
-                    simplemente te hace sentir algo especial."
+                <div className="bg-wine-100 p-4 rounded-lg border-l-4 border-wine-400">
+                  <p className="text-wine-800 italic font-medium">
+                    "{language === 'es'
+                      ? 'La mejor tecnología es invisible —como una buena canción, simplemente te hace sentir algo especial.'
+                      : 'The best technology is invisible —like a good song, it simply makes you feel something special.'
+                    }"
                   </p>
                 </div>
               </div>
@@ -146,57 +226,56 @@ const About = () => {
       <section className="py-20 bg-gray-900 text-white">
         <div className="container-max">
           <div className="text-center mb-12">
+            <div className="text-4xl mb-4">🧠</div>
             <h2 className="text-3xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-coral-400 to-gold-400 bg-clip-text text-white font-extrabold">
-                Stack Tecnológico
+              <span className="bg-gradient-to-r from-coral-400 to-salmon-400 bg-clip-text text-white">
+                {language === 'es' ? 'Stack Tecnológico' : 'Tech Stack'}
               </span>
             </h2>
-            <p className="text-gray-300">Herramientas para crear experiencias digitales</p>
+            <p className="text-gray-300">
+              {language === 'es' ? 'Herramientas para crear experiencias digitales' : 'Tools to create digital experiences'}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 category: 'Frontend',
-                icon: '⚡',
-                tools: ['React', 'Next.js', 'TypeScript', 'TailwindCSS'],
-                color: 'from-blue-500 to-cyan-500'
+                icon: '⚛️',
+                tools: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS']
               },
               {
                 category: 'Backend',
-                icon: '🛠️',
-                tools: ['Node.js', 'PostgreSQL', 'APIs REST', 'Supabase'],
-                color: 'from-green-500 to-teal-500'
+                icon: '🔧',
+                tools: ['Node.js', 'PostgreSQL', 'REST APIs', 'Supabase']
               },
               {
-                category: 'Diseño',
+                category: language === 'es' ? 'Diseño' : 'Design',
                 icon: '🎨',
-                tools: ['Figma', 'Adobe CC', 'Framer', 'Canva'],
-                color: 'from-purple-500 to-pink-500'
+                tools: ['Figma', 'Adobe CC', 'Framer', 'Canva']
               },
               {
                 category: 'DevOps',
                 icon: '🚀',
-                tools: ['Git', 'Vercel', 'Docker', 'CI/CD'],
-                color: 'from-orange-500 to-red-500'
+                tools: ['Git', 'Vercel', 'Docker', 'CI/CD']
               }
-            ].map((stack) => (
+            ].map((stack, index) => (
               <div
-                key={stack.category}
-                className="bg-gray-800 rounded-xl p-6 hover:bg-gray-750 transition-colors"
+                key={index}
+                className="bg-gray-800 p-6 rounded-2xl border-2 border-gray-700 hover:border-wine-700 hover:border-2 transition-all duration-300 group"
               >
-                <div className={`w-12 h-12 bg-gradient-to-r ${stack.color} rounded-lg flex items-center justify-center text-xl mb-4`}>
-                  {stack.icon}
+                <div className="text-center mb-4">
+                  <div className="text-3xl mb-2">{stack.icon}</div>
+                  <h3 className="text-lg font-bold text-white mb-2">{stack.category}</h3>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">{stack.category}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {stack.tools.map((tool, index) => (
-                    <span
-                      key={index}
-                      className="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs"
+                <div className="space-y-2">
+                  {stack.tools.map((tool, toolIndex) => (
+                    <div
+                      key={toolIndex}
+                      className="bg-gray-700 px-3 py-2 rounded-lg text-sm text-gray-300 text-center group-hover:bg-gray-600 transition-colors"
                     >
                       {tool}
-                    </span>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -210,132 +289,77 @@ const About = () => {
         <div className="container-max">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Sígueme en mis redes
+              {language === 'es' ? 'Conectemos' : 'Let\'s Connect'}
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Comparto mi proceso creativo, reflexiones sobre tecnología y música, 
-              y el día a día de un artista convertido en desarrollador.
+            <p className="text-gray-600">
+              {language === 'es' 
+                ? 'Sígueme en mis redes y conocé mi proceso creativo'
+                : 'Follow me on social media and discover my creative process'
+              }
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                name: 'Linktree',
-                description: 'Todos mis enlaces en un lugar',
-                icon: '🌳',
-                url: 'https://linktr.ee/jonaperez10',
-                color: 'tech',
-                bgColor: 'bg-wine-50',
-                borderColor: 'border-wine-200',
-                hoverColor: 'hover:border-coral-200'
-              },
-              {
-                name: 'LinkedIn',
-                description: 'Conexiones profesionales',
-                icon: '💼',
-                url: 'https://www.linkedin.com/in/jonathanperez-dev/',
-                color: 'wine',
-                bgColor: 'bg-wine-50',
-                borderColor: 'border-wine-200',
-                hoverColor: 'hover:border-coral-200'
-              },
-              {
-                name: 'Instagram',
-                description: 'Proceso creativo y lifestyle',
-                icon: '📸',
-                url: 'https://www.instagram.com/jonathan_perez018/',
-                color: 'coral',
-                bgColor: 'bg-wine-50',
-                borderColor: 'border-wine-200',
-                hoverColor: 'hover:border-coral-400'
-              },
-              {
-                name: 'Spotify',
-                description: 'Mi música y playlists',
-                icon: '🎵',
-                url: 'https://open.spotify.com/user/31r6ak4edu5t2yrzj7wtzaifvcdm?si=bd7c49bacfde4868',
-                color: 'tech',
-                bgColor: 'bg-wine-50',
-                borderColor: 'border-wine-200',
-                hoverColor: 'hover:border-coral-400'
-              }
-            ].map((social, index) => (
-              <a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`group ${social.bgColor} ${social.borderColor} ${social.hoverColor} border-2 rounded-xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:scale-105 block`}
-              >
-                <div className={`w-16 h-16 group-hover:bg-${social.color}-500 rounded-xl flex items-center justify-center text-2xl mx-auto mb-4 transition-all duration-300`}>
-                  <span className="group-hover:scale-110 transition-transform duration-300">{social.icon}</span>
-                </div>
-                <h3 className={`text-lg font-bold text-coral-700 group-hover:text-${social.color}-600 mb-2 transition-colors duration-300`}>
-                  {social.name}
-                </h3>
-                <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-300">
-                  {social.description}
-                </p>
-                <div className={`mt-4 text-coral-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
-                  Seguir →
-                </div>
-              </a>
-            ))}
-          </div>
+          <div className="flex justify-center space-x-6">
+            <a
+              href="https://linktr.ee/jonaperez10"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-100 hover:border-green-300 transition-all duration-300 hover:scale-105"
+            >
+              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-3 group-hover:bg-green-600 transition-colors">
+                <i className="fa fa-link text-white text-xl"></i>
+              </div>
+              <span className="font-semibold text-gray-900">Linktree</span>
+              <span className="text-sm text-gray-600">
+                {language === 'es' ? 'Todos mis enlaces' : 'All my links'}
+              </span>
+            </a>
 
-          <div className="text-center mt-12">
-            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-coral-50 border border-coral-200 rounded-full">
-              <div className="w-2 h-2 bg-coral-400 rounded-full animate-pulse"></div>
-              <span className="text-coral-700 text-sm font-medium">Activo diariamente</span>
-            </div>
+            <a
+              href="https://www.instagram.com/jonathan_perez018/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center p-6 bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl border border-pink-100 hover:border-pink-300 transition-all duration-300 hover:scale-105"
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center mb-3 group-hover:from-pink-600 group-hover:to-rose-600 transition-all">
+                <i className="fab fa-instagram text-white text-xl"></i>
+              </div>
+              <span className="font-semibold text-gray-900">Instagram</span>
+              <span className="text-sm text-gray-600">
+                {language === 'es' ? 'Proceso creativo' : 'Creative process'}
+              </span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/jonathanperez-dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 hover:border-blue-300 transition-all duration-300 hover:scale-105"
+            >
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-3 group-hover:bg-blue-700 transition-colors">
+                <i className="fab fa-linkedin text-white text-xl"></i>
+              </div>
+              <span className="font-semibold text-gray-900">LinkedIn</span>
+              <span className="text-sm text-gray-600">
+                {language === 'es' ? 'Red profesional' : 'Professional network'}
+              </span>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-coral-600 text-black">
+      {/* Frase Final */}
+      <section className="py-20 bg-coral-900 text-white">
         <div className="container-max text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            ¿Listo para tu próximo proyecto?
-          </h2>
-          
-          <p className="text-xl mb-8 max-w-2xl mx-auto text-black">
-            Tu marca no será una más: será memorable. 
-            Cada gran proyecto comienza con una conversación.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <button className="bg-white text-coral-500 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
-              Crear Juntos
-            </button>
-            <button className="border-2 border-white/30 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
-              Ver Portfolio
-            </button>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 text-black">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-500/100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl ">🎨</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Sensibilidad Artística</h3>
-              <p className=" text-sm text-black">Creatividad musical aplicada al código</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-500/100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">⚡</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Excelencia Técnica</h3>
-              <p className="text-black text-sm">Código limpio y escalable</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-500/100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🎆</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Marca Memorable</h3>
-              <p className="text-black text-sm">Proyectos que no se olvidan</p>
-            </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-5xl mb-6">💫</div>
+            <blockquote className="text-2xl md:text-3xl font-bold mb-6 leading-relaxed">
+              {language === 'es' 
+                ? '"No construyo sitios web. Construyo emociones digitales."'
+                : '"I don\'t build websites. I build digital emotions."'
+              }
+            </blockquote>
+            <cite className="text-lg text-gray-300">— Jona</cite>
           </div>
         </div>
       </section>

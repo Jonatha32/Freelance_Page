@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../components/LanguageSelector';
 
 const Services = () => {
+  const { language } = useLanguage();
   const [showModal, setShowModal] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [currentStep, setCurrentStep] = useState(0);
@@ -88,43 +90,51 @@ const Services = () => {
     {
       id: 'desarrollo',
       icon: '🚀',
-      title: 'Desarrollo & Tecnología',
-      subtitle: 'Código que cobra vida',
-      description: 'Transformo ideas en experiencias digitales potentes y escalables.',
+      title: language === 'es' ? 'Desarrollo & Tecnología' : 'Development & Technology',
+      subtitle: language === 'es' ? 'Código que cobra vida' : 'Code that comes to life',
+      description: language === 'es' ? 'Transformo ideas en experiencias digitales potentes y escalables.' : 'I transform ideas into powerful and scalable digital experiences.',
       gradient: 'from-blue-500 to-cyan-500',
       services: [
         {
-          name: 'Desarrollo Web Frontend',
-          description: 'Sitios modernos que convierten visitantes en clientes.',
-          price: 'Desde $800',
-          includes: ['Diseño responsive', 'Optimización SEO', 'Animaciones suaves', 'Soporte 30 días']
+          name: language === 'es' ? 'Desarrollo Web Frontend' : 'Frontend Web Development',
+          description: language === 'es' ? 'Sitios modernos que convierten visitantes en clientes.' : 'Modern sites that convert visitors into clients.',
+          price: language === 'es' ? 'Desde $800' : 'From $800',
+          includes: language === 'es' 
+            ? ['Diseño responsive', 'Optimización SEO', 'Animaciones suaves', 'Soporte 30 días']
+            : ['Responsive design', 'SEO optimization', 'Smooth animations', '30-day support']
         },
         {
-          name: 'Aplicaciones React',
-          description: 'Web apps escalables que crecen con tu negocio.',
-          price: 'Desde $1,200',
-          includes: ['Arquitectura sólida', 'Estado global', 'APIs integradas', 'Testing completo']
+          name: language === 'es' ? 'Aplicaciones React' : 'React Applications',
+          description: language === 'es' ? 'Web apps escalables que crecen con tu negocio.' : 'Scalable web apps that grow with your business.',
+          price: language === 'es' ? 'Desde $1,200' : 'From $1,200',
+          includes: language === 'es'
+            ? ['Arquitectura sólida', 'Estado global', 'APIs integradas', 'Testing completo']
+            : ['Solid architecture', 'Global state', 'Integrated APIs', 'Complete testing']
         },
         {
-          name: 'E-commerce Épico',
-          description: 'Tiendas online que venden mientras duermes.',
-          price: 'Desde $1,500',
-          includes: ['Carrito inteligente', 'Pagos seguros', 'Panel admin', 'Analytics avanzado']
+          name: language === 'es' ? 'E-commerce Épico' : 'Epic E-commerce',
+          description: language === 'es' ? 'Tiendas online que venden mientras duermes.' : 'Online stores that sell while you sleep.',
+          price: language === 'es' ? 'Desde $1,500' : 'From $1,500',
+          includes: language === 'es'
+            ? ['Carrito inteligente', 'Pagos seguros', 'Panel admin', 'Analytics avanzado']
+            : ['Smart cart', 'Secure payments', 'Admin panel', 'Advanced analytics']
         },
         {
           name: 'Backend & APIs',
-          description: 'Arquitectura sólida y segura para tus datos.',
-          price: 'Desde $1,000',
-          includes: ['Base de datos', 'Autenticación', 'APIs REST', 'Documentación']
+          description: language === 'es' ? 'Arquitectura sólida y segura para tus datos.' : 'Solid and secure architecture for your data.',
+          price: language === 'es' ? 'Desde $1,000' : 'From $1,000',
+          includes: language === 'es'
+            ? ['Base de datos', 'Autenticación', 'APIs REST', 'Documentación']
+            : ['Database', 'Authentication', 'REST APIs', 'Documentation']
         }
       ]
     },
     {
       id: 'diseno',
       icon: '🎨',
-      title: 'Diseño & Experiencia',
-      subtitle: 'Belleza que funciona',
-      description: 'Diseño que no solo se ve bien, sino que convierte y enamora.',
+      title: language === 'es' ? 'Diseño & Experiencia' : 'Design & Experience',
+      subtitle: language === 'es' ? 'Belleza que funciona' : 'Beauty that works',
+      description: language === 'es' ? 'Diseño que no solo se ve bien, sino que convierte y enamora.' : 'Design that not only looks good, but converts and captivates.',
       gradient: 'from-purple-500 to-pink-500',
       services: [
         {
@@ -156,9 +166,9 @@ const Services = () => {
     {
       id: 'contenido',
       icon: '✍️',
-      title: 'Estrategia & Contenido',
-      subtitle: 'Palabras que venden',
-      description: 'Copywriting que conecta, convence y convierte como un imán.',
+      title: language === 'es' ? 'Estrategia & Contenido' : 'Strategy & Content',
+      subtitle: language === 'es' ? 'Palabras que venden' : 'Words that sell',
+      description: language === 'es' ? 'Copywriting que conecta, convence y convierte como un imán.' : 'Copywriting that connects, convinces and converts like a magnet.',
       gradient: 'from-green-500 to-teal-500',
       services: [
         {
@@ -190,9 +200,9 @@ const Services = () => {
     {
       id: 'marketing',
       icon: '📈',
-      title: 'Estrategia & Marketing',
-      subtitle: 'Crecimiento inteligente',
-      description: 'Estrategias que hacen crecer tu marca de forma sostenible.',
+      title: language === 'es' ? 'Estrategia & Marketing' : 'Strategy & Marketing',
+      subtitle: language === 'es' ? 'Crecimiento inteligente' : 'Smart growth',
+      description: language === 'es' ? 'Estrategias que hacen crecer tu marca de forma sostenible.' : 'Strategies that grow your brand sustainably.',
       gradient: 'from-orange-500 to-red-500',
       services: [
         {
@@ -224,9 +234,9 @@ const Services = () => {
     {
       id: 'educacion',
       icon: '🌟',
-      title: 'Educación & Mentoría',
-      subtitle: 'Conocimiento que transforma',
-      description: 'Comparto lo que sé para que puedas brillar con luz propia.',
+      title: language === 'es' ? 'Educación & Mentoría' : 'Education & Mentoring',
+      subtitle: language === 'es' ? 'Conocimiento que transforma' : 'Knowledge that transforms',
+      description: language === 'es' ? 'Comparto lo que sé para que puedas brillar con luz propia.' : 'I share what I know so you can shine with your own light.',
       gradient: 'from-indigo-500 to-purple-500',
       services: [
         {
@@ -259,32 +269,38 @@ const Services = () => {
 
   const packs = [
     {
-      name: 'Pack Raíz',
-      subtitle: 'Para empezar con fuerza',
+      name: language === 'es' ? 'Pack Raíz' : 'Root Pack',
+      subtitle: language === 'es' ? 'Para empezar con fuerza' : 'To start strong',
       price: '$1,200',
       originalPrice: '$1,500',
-      description: 'Landing page + branding básico + copywriting',
-      includes: ['Landing page responsive', 'Logo + paleta', 'Copywriting persuasivo', 'SEO básico'],
+      description: language === 'es' ? 'Landing page + branding básico + copywriting' : 'Landing page + basic branding + copywriting',
+      includes: language === 'es' 
+        ? ['Landing page responsive', 'Logo + paleta', 'Copywriting persuasivo', 'SEO básico']
+        : ['Responsive landing page', 'Logo + palette', 'Persuasive copywriting', 'Basic SEO'],
       gradient: 'from-green-400 to-green-600',
       popular: false
     },
     {
-      name: 'Pack Presencia',
-      subtitle: 'Presencia digital completa',
+      name: language === 'es' ? 'Pack Presencia' : 'Presence Pack',
+      subtitle: language === 'es' ? 'Presencia digital completa' : 'Complete digital presence',
       price: '$2,800',
       originalPrice: '$3,500',
-      description: 'Web completa + branding + estrategia de contenido',
-      includes: ['Sitio web completo', 'Branding épico', 'Estrategia contenido', 'Consultoría 3 meses'],
+      description: language === 'es' ? 'Web completa + branding + estrategia de contenido' : 'Complete website + branding + content strategy',
+      includes: language === 'es'
+        ? ['Sitio web completo', 'Branding épico', 'Estrategia contenido', 'Consultoría 3 meses']
+        : ['Complete website', 'Epic branding', 'Content strategy', '3-month consulting'],
       gradient: 'from-blue-400 to-blue-600',
       popular: true
     },
     {
-      name: 'Pack Fuego',
-      subtitle: 'La experiencia completa',
+      name: language === 'es' ? 'Pack Fuego' : 'Fire Pack',
+      subtitle: language === 'es' ? 'La experiencia completa' : 'The complete experience',
       price: '$4,500',
       originalPrice: '$6,000',
-      description: 'E-commerce + branding + marketing + mentoría',
-      includes: ['E-commerce completo', 'Branding premium', 'Estrategia marketing', 'Mentoría 6 meses'],
+      description: language === 'es' ? 'E-commerce + branding + marketing + mentoría' : 'E-commerce + branding + marketing + mentoring',
+      includes: language === 'es'
+        ? ['E-commerce completo', 'Branding premium', 'Estrategia marketing', 'Mentoría 6 meses']
+        : ['Complete e-commerce', 'Premium branding', 'Marketing strategy', '6-month mentoring'],
       gradient: 'from-red-400 to-red-600',
       popular: false
     }
@@ -306,7 +322,7 @@ const Services = () => {
             transition={{ delay: 0.2 }}
           >
             <span className="text-gradient text-black-600/90">
-              SERVICIOS
+              {language === 'es' ? 'SERVICIOS' : 'SERVICES'}
             </span>
             <br />
           </motion.h1>
@@ -317,9 +333,10 @@ const Services = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            🎨 <span className="font-bold text-coral-600">Creatividad artística</span> + 
-            ⚡ <span className="font-bold text-gold-600">excelencia técnica</span> + 
-            🚀 <span className="font-bold text-mint-600">estrategia que funciona</span>
+            {language === 'es' 
+              ? <>🎨 <span className="font-bold text-coral-600">Creatividad artística</span> + ⚡ <span className="font-bold text-gold-600">excelencia técnica</span> + 🚀 <span className="font-bold text-mint-600">estrategia que funciona</span></>
+              : <>🎨 <span className="font-bold text-coral-600">Artistic creativity</span> + ⚡ <span className="font-bold text-gold-600">technical excellence</span> + 🚀 <span className="font-bold text-mint-600">strategy that works</span></>
+            }
           </motion.p>
           
           <motion.div
@@ -338,8 +355,12 @@ const Services = () => {
           className="mb-20"
         >
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-black text-gray-900 mb-4">🔥 PACKS </h2>
-            <p className="text-xl text-gray-600">Combos que maximizan tu inversión y resultados</p>
+            <h2 className="text-4xl font-black text-gray-900 mb-4">
+              {language === 'es' ? '🔥 PACKS' : '🔥 PACKAGES'}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {language === 'es' ? 'Combos que maximizan tu inversión y resultados' : 'Combos that maximize your investment and results'}
+            </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -356,7 +377,7 @@ const Services = () => {
                 {pack.popular && (
                   <div className="absolute -top-10 left-1/2 transform -translate-x-1/2">
                     <span className="bg-gradient-to-r px-6 py-0 rounded font-bold text-20px font-sans shadow-lg">
-                      🌟 MÁS POPULAR
+                      {language === 'es' ? ' MÁS POPULAR' : 'MOST POPULAR'}
                     </span>
                   </div>
                 )}
@@ -384,14 +405,14 @@ const Services = () => {
                 
                 <button 
                   onClick={() => {
-                    const packKey = pack.name === 'Pack Raíz' ? 'pack-raiz' : 
-                                   pack.name === 'Pack Presencia' ? 'pack-presencia' : 
-                                   pack.name === 'Pack Fuego' ? 'pack-fuego' : 'general';
+                    const packKey = (pack.name === 'Pack Raíz' || pack.name === 'Root Pack') ? 'pack-raiz' : 
+                                   (pack.name === 'Pack Presencia' || pack.name === 'Presence Pack') ? 'pack-presencia' : 
+                                   (pack.name === 'Pack Fuego' || pack.name === 'Fire Pack') ? 'pack-fuego' : 'general';
                     openModal(packKey);
                   }}
                   className={`w-full py-4 rounded-xl font-bold text-white transition-all duration-300 bg-gradient-to-r ${pack.gradient} hover:scale-105 hover:shadow-lg`}
                 >
-                  📝 Solicitar Propuesta
+                  {language === 'es' ? '📝 Solicitar Propuesta' : '📝 Request Proposal'}
                 </button>
               </motion.div>
             ))}
@@ -456,7 +477,7 @@ const Services = () => {
                       onClick={() => openModal(pillar.id)}
                       className={`w-full py-3 rounded-lg font-bold text-white transition-all duration-300 bg-gradient-to-r ${pillar.gradient} hover:scale-105 hover:shadow-md group-hover:shadow-lg`}
                     >
-                      📝 Solicitar Propuesta
+                      {language === 'es' ? '📝 Solicitar Propuesta' : '📝 Request Proposal'}
                     </button>
                   </motion.div>
                 ))}
@@ -481,41 +502,46 @@ const Services = () => {
           <div className="relative z-10">
             <h2 className="text-4xl md:text-5xl font-black mb-6">
               <span className=" from-coral-400">
-                ¿NO ENCUENTRAS
+                {language === 'es' ? '¿NO ENCUENTRAS' : 'CAN\'T FIND'}
               </span>
               <br />
-              <span className="text-white">LO QUE BUSCAS?</span>
+              <span className="text-white">{language === 'es' ? 'LO QUE BUSCAS?' : 'WHAT YOU\'RE LOOKING FOR?'}</span>
             </h2>
             
             <p className="text-xl text-white/90 mb-4 max-w-3xl mx-auto">
-              🎯 Cada proyecto es único, como una obra de arte digital.
+              {language === 'es' ? '🎯 Cada proyecto es único, como una obra de arte digital.' : '🎯 Every project is unique, like a digital work of art.'}
             </p>
             <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-              Conversemos sobre tu visión y creemos algo épico juntos. 
-              <p className="text-coral-300 font-bold"> Sin límites, sin moldes, solo resultados.</p>
+              {language === 'es' 
+                ? 'Conversemos sobre tu visión y creemos algo épico juntos.'
+                : 'Let\'s talk about your vision and create something epic together.'
+              }
+              <p className="text-coral-300 font-bold">
+                {language === 'es' ? ' Sin límites, sin moldes, solo resultados.' : ' No limits, no molds, just results.'}
+              </p>
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a href="/contacto" className="bg-gradient-to-r from-coral-500 to-gold-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl inline-block">
-                📝 Solicitar Propuesta Gratuita
+                {language === 'es' ? '📝 Solicitar Propuesta Gratuita' : '📝 Request Free Proposal'}
               </a>
               <a href="https://wa.me/1234567890?text=Hola%20Jona,%20me%20interesa%20conocer%20más%20sobre%20tus%20servicios" target="_blank" rel="noopener noreferrer" className="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all duration-300 inline-block">
-                💬 Consulta Rápida WhatsApp
+                {language === 'es' ? '💬 Consulta Rápida WhatsApp' : '💬 Quick WhatsApp Consultation'}
               </a>
             </div>
             
             <div className="mt-8 flex justify-center items-center space-x-6 text-white/70">
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="font-medium">Respuesta en 24h</span>
+                <span className="font-medium">{language === 'es' ? 'Respuesta en 24h' : 'Response in 24h'}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <span className="text-xl">🎨</span>
-                <span className="font-medium">Propuesta personalizada</span>
+                <span className="font-medium">{language === 'es' ? 'Propuesta personalizada' : 'Personalized proposal'}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <span className="text-xl">⚡</span>
-                <span className="font-medium">Sin compromiso</span>
+                <span className="font-medium">{language === 'es' ? 'Sin compromiso' : 'No commitment'}</span>
               </div>
             </div>
           </div>
@@ -529,8 +555,12 @@ const Services = () => {
                 {/* Header */}
                 <div className="flex justify-between items-center mb-8">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Solicitar Propuesta</h3>
-                    <p className="text-gray-600">Paso {currentStep + 1} de {selectedCategory && formQuestions[selectedCategory] ? formQuestions[selectedCategory].length : 5}</p>
+                    <h3 className="text-2xl font-bold text-gray-900">
+                      {language === 'es' ? 'Solicitar Propuesta' : 'Request Proposal'}
+                    </h3>
+                    <p className="text-gray-600">
+                      {language === 'es' ? `Paso ${currentStep + 1} de` : `Step ${currentStep + 1} of`} {selectedCategory && formQuestions[selectedCategory] ? formQuestions[selectedCategory].length : 5}
+                    </p>
                   </div>
                   <button onClick={closeModal} className="text-gray-400 hover:text-gray-600">
                     ✕

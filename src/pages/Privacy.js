@@ -1,29 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../components/LanguageSelector';
 
 const Privacy = () => {
+  const { language } = useLanguage();
+  
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container-max py-20">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Política de Privacidad</h1>
-            <p className="text-gray-600">Última actualización: Octubre 2025</p>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              {language === 'es' ? 'Política de Privacidad' : 'Privacy Policy'}
+            </h1>
+            <p className="text-gray-600">
+              {language === 'es' ? 'Última actualización: Octubre 2025' : 'Last updated: October 2025'}
+            </p>
           </div>
 
           <div className="bg-white rounded-2xl p-8 shadow-sm">
             {/* Introducción */}
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Introducción</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                {language === 'es' ? '1. Introducción' : '1. Introduction'}
+              </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Valoramos y respetamos su privacidad. Esta política describe cómo 
-                recopilamos, utilizamos, almacenamos y protegemos su información personal cuando 
-                utiliza nuestros servicios o visita nuestro sitio web.
+                {language === 'es'
+                  ? 'Valoramos y respetamos su privacidad. Esta política describe cómo recopilamos, utilizamos, almacenamos y protegemos su información personal cuando utiliza nuestros servicios o visita nuestro sitio web.'
+                  : 'We value and respect your privacy. This policy describes how we collect, use, store and protect your personal information when you use our services or visit our website.'
+                }
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Al utilizar nuestros servicios, usted acepta las prácticas descritas en esta 
-                política de privacidad.
+                {language === 'es'
+                  ? 'Al utilizar nuestros servicios, usted acepta las prácticas descritas en esta política de privacidad.'
+                  : 'By using our services, you agree to the practices described in this privacy policy.'
+                }
               </p>
             </section>
 
@@ -198,13 +210,13 @@ const Privacy = () => {
                   to="/terminos" 
                   className="text-coral-600 hover:text-coral-700 font-medium transition-colors"
                 >
-                  ← Términos y Condiciones
+                  {language === 'es' ? '← Términos y Condiciones' : '← Terms and Conditions'}
                 </Link>
                 <Link 
                   to="/" 
                   className="bg-coral-500 hover:bg-coral-600 text-white px-6 py-2 rounded-lg font-medium transition-colors"
                 >
-                  Volver al Inicio
+                  {language === 'es' ? 'Volver al Inicio' : 'Back to Home'}
                 </Link>
               </div>
             </div>

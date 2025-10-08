@@ -1,72 +1,74 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../components/LanguageSelector';
 
 const Portfolio = () => {
+  const { language } = useLanguage();
   const [activeFilter, setActiveFilter] = useState('todos');
 
   const projects = [
     {
       id: 1,
-      title: 'E-commerce Boutique',
+      title: language === 'es' ? 'E-commerce Boutique' : 'E-commerce Boutique',
       category: 'desarrollo',
-      description: 'Tienda online completa con carrito de compras y pasarela de pagos.',
+      description: language === 'es' ? 'Tienda online completa con carrito de compras y pasarela de pagos.' : 'Complete online store with shopping cart and payment gateway.',
       technologies: ['React', 'Node.js', 'Stripe'],
-      result: '300% aumento en ventas',
+      result: language === 'es' ? '300% aumento en ventas' : '300% increase in sales',
       github: 'https://github.com/Jonatha32/EcoWalk',
       demo: 'https://jonatha32.github.io/EcoWalk/',
       image: 'https://github.com/Jonatha32/EcoWalk/blob/main/public/EcoWalk.png?raw=true'
     },
     {
       id: 2,
-      title: 'Identidad Visual Restaurante',
+      title: language === 'es' ? 'Identidad Visual Restaurante' : 'Restaurant Visual Identity',
       category: 'branding',
-      description: 'Branding completo para cadena de restaurantes gourmet.',
+      description: language === 'es' ? 'Branding completo para cadena de restaurantes gourmet.' : 'Complete branding for gourmet restaurant chain.',
       technologies: ['Adobe Creative', 'Figma', 'Brand Guidelines'],
-      result: 'Reconocimiento +80%',
+      result: language === 'es' ? 'Reconocimiento +80%' : 'Recognition +80%',
       github: null,
       demo: '/le-raffine',
       image: '/El texto del párrafo-Photoroom (1).png'
     },
     {
       id: 3,
-      title: 'App de Compra y Venta de Productos en desuso',
+      title: language === 'es' ? 'App de Compra y Venta de Productos en desuso' : 'Used Products Buy & Sell App',
       category: 'desarrollo',
-      description: 'Aplicación web para compra y venta de productos electrónicos en desuso.',
+      description: language === 'es' ? 'Aplicación web para compra y venta de productos electrónicos en desuso.' : 'Web application for buying and selling used electronic products.',
       technologies: ['Flutter', 'React', 'Firebase'],
-      result: 'Tiempo de gestión -60%',
+      result: language === 'es' ? 'Tiempo de gestión -60%' : 'Management time -60%',
       github: 'https://github.com/RodrigoNovelli/Cass-',
       demo: 'https://jonatha32.github.io/Casse_Landing_Page/',
       image: 'https://github.com/Jonatha32/Casse_Landing_Page/blob/main/images/Cass%C3%A9.png?raw=true'
     },
     {
       id: 4,
-      title: 'Campaña Digital Startup - Bytech',
+      title: language === 'es' ? 'Campaña Digital Startup - Bytech' : 'Startup Digital Campaign - Bytech',
       category: 'branding',
-      description: 'Estrategia visual y digital para lanzamiento de startup tech.',
+      description: language === 'es' ? 'Estrategia visual y digital para lanzamiento de startup tech.' : 'Visual and digital strategy for tech startup launch.',
       technologies: ['Brand Strategy', 'Social Media', 'Web Design'],
-      result: '1M+ impresiones',
+      result: language === 'es' ? '1M+ impresiones' : '1M+ impressions',
       github: null,
       demo: 'https://jonatha32.github.io/Startup_App/',
       image: '/22.png'
     },
     {
       id: 5,
-      title: 'Portfolio Arquitecto',
+      title: language === 'es' ? 'Portfolio Arquitecto' : 'Architect Portfolio',
       category: 'desarrollo',
-      description: 'Sitio web showcase para estudio de arquitectura.',
+      description: language === 'es' ? 'Sitio web showcase para estudio de arquitectura.' : 'Showcase website for architecture studio.',
       technologies: ['Next.js', 'Framer Motion', 'Sanity CMS'],
-      result: 'Clientes premium +200%',
+      result: language === 'es' ? 'Clientes premium +200%' : 'Premium clients +200%',
       github: 'https://github.com/tu-usuario/architect-portfolio',
       demo: 'https://jonatha32.github.io/Portfolio_showcase/',
       image: '/El texto del párrafo-Photoroom(2).png'
     },
     {
       id: 6,
-      title: 'Rebrand Empresa Familiar',
+      title: language === 'es' ? 'Rebrand Empresa Familiar' : 'Family Business Rebrand',
       category: 'branding',
-      description: 'Renovación completa de identidad para empresa de 50 años.',
+      description: language === 'es' ? 'Renovación completa de identidad para empresa de 50 años.' : 'Complete identity renovation for 50-year-old company.',
       technologies: ['Brand Research', 'Logo Design', 'Guidelines'],
-      result: 'Percepción moderna +90%',
+      result: language === 'es' ? 'Percepción moderna +90%' : 'Modern perception +90%',
       github: null,
       demo: '/empresa-familiar',
       image: '/wine.png'
@@ -74,8 +76,8 @@ const Portfolio = () => {
   ];
 
   const filters = [
-    { key: 'todos', label: 'Todos' },
-    { key: 'desarrollo', label: 'Desarrollo' },
+    { key: 'todos', label: language === 'es' ? 'Todos' : 'All' },
+    { key: 'desarrollo', label: language === 'es' ? 'Desarrollo' : 'Development' },
     { key: 'branding', label: 'Branding' }
   ];
 
@@ -83,21 +85,48 @@ const Portfolio = () => {
     ? projects 
     : projects.filter(project => project.category === activeFilter);
 
-  const testimonials = [
+  const projectInsights = [
     {
-      name: 'María González',
-      company: 'Boutique Elena',
-      text: 'El e-commerce superó todas nuestras expectativas. Las ventas se triplicaron en 3 meses.'
+      projectId: 1,
+      title: language === 'es' ? 'E-commerce Boutique' : 'E-commerce Boutique',
+      insight: language === 'es' 
+        ? 'Este proyecto me permitió integrar tecnologías modernas como React y Stripe para crear una experiencia de compra fluida. El enfoque en UX/UI resultó clave para el incremento significativo en conversiones.'
+        : 'This project allowed me to integrate modern technologies like React and Stripe to create a smooth shopping experience. The focus on UX/UI was key to the significant increase in conversions.'
     },
     {
-      name: 'Dr. Carlos Ruiz',
-      company: 'Clínica Salud+',
-      text: 'La aplicación de gestión médica revolucionó nuestro flujo de trabajo. Altamente recomendado.'
+      projectId: 2,
+      title: language === 'es' ? 'Identidad Visual Restaurante' : 'Restaurant Visual Identity',
+      insight: language === 'es'
+        ? 'Desarrollar un branding completo para el sector gastronómico requirió equilibrar elegancia y funcionalidad. La coherencia visual en todos los puntos de contacto fue fundamental para el reconocimiento de marca.'
+        : 'Developing complete branding for the gastronomic sector required balancing elegance and functionality. Visual consistency across all touchpoints was fundamental for brand recognition.'
     },
     {
-      name: 'Ana Martínez',
-      company: 'Estudio AM Arquitectura',
-      text: 'Mi nuevo portfolio web ha atraído clientes de alto nivel que antes no podía alcanzar.'
+      projectId: 3,
+      title: language === 'es' ? 'App Compra/Venta Productos' : 'Buy/Sell Products App',
+      insight: language === 'es'
+        ? 'La sostenibilidad fue el eje central de este proyecto. Crear una plataforma que facilite la economía circular mientras mantiene una interfaz intuitiva presentó desafíos técnicos interesantes que resolvimos con Firebase.'
+        : 'Sustainability was the central axis of this project. Creating a platform that facilitates the circular economy while maintaining an intuitive interface presented interesting technical challenges that we solved with Firebase.'
+    },
+    {
+      projectId: 4,
+      title: language === 'es' ? 'Campaña Digital Startup' : 'Startup Digital Campaign',
+      insight: language === 'es'
+        ? 'Trabajar con una startup tech me permitió explorar estrategias digitales innovadoras. La clave estuvo en crear una identidad visual que transmitiera confianza y modernidad desde el primer contacto.'
+        : 'Working with a tech startup allowed me to explore innovative digital strategies. The key was creating a visual identity that conveyed trust and modernity from the first contact.'
+    },
+    {
+      projectId: 5,
+      title: language === 'es' ? 'Portfolio Arquitecto' : 'Architect Portfolio',
+      insight: language === 'es'
+        ? 'Este proyecto demostró cómo un diseño web bien ejecutado puede transformar la percepción profesional. Next.js y Framer Motion fueron esenciales para crear una experiencia visual que refleje la calidad arquitectónica.'
+        : 'This project demonstrated how well-executed web design can transform professional perception. Next.js and Framer Motion were essential to create a visual experience that reflects architectural quality.'
+    },
+    {
+      projectId: 6,
+      title: language === 'es' ? 'Rebrand Empresa Familiar' : 'Family Business Rebrand',
+      insight: language === 'es'
+        ? 'Renovar la identidad de una empresa con 50 años de historia requirió sensibilidad especial. El desafío fue modernizar sin perder la esencia familiar, logrando una transición que respetara el legado mientras atraía nuevas generaciones.'
+        : 'Renewing the identity of a company with 50 years of history required special sensitivity. The challenge was to modernize without losing the family essence, achieving a transition that respected the legacy while attracting new generations.'
     }
   ];
 
@@ -108,7 +137,7 @@ const Portfolio = () => {
         <div className="container-max text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Portfolio</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Proyectos reales con resultados medibles
+            {language === 'es' ? 'Proyectos reales con resultados medibles' : 'Real projects with measurable results'}
           </p>
         </div>
       </section>
@@ -202,7 +231,7 @@ const Portfolio = () => {
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
-                          Ver Demo
+                          {language === 'es' ? 'Ver Demo' : 'View Demo'}
                         </Link>
                       ) : (
                         <a
@@ -214,7 +243,7 @@ const Portfolio = () => {
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
-                          Ver Demo
+                          {language === 'es' ? 'Ver Demo' : 'View Demo'}
                         </a>
                       )}
                     </div>
@@ -226,32 +255,33 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Testimonios */}
+      {/* Reflexiones del Desarrollador */}
       <section className="py-20 bg-gray-50">
         <div className="container-max">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Testimonios</h2>
-            <p className="text-gray-600">Lo que dicen mis clientes</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              {language === 'es' ? 'Reflexiones del Proceso' : 'Process Insights'}
+            </h2>
+            <p className="text-gray-600">
+              {language === 'es' ? 'Mi perspectiva sobre cada proyecto desarrollado' : 'My perspective on each developed project'}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projectInsights.map((insight, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border-l-4 border-coral-500"
               >
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-lg">★</span>
-                  ))}
+                <div className="flex items-center mb-4">
+                  <div className="w-8 h-8 bg-coral-500 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
+                    {insight.projectId}
+                  </div>
+                  <h3 className="font-semibold text-gray-900 text-sm">{insight.title}</h3>
                 </div>
-                <p className="text-gray-700 mb-6 leading-relaxed italic">
-                  "{testimonial.text}"
+                <p className="text-gray-700 leading-relaxed text-sm">
+                  {insight.insight}
                 </p>
-                <div className="border-t pt-4">
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                  <div className="text-sm text-gray-500">{testimonial.company}</div>
-                </div>
               </div>
             ))}
           </div>
@@ -259,16 +289,20 @@ const Portfolio = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-coral-600">
+      <section className="py-20 bg-coral-900">
         <div className="container-max text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            ¿Listo para tu próximo proyecto?
+            {language === 'es' ? '¿Listo para tu próximo proyecto?' : 'Ready for your next project?'}
           </h2>
           <p className="text-coral-100 mb-8 max-w-2xl mx-auto">
-            Conversemos sobre tu visión y creemos algo extraordinario juntos.
+            {language === 'es' 
+              ? 'Conversemos sobre tu visión y creemos algo extraordinario juntos.'
+              : 'Let\'s talk about your vision and create something extraordinary together.'
+            }
           </p>
-          <button className="inline-flex items-center bg-coral-500 hover:bg-coral-900 text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group">
-            Iniciar Proyecto
+          <button className="inline-flex items-center text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group">
+            {language === 'es' ? 'Iniciar Proyecto' : 'Start Project'}
+            <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
           </button>
         </div>
       </section>

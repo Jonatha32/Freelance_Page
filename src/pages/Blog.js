@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../components/LanguageSelector';
 
 const Blog = () => {
+  const { language } = useLanguage();
   const [selectedPost, setSelectedPost] = useState(null);
   
   const posts = [
@@ -146,13 +148,13 @@ const Blog = () => {
   };
 
   const categories = [
-    { name: 'Todos', emoji: '🌟' },
-    { name: 'Desarrollo', emoji: '💻' },
-    { name: 'Diseño', emoji: '🎨' },
+    { name: language === 'es' ? 'Todos' : 'All', emoji: '🌟' },
+    { name: language === 'es' ? 'Desarrollo' : 'Development', emoji: '💻' },
+    { name: language === 'es' ? 'Diseño' : 'Design', emoji: '🎨' },
     { name: 'UX & Writing', emoji: '✍️' },
     { name: 'SEO', emoji: '📈' },
     { name: 'Freelance', emoji: '🚀' },
-    { name: 'Personal', emoji: '🌱' }
+    { name: language === 'es' ? 'Personal' : 'Personal', emoji: '🌱' }
   ];
 
   if (selectedPost) {
@@ -166,7 +168,7 @@ const Blog = () => {
             }}
             className="mb-8 flex items-center text-coral-600 hover:text-coral-700 transition-colors"
           >
-            ← Volver al blog
+            {language === 'es' ? '← Volver al blog' : '← Back to blog'}
           </button>
           
           <article className="max-w-4xl mx-auto">
@@ -209,11 +211,14 @@ const Blog = () => {
           >
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               <span className="bg-gradient-to-r from-coral-500 to-gold-500 bg-clip-text text-transparent">
-                Entre Notas y Código 🎵💻
+                {language === 'es' ? 'Entre Notas y Código 🎵💻' : 'Between Notes and Code 🎵💻'}
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Un espacio donde el arte y la tecnología se encuentran. Reflexiones, tutoriales y hacks para darle alma a tus proyectos digitales.
+              {language === 'es'
+                ? 'Un espacio donde el arte y la tecnología se encuentran. Reflexiones, tutoriales y hacks para darle alma a tus proyectos digitales.'
+                : 'A space where art and technology meet. Reflections, tutorials and hacks to give soul to your digital projects.'
+              }
             </p>
           </motion.div>
         </div>
@@ -285,10 +290,10 @@ const Blog = () => {
                       {post.type === 'pdf' ? (
                         <>
                           <span>📄</span>
-                          Descargar PDF →
+                          {language === 'es' ? 'Descargar PDF →' : 'Download PDF →'}
                         </>
                       ) : (
-                        'Leer más →'
+                        language === 'es' ? 'Leer más →' : 'Read more →'
                       )}
                     </button>
                   </div>
@@ -308,10 +313,13 @@ const Blog = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              ¿Querés estar un paso adelante?
+              {language === 'es' ? '¿Querés estar un paso adelante?' : 'Want to stay one step ahead?'}
             </h2>
             <p className="text-gray-600 mb-8">
-              Suscribite y recibí ideas frescas directo en tu inbox. Sin spam, solo valor.
+              {language === 'es'
+                ? 'Suscribite y recibí ideas frescas directo en tu inbox. Sin spam, solo valor.'
+                : 'Subscribe and receive fresh ideas directly in your inbox. No spam, just value.'
+              }
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
@@ -321,42 +329,60 @@ const Blog = () => {
                 className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent"
               />
               <button className="bg-gradient-to-r from-coral-500 to-gold-500 text-white px-6 py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300 whitespace-nowrap">
-                Suscribirse
+                {language === 'es' ? 'Suscribirse' : 'Subscribe'}
               </button>
             </div>
             
             <p className="text-gray-500 text-sm mt-4">
-              Puedes cancelar tu suscripción en cualquier momento.
+              {language === 'es'
+                ? 'Puedes cancelar tu suscripción en cualquier momento.'
+                : 'You can cancel your subscription at any time.'
+              }
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Próximamente */}
-      <section className="section-padding bg-gradient-to-br from-gold-600 to-coral-700">
+      <section className="section-padding bg-wine-600">
         <div className="container-max text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
           >
             <h2 className="text-3xl font-bold text-white mb-4">
-              Lo que se viene 👀
+              {language === 'es' ? 'Lo que se viene 👀' : 'What\'s coming 👀'}
             </h2>
             <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-              Estoy cocinando contenido que no vas a encontrar en otro lado:
+              {language === 'es'
+                ? 'Estoy cocinando contenido que no vas a encontrar en otro lado:'
+                : 'I\'m cooking content you won\'t find anywhere else:'
+              }
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <h3 className="text-white font-semibold mb-2">🎥 Video-tutoriales paso a paso</h3>
-                <p className="text-white/80 text-sm">Sin bla-bla, solo práctica</p>
+                <h3 className="text-white font-semibold mb-2">
+                  {language === 'es' ? '🎥 Video-tutoriales paso a paso' : '🎥 Step-by-step video tutorials'}
+                </h3>
+                <p className="text-white/80 text-sm">
+                  {language === 'es' ? 'Sin bla-bla, solo práctica' : 'No blah-blah, just practice'}
+                </p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <h3 className="text-white font-semibold mb-2">📚 Recursos descargables</h3>
-                <p className="text-white/80 text-sm">Templates y guías prácticas</p>
+                <h3 className="text-white font-semibold mb-2">
+                  {language === 'es' ? '📚 Recursos descargables' : '📚 Downloadable resources'}
+                </h3>
+                <p className="text-white/80 text-sm">
+                  {language === 'es' ? 'Templates y guías prácticas' : 'Templates and practical guides'}
+                </p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <h3 className="text-white font-semibold mb-2">🎙️ Podcast semanal</h3>
-                <p className="text-white/80 text-sm">Conversaciones reales sobre freelancing</p>
+                <h3 className="text-white font-semibold mb-2">
+                  {language === 'es' ? '🎙️ Podcast semanal' : '🎙️ Weekly podcast'}
+                </h3>
+                <p className="text-white/80 text-sm">
+                  {language === 'es' ? 'Conversaciones reales sobre freelancing' : 'Real conversations about freelancing'}
+                </p>
               </div>
             </div>
           </motion.div>
