@@ -139,27 +139,35 @@ const Services = () => {
       services: [
         {
           name: 'UX/UI Design',
-          description: 'Interfaces que tus usuarios van a amar usar.',
-          price: 'Desde $600',
-          includes: ['Research UX', 'Wireframes', 'Prototipos', 'Design system']
+          description: language === 'es' ? 'Interfaces que tus usuarios van a amar usar.' : 'Interfaces your users will love to use.',
+          price: language === 'es' ? 'Desde $600' : 'From $600',
+          includes: language === 'es' 
+            ? ['Research UX', 'Wireframes', 'Prototipos', 'Design system']
+            : ['UX Research', 'Wireframes', 'Prototypes', 'Design system']
         },
         {
-          name: 'Branding Digital',
-          description: 'Identidad visual que hace ruido en el mercado.',
-          price: 'Desde $700',
-          includes: ['Logo épico', 'Paleta de colores', 'Tipografías', 'Manual de marca']
+          name: language === 'es' ? 'Branding Digital' : 'Digital Branding',
+          description: language === 'es' ? 'Identidad visual que hace ruido en el mercado.' : 'Visual identity that makes noise in the market.',
+          price: language === 'es' ? 'Desde $700' : 'From $700',
+          includes: language === 'es'
+            ? ['Logo épico', 'Paleta de colores', 'Tipografías', 'Manual de marca']
+            : ['Epic logo', 'Color palette', 'Typography', 'Brand manual']
         },
         {
           name: 'Product Design',
-          description: 'De la idea al prototipo que funciona.',
-          price: 'Desde $900',
-          includes: ['Concepto', 'MVP design', 'User testing', 'Iteraciones']
+          description: language === 'es' ? 'De la idea al prototipo que funciona.' : 'From idea to working prototype.',
+          price: language === 'es' ? 'Desde $900' : 'From $900',
+          includes: language === 'es'
+            ? ['Concepto', 'MVP design', 'User testing', 'Iteraciones']
+            : ['Concept', 'MVP design', 'User testing', 'Iterations']
         },
         {
-          name: 'Diseño Gráfico Creativo',
-          description: 'Gráficos que cuentan historias y generan engagement.',
-          price: 'Desde $400',
-          includes: ['Posts redes', 'Banners web', 'Infografías', 'Material digital']
+          name: language === 'es' ? 'Diseño Gráfico Creativo' : 'Creative Graphic Design',
+          description: language === 'es' ? 'Gráficos que cuentan historias y generan engagement.' : 'Graphics that tell stories and generate engagement.',
+          price: language === 'es' ? 'Desde $400' : 'From $400',
+          includes: language === 'es'
+            ? ['Posts redes', 'Banners web', 'Infografías', 'Material digital']
+            : ['Social posts', 'Web banners', 'Infographics', 'Digital material']
         }
       ]
     },
@@ -172,28 +180,36 @@ const Services = () => {
       gradient: 'from-green-500 to-teal-500',
       services: [
         {
-          name: 'Copywriting que Convierte',
-          description: 'Textos que transforman lectores en compradores.',
-          price: 'Desde $300',
-          includes: ['Headlines épicos', 'CTAs potentes', 'Email sequences', 'Landing copy']
+          name: language === 'es' ? 'Copywriting que Convierte' : 'Converting Copywriting',
+          description: language === 'es' ? 'Textos que transforman lectores en compradores.' : 'Texts that transform readers into buyers.',
+          price: language === 'es' ? 'Desde $300' : 'From $300',
+          includes: language === 'es'
+            ? ['Headlines épicos', 'CTAs potentes', 'Email sequences', 'Landing copy']
+            : ['Epic headlines', 'Powerful CTAs', 'Email sequences', 'Landing copy']
         },
         {
           name: 'UX Writing',
-          description: 'Microtextos que guían y mejoran la experiencia.',
-          price: 'Desde $250',
-          includes: ['Botones claros', 'Mensajes de error', 'Onboarding', 'Tooltips']
+          description: language === 'es' ? 'Microtextos que guían y mejoran la experiencia.' : 'Microtexts that guide and improve the experience.',
+          price: language === 'es' ? 'Desde $250' : 'From $250',
+          includes: language === 'es'
+            ? ['Botones claros', 'Mensajes de error', 'Onboarding', 'Tooltips']
+            : ['Clear buttons', 'Error messages', 'Onboarding', 'Tooltips']
         },
         {
-          name: 'Storytelling & Guiones',
-          description: 'Narrativas que enganchan y no se olvidan.',
-          price: 'Desde $400',
-          includes: ['Brand story', 'Guiones video', 'Case studies', 'Testimoniales']
+          name: language === 'es' ? 'Storytelling & Guiones' : 'Storytelling & Scripts',
+          description: language === 'es' ? 'Narrativas que enganchan y no se olvidan.' : 'Narratives that hook and are not forgotten.',
+          price: language === 'es' ? 'Desde $400' : 'From $400',
+          includes: language === 'es'
+            ? ['Brand story', 'Guiones video', 'Case studies', 'Testimoniales']
+            : ['Brand story', 'Video scripts', 'Case studies', 'Testimonials']
         },
         {
           name: 'Content Strategy',
-          description: 'Estrategia de contenido que posiciona tu marca.',
-          price: 'Desde $500',
-          includes: ['Calendario editorial', 'Pilares de contenido', 'SEO strategy', 'Métricas']
+          description: language === 'es' ? 'Estrategia de contenido que posiciona tu marca.' : 'Content strategy that positions your brand.',
+          price: language === 'es' ? 'Desde $500' : 'From $500',
+          includes: language === 'es'
+            ? ['Calendario editorial', 'Pilares de contenido', 'SEO strategy', 'Métricas']
+            : ['Editorial calendar', 'Content pillars', 'SEO strategy', 'Metrics']
         }
       ]
     },
@@ -207,27 +223,35 @@ const Services = () => {
       services: [
         {
           name: 'Brand Strategy',
-          description: 'Posicionamiento que te diferencia de la competencia.',
-          price: 'Desde $800',
-          includes: ['Análisis competencia', 'Propuesta valor', 'Positioning', 'Roadmap']
+          description: language === 'es' ? 'Posicionamiento que te diferencia de la competencia.' : 'Positioning that differentiates you from the competition.',
+          price: language === 'es' ? 'Desde $800' : 'From $800',
+          includes: language === 'es'
+            ? ['Análisis competencia', 'Propuesta valor', 'Positioning', 'Roadmap']
+            : ['Competition analysis', 'Value proposition', 'Positioning', 'Roadmap']
         },
         {
           name: 'Community Building',
-          description: 'Construye una tribu leal alrededor de tu marca.',
-          price: 'Desde $600',
-          includes: ['Estrategia comunidad', 'Content plan', 'Engagement', 'Growth hacking']
+          description: language === 'es' ? 'Construye una tribu leal alrededor de tu marca.' : 'Build a loyal tribe around your brand.',
+          price: language === 'es' ? 'Desde $600' : 'From $600',
+          includes: language === 'es'
+            ? ['Estrategia comunidad', 'Content plan', 'Engagement', 'Growth hacking']
+            : ['Community strategy', 'Content plan', 'Engagement', 'Growth hacking']
         },
         {
-          name: 'Consultoría Digital',
-          description: 'Optimiza tu presencia digital y stack tecnológico.',
-          price: '$120/hora',
-          includes: ['Auditoría completa', 'Plan de acción', 'Tech stack', 'Implementación']
+          name: language === 'es' ? 'Consultoría Digital' : 'Digital Consulting',
+          description: language === 'es' ? 'Optimiza tu presencia digital y stack tecnológico.' : 'Optimize your digital presence and tech stack.',
+          price: language === 'es' ? '$120/hora' : '$120/hour',
+          includes: language === 'es'
+            ? ['Auditoría completa', 'Plan de acción', 'Tech stack', 'Implementación']
+            : ['Complete audit', 'Action plan', 'Tech stack', 'Implementation']
         },
         {
-          name: 'Campañas Digitales',
-          description: 'Campañas que generan resultados medibles.',
-          price: 'Desde $700',
-          includes: ['SEO strategy', 'Performance ads', 'Analytics', 'Optimización']
+          name: language === 'es' ? 'Campañas Digitales' : 'Digital Campaigns',
+          description: language === 'es' ? 'Campañas que generan resultados medibles.' : 'Campaigns that generate measurable results.',
+          price: language === 'es' ? 'Desde $700' : 'From $700',
+          includes: language === 'es'
+            ? ['SEO strategy', 'Performance ads', 'Analytics', 'Optimización']
+            : ['SEO strategy', 'Performance ads', 'Analytics', 'Optimization']
         }
       ]
     },
@@ -240,28 +264,36 @@ const Services = () => {
       gradient: 'from-indigo-500 to-purple-500',
       services: [
         {
-          name: 'Mentorías Creativas',
-          description: 'Sesiones 1:1 para potenciar tu creatividad y técnica.',
-          price: '$80/hora',
-          includes: ['Sesión personalizada', 'Plan de crecimiento', 'Recursos', 'Seguimiento']
+          name: language === 'es' ? 'Mentorías Creativas' : 'Creative Mentoring',
+          description: language === 'es' ? 'Sesiones 1:1 para potenciar tu creatividad y técnica.' : '1:1 sessions to boost your creativity and technique.',
+          price: language === 'es' ? '$80/hora' : '$80/hour',
+          includes: language === 'es'
+            ? ['Sesión personalizada', 'Plan de crecimiento', 'Recursos', 'Seguimiento']
+            : ['Personalized session', 'Growth plan', 'Resources', 'Follow-up']
         },
         {
-          name: 'Tutorías Tech',
-          description: 'Aprende desarrollo, diseño y herramientas digitales.',
-          price: '$60/hora',
-          includes: ['Clases prácticas', 'Proyectos reales', 'Feedback', 'Certificado']
+          name: language === 'es' ? 'Tutorías Tech' : 'Tech Tutoring',
+          description: language === 'es' ? 'Aprende desarrollo, diseño y herramientas digitales.' : 'Learn development, design and digital tools.',
+          price: language === 'es' ? '$60/hora' : '$60/hour',
+          includes: language === 'es'
+            ? ['Clases prácticas', 'Proyectos reales', 'Feedback', 'Certificado']
+            : ['Practical classes', 'Real projects', 'Feedback', 'Certificate']
         },
         {
-          name: 'Workshop Creativos',
-          description: 'Talleres grupales de arte + tecnología + storytelling.',
-          price: 'Desde $200',
-          includes: ['Taller grupal', 'Material didáctico', 'Proyecto final', 'Networking']
+          name: language === 'es' ? 'Workshop Creativos' : 'Creative Workshops',
+          description: language === 'es' ? 'Talleres grupales de arte + tecnología + storytelling.' : 'Group workshops of art + technology + storytelling.',
+          price: language === 'es' ? 'Desde $200' : 'From $200',
+          includes: language === 'es'
+            ? ['Taller grupal', 'Material didáctico', 'Proyecto final', 'Networking']
+            : ['Group workshop', 'Educational material', 'Final project', 'Networking']
         },
         {
-          name: 'Consultoría Marca Personal',
-          description: 'Construye una marca personal que abra puertas.',
-          price: 'Desde $500',
-          includes: ['Análisis personal', 'Estrategia', 'Content plan', 'Implementación']
+          name: language === 'es' ? 'Consultoría Marca Personal' : 'Personal Brand Consulting',
+          description: language === 'es' ? 'Construye una marca personal que abra puertas.' : 'Build a personal brand that opens doors.',
+          price: language === 'es' ? 'Desde $500' : 'From $500',
+          includes: language === 'es'
+            ? ['Análisis personal', 'Estrategia', 'Content plan', 'Implementación']
+            : ['Personal analysis', 'Strategy', 'Content plan', 'Implementation']
         }
       ]
     }
@@ -462,7 +494,7 @@ const Services = () => {
                     </div>
                     
                     <div className="mb-6">
-                      <h4 className="font-bold text-gray-900 mb-3">✨ Incluye:</h4>
+                      <h4 className="font-bold text-gray-900 mb-3">{language === 'es' ? '✨ Incluye:' : '✨ Includes:'}</h4>
                       <ul className="space-y-2">
                         {service.includes.map((item, itemIndex) => (
                           <li key={itemIndex} className="flex items-center text-gray-700">

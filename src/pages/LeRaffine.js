@@ -1,6 +1,10 @@
 import React from 'react';
+import { useLanguage } from '../components/LanguageSelector';
+import { translations } from '../utils/translations';
 
 const LeRaffine = () => {
+  const { language } = useLanguage();
+  const t = translations[language].leRaffine;
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#ffffff' }}>
       {/* Header */}
@@ -17,10 +21,10 @@ const LeRaffine = () => {
               </div>
 
           <nav className="hidden md:flex space-x-10">
-            <a href="#menu" className="text-white hover:text-opacity-70 transition-all duration-300 font-light tracking-wide">Menú</a>
-            <a href="#about" className="text-white hover:text-opacity-70 transition-all duration-300 font-light tracking-wide">Nosotros</a>
-            <a href="#reservas" className="text-white hover:text-opacity-70 transition-all duration-300 font-light tracking-wide">Reservas</a>
-            <a href="#contacto" className="text-white hover:text-opacity-70 transition-all duration-300 font-light tracking-wide">Contacto</a>
+            <a href="#menu" className="text-white hover:text-opacity-70 transition-all duration-300 font-light tracking-wide">{t.nav.menu}</a>
+            <a href="#about" className="text-white hover:text-opacity-70 transition-all duration-300 font-light tracking-wide">{t.nav.about}</a>
+            <a href="#reservations" className="text-white hover:text-opacity-70 transition-all duration-300 font-light tracking-wide">{t.nav.reservations}</a>
+            <a href="#contact" className="text-white hover:text-opacity-70 transition-all duration-300 font-light tracking-wide">{t.nav.contact}</a>
           </nav>
           <a 
             href="https://www.behance.net/gallery/235320955/Le-Raffin-Branding?" 
@@ -28,7 +32,7 @@ const LeRaffine = () => {
             rel="noopener noreferrer"
             className="text-white hover:text-opacity-70 transition-all duration-300 text-sm font-light border border-white/30 px-4 py-2 rounded-full hover:bg-white/10"
           >
-            Ver Branding
+            {t.nav.viewBranding}
           </a>
         </div>
       </header>
@@ -49,13 +53,13 @@ const LeRaffine = () => {
           </h1>
           <div className="w-24 h-px mx-auto mb-8" style={{ backgroundColor: '#b3afac' }}></div>
           <p className="text-xl md:text-3xl mb-12 font-light text-white/90 tracking-wide">
-            Experiencia culinaria francesa de alta cocina
+            {t.hero.subtitle}
           </p>
           <button 
             className="px-12 py-4 text-white font-light hover:bg-opacity-90 transition-all duration-300 border border-white/30 hover:bg-white/10 tracking-wider text-lg"
             style={{ backgroundColor: 'rgba(50, 35, 29, 0.8)' }}
           >
-            Reservar Mesa
+            {t.hero.cta}
           </button>
         </div>
       </section>
@@ -65,39 +69,39 @@ const LeRaffine = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-thin mb-6 tracking-wide" style={{ color: '#32231d' }}>
-              Tradición & Elegancia
+              {t.about.title}
             </h2>
             <div className="w-24 h-px mx-auto" style={{ backgroundColor: '#b3afac' }}></div>
           </div>
           <div className="grid md:grid-cols-2 gap-20 items-center">
             <div className="space-y-8">
               <p className="text-xl leading-relaxed font-light" style={{ color: '#635651' }}>
-                En Le Raffiné, cada plato es una obra de arte culinaria que combina técnicas tradicionales francesas con ingredientes locales de la más alta calidad.
+                {t.about.description1}
               </p>
               <p className="text-xl leading-relaxed font-light" style={{ color: '#635651' }}>
-                Nuestro chef ejecutivo, formado en las mejores cocinas de París, crea experiencias gastronómicas únicas que despiertan todos los sentidos.
+                {t.about.description2}
               </p>
               <div className="grid grid-cols-2 gap-8 pt-8">
                 <div className="text-center">
                   <div className="text-4xl font-thin mb-2" style={{ color: '#32231d' }}>15+</div>
-                  <div className="text-sm font-light" style={{ color: '#635651' }}>Años de experiencia</div>
+                  <div className="text-sm font-light" style={{ color: '#635651' }}>{t.about.experience}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-4xl font-thin mb-2" style={{ color: '#32231d' }}>★★★★★</div>
-                  <div className="text-sm font-light" style={{ color: '#635651' }}>Estrella Michelin</div>
+                  <div className="text-sm font-light" style={{ color: '#635651' }}>{t.about.michelin}</div>
                 </div>
               </div>
             </div>
             <div className="relative">
               <img 
                 src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt="Chef ejecutivo"
+                alt="Executive chef"
                 className="w-full h-96 object-cover rounded-lg shadow-2xl"
               />
               <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-lg shadow-xl overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                  alt="Plato gourmet"
+                  alt="Gourmet dish"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -111,7 +115,7 @@ const LeRaffine = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-thin mb-6 text-white tracking-wide">
-              Menú Degustación
+              {t.menu.title}
             </h2>
             <div className="w-24 h-px mx-auto" style={{ backgroundColor: '#b3afac' }}></div>
           </div>
@@ -119,19 +123,19 @@ const LeRaffine = () => {
             {[
               { 
                 name: 'Foie Gras', 
-                desc: 'Con reducción de oporto y brioche artesanal', 
+                desc: t.menu.dishes.foieGras, 
                 price: '€45',
                 image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
               },
               { 
                 name: 'Bouillabaisse', 
-                desc: 'Sopa tradicional marsellesa con mariscos frescos', 
+                desc: t.menu.dishes.bouillabaisse, 
                 price: '€38',
                 image: 'https://littleferrarokitchen.com/wp-content/uploads/2023/05/Easy-French-seafood-stew-bouillabaisse.jpg'
               },
               { 
                 name: 'Côte de Bœuf', 
-                desc: 'Costilla de res wagyu con jus de trufa', 
+                desc: t.menu.dishes.beef, 
                 price: '€65',
                 image: 'https://images.unsplash.com/photo-1558030006-450675393462?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
               }
@@ -157,7 +161,7 @@ const LeRaffine = () => {
       </section>
 
       {/* Reservations */}
-      <section id="reservas" className="py-32 px-4 relative">
+      <section id="reservations" className="py-32 px-4 relative">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
@@ -169,11 +173,11 @@ const LeRaffine = () => {
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-thin mb-6 tracking-wide" style={{ color: '#32231d' }}>
-              Reservaciones
+              {t.reservations.title}
             </h2>
             <div className="w-24 h-px mx-auto mb-8" style={{ backgroundColor: '#b3afac' }}></div>
             <p className="text-xl font-light" style={{ color: '#635651' }}>
-              Disponible de martes a sábado, de 19:00 a 23:00 horas
+              {t.reservations.subtitle}
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-12 text-center">
@@ -183,7 +187,7 @@ const LeRaffine = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-light mb-4" style={{ color: '#32231d' }}>Teléfono</h3>
+              <h3 className="text-xl font-light mb-4" style={{ color: '#32231d' }}>{t.reservations.phone}</h3>
               <p className="text-lg font-light" style={{ color: '#635651' }}>+34 91 234 5678</p>
             </div>
             <div className="p-8 rounded-lg" style={{ backgroundColor: 'rgba(179, 175, 172, 0.1)' }}>
@@ -192,7 +196,7 @@ const LeRaffine = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-light mb-4" style={{ color: '#32231d' }}>Email</h3>
+              <h3 className="text-xl font-light mb-4" style={{ color: '#32231d' }}>{t.reservations.email}</h3>
               <p className="text-lg font-light" style={{ color: '#635651' }}>reservas@leraffine.es</p>
             </div>
             <div className="p-8 rounded-lg" style={{ backgroundColor: 'rgba(179, 175, 172, 0.1)' }}>
@@ -202,8 +206,8 @@ const LeRaffine = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-light mb-4" style={{ color: '#32231d' }}>Ubicación</h3>
-              <p className="text-lg font-light" style={{ color: '#635651' }}>Calle Gourmet 123<br />Madrid, España</p>
+              <h3 className="text-xl font-light mb-4" style={{ color: '#32231d' }}>{t.reservations.location}</h3>
+              <p className="text-lg font-light" style={{ color: '#635651' }} dangerouslySetInnerHTML={{ __html: t.reservations.address }}></p>
             </div>
           </div>
         </div>
@@ -216,7 +220,7 @@ const LeRaffine = () => {
             <div className="md:col-span-2">
               <h3 className="text-3xl font-thin mb-6 text-white tracking-wider">Le Raffiné</h3>
               <p className="font-light leading-relaxed mb-6" style={{ color: '#b3afac' }}>
-                Una experiencia culinaria única que combina la tradición francesa con la innovación contemporánea.
+                {t.footer.description}
               </p>
               <div className="flex justify-center md:justify-start space-x-6">
                 <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors duration-300">
@@ -237,25 +241,21 @@ const LeRaffine = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-light mb-6 text-white">Horarios</h3>
-              <div className="space-y-2 font-light" style={{ color: '#b3afac' }}>
-                <p>Martes - Sábado</p>
-                <p>19:00 - 23:00</p>
-                <p className="pt-2">Domingo - Lunes</p>
-                <p>Cerrado</p>
+              <h3 className="text-xl font-light mb-6 text-white">{t.footer.hours}</h3>
+              <div className="space-y-2 font-light" style={{ color: '#b3afac' }} dangerouslySetInnerHTML={{ __html: t.footer.schedule }}>
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-light mb-6 text-white">Contacto</h3>
+              <h3 className="text-xl font-light mb-6 text-white">{t.footer.contact}</h3>
               <div className="space-y-4 font-light" style={{ color: '#b3afac' }}>
-                <p>Calle Gourmet 123<br />28001 Madrid, España</p>
+                <p dangerouslySetInnerHTML={{ __html: t.reservations.address.replace('Madrid, Spain', '28001 Madrid, Spain') }}></p>
                 <p>+34 91 234 5678</p>
                 <p>reservas@leraffine.es</p>
               </div>
             </div>
           </div>
           <div className="border-t pt-8 text-center" style={{ borderColor: '#635651' }}>
-            <p className="font-light" style={{ color: '#b3afac' }}>© 2025 Le Raffiné. Todos los derechos reservados.</p>
+            <p className="font-light" style={{ color: '#b3afac' }}>{t.footer.copyright}</p>
           </div>
         </div>
       </footer>

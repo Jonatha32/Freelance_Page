@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../components/LanguageSelector';
 
 const Contact = () => {
+  const { language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -44,12 +46,17 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Hablemos de tu idea</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              {language === 'es' ? 'Hablemos de tu idea' : 'Let\'s talk about your idea'}
+            </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-              Podés contarme sobre tu idea, tus objetivos o el tipo de proyecto que querés desarrollar.
+              {language === 'es'
+                ? 'Podés contarme sobre tu idea, tus objetivos o el tipo de proyecto que querés desarrollar.'
+                : 'You can tell me about your idea, your goals or the type of project you want to develop.'
+              }
             </p>
             <p className="text-lg text-coral-600 font-medium">
-              Le doy atención personal a cada mensaje.
+              {language === 'es' ? 'Le doy atención personal a cada mensaje.' : 'I give personal attention to every message.'}
             </p>
           </motion.div>
         </div>
@@ -64,12 +71,14 @@ const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Contame tu idea</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                {language === 'es' ? 'Contame tu idea' : 'Tell me your idea'}
+              </h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Nombre completo *
+                    {language === 'es' ? 'Nombre completo *' : 'Full name *'}
                   </label>
                   <input
                     type="text"
@@ -79,13 +88,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent"
-                    placeholder="Tu nombre completo"
+                    placeholder={language === 'es' ? 'Tu nombre completo' : 'Your full name'}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Correo electrónico *
+                    {language === 'es' ? 'Correo electrónico *' : 'Email address *'}
                   </label>
                   <input
                     type="email"
@@ -95,13 +104,13 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent"
-                    placeholder="tu@email.com"
+                    placeholder={language === 'es' ? 'tu@email.com' : 'your@email.com'}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="project" className="block text-sm font-medium text-gray-700 mb-2">
-                    Tipo de proyecto
+                    {language === 'es' ? 'Tipo de proyecto' : 'Project type'}
                   </label>
                   <select
                     id="project"
@@ -110,21 +119,21 @@ const Contact = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent"
                   >
-                    <option value="">Selecciona una opción</option>
-                    <option value="web-development">Desarrollo Web</option>
+                    <option value="">{language === 'es' ? 'Selecciona una opción' : 'Select an option'}</option>
+                    <option value="web-development">{language === 'es' ? 'Desarrollo Web' : 'Web Development'}</option>
                     <option value="ecommerce">E-commerce</option>
-                    <option value="branding">Branding & Diseño</option>
-                    <option value="app-development">Aplicación Web</option>
-                    <option value="consulting">Consultoría</option>
-                    <option value="content">Contenido & Copy</option>
-                    <option value="other">Otro</option>
+                    <option value="branding">{language === 'es' ? 'Branding & Diseño' : 'Branding & Design'}</option>
+                    <option value="app-development">{language === 'es' ? 'Aplicación Web' : 'Web Application'}</option>
+                    <option value="consulting">{language === 'es' ? 'Consultoría' : 'Consulting'}</option>
+                    <option value="content">{language === 'es' ? 'Contenido & Copy' : 'Content & Copy'}</option>
+                    <option value="other">{language === 'es' ? 'Otro' : 'Other'}</option>
                   </select>
                 </div>
 
                 {formData.project === 'other' && (
                   <div>
                     <label htmlFor="customProject" className="block text-sm font-medium text-gray-700 mb-2">
-                      Describe tu idea
+                      {language === 'es' ? 'Describe tu idea' : 'Describe your idea'}
                     </label>
                     <input
                       type="text"
@@ -133,14 +142,17 @@ const Contact = () => {
                       value={formData.customProject}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent"
-                      placeholder="Contame brevemente tu idea"
+                      placeholder={language === 'es' ? 'Contame brevemente tu idea' : 'Tell me briefly about your idea'}
                     />
                   </div>
                 )}
 
                 <div>
                   <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
-                    ¿Tenés un presupuesto estimado o querés que te ayude a definirlo?
+                    {language === 'es' 
+                      ? '¿Tenés un presupuesto estimado o querés que te ayude a definirlo?'
+                      : 'Do you have an estimated budget or would you like me to help you define it?'
+                    }
                   </label>
                   <select
                     id="budget"
@@ -149,16 +161,16 @@ const Contact = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent"
                   >
-                    <option value="">Selecciona una opción</option>
-                    <option value="defined">Ya tengo definido</option>
-                    <option value="guidance">Quiero orientación</option>
-                    <option value="no-idea">No tengo idea aún</option>
+                    <option value="">{language === 'es' ? 'Selecciona una opción' : 'Select an option'}</option>
+                    <option value="defined">{language === 'es' ? 'Ya tengo definido' : 'I already have it defined'}</option>
+                    <option value="guidance">{language === 'es' ? 'Quiero orientación' : 'I want guidance'}</option>
+                    <option value="no-idea">{language === 'es' ? 'No tengo idea aún' : 'I have no idea yet'}</option>
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Contame sobre tu proyecto *
+                    {language === 'es' ? 'Contame sobre tu proyecto *' : 'Tell me about your project *'}
                   </label>
                   <textarea
                     id="message"
@@ -168,21 +180,29 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent resize-none"
-                    placeholder="¿Qué querés construir, mejorar o lanzar? Contame lo que tengas en mente, incluso si es solo una idea suelta."
+                    placeholder={language === 'es' 
+                      ? '¿Qué querés construir, mejorar o lanzar? Contame lo que tengas en mente, incluso si es solo una idea suelta.'
+                      : 'What do you want to build, improve or launch? Tell me what you have in mind, even if it\'s just a loose idea.'
+                    }
                     maxLength={2000}
                   />
                   <div className="text-right text-sm text-gray-500 mt-1">
-                    {formData.message.length}/2000 caracteres
+                    {formData.message.length}/2000 {language === 'es' ? 'caracteres' : 'characters'}
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Archivos o referencias (opcional)
+                    {language === 'es' ? 'Archivos o referencias (opcional)' : 'Files or references (optional)'}
                   </label>
                   <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-coral-400 transition-colors">
                     <div className="text-4xl mb-2">📎</div>
-                    <p className="text-gray-600 mb-3">Podés subir imágenes, bocetos o webs que te inspiren</p>
+                    <p className="text-gray-600 mb-3">
+                      {language === 'es' 
+                        ? 'Podés subir imágenes, bocetos o webs que te inspiren'
+                        : 'You can upload images, sketches or websites that inspire you'
+                      }
+                    </p>
                     <input
                       type="file"
                       multiple
@@ -195,11 +215,11 @@ const Contact = () => {
                       htmlFor="file-upload"
                       className="bg-coral-100 text-coral-700 px-4 py-2 rounded-lg cursor-pointer hover:bg-coral-200 transition-colors"
                     >
-                      Seleccionar archivos
+                      {language === 'es' ? 'Seleccionar archivos' : 'Select files'}
                     </label>
                     {formData.files && formData.files.length > 0 && (
                       <div className="mt-3 text-sm text-gray-600">
-                        {formData.files.length} archivo(s) seleccionado(s)
+                        {formData.files.length} {language === 'es' ? 'archivo(s) seleccionado(s)' : 'file(s) selected'}
                       </div>
                     )}
                   </div>
@@ -208,7 +228,7 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="contactMethod" className="block text-sm font-medium text-gray-700 mb-2">
-                      ¿Cómo preferís que te contacte?
+                      {language === 'es' ? '¿Cómo preferís que te contacte?' : 'How would you prefer me to contact you?'}
                     </label>
                     <select
                       id="contactMethod"
@@ -217,16 +237,16 @@ const Contact = () => {
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent"
                     >
-                      <option value="">Selecciona una opción</option>
+                      <option value="">{language === 'es' ? 'Selecciona una opción' : 'Select an option'}</option>
                       <option value="email">Email</option>
                       <option value="whatsapp">WhatsApp</option>
-                      <option value="call">Llamada / Videollamada</option>
+                      <option value="call">{language === 'es' ? 'Llamada / Videollamada' : 'Call / Video call'}</option>
                     </select>
                   </div>
 
                   <div>
                     <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
-                      ¿Cuándo querés empezar?
+                      {language === 'es' ? '¿Cuándo querés empezar?' : 'When do you want to start?'}
                     </label>
                     <select
                       id="timeline"
@@ -235,10 +255,10 @@ const Contact = () => {
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent"
                     >
-                      <option value="">Selecciona una opción</option>
-                      <option value="asap">Lo antes posible</option>
-                      <option value="1-2weeks">Dentro de 1-2 semanas</option>
-                      <option value="later">Más adelante / No hay apuro</option>
+                      <option value="">{language === 'es' ? 'Selecciona una opción' : 'Select an option'}</option>
+                      <option value="asap">{language === 'es' ? 'Lo antes posible' : 'As soon as possible'}</option>
+                      <option value="1-2weeks">{language === 'es' ? 'Dentro de 1-2 semanas' : 'Within 1-2 weeks'}</option>
+                      <option value="later">{language === 'es' ? 'Más adelante / No hay apuro' : 'Later / No rush'}</option>
                     </select>
                   </div>
                 </div>
@@ -247,7 +267,7 @@ const Contact = () => {
                   type="submit"
                   className="w-full bg-gradient-to-r from-coral-500 to-wine-500 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
-                  🚀 Listo para empezar
+                  {language === 'es' ? '🚀 Listo para empezar' : '🚀 Ready to start'}
                 </button>
               </form>
             </motion.div>
@@ -262,11 +282,13 @@ const Contact = () => {
                 <div className="bg-white rounded-2xl p-8 max-w-md w-full text-center">
                   <div className="text-6xl mb-4">🎉</div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    ¡Gracias por escribirme!
+                    {language === 'es' ? '¡Gracias por escribirme!' : 'Thanks for writing to me!'}
                   </h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
-                    Te responderé en menos de 24 horas (posiblemente antes). 
-                    Mientras tanto, podés seguirme en redes para conocer más mi trabajo y proceso creativo.
+                    {language === 'es'
+                      ? 'Te responderé en menos de 24 horas (posiblemente antes). Mientras tanto, podés seguirme en redes para conocer más mi trabajo y proceso creativo.'
+                      : 'I will respond in less than 24 hours (possibly sooner). In the meantime, you can follow me on social media to learn more about my work and creative process.'
+                    }
                   </p>
                   
                   <div className="flex justify-center space-x-4 mb-6">
@@ -303,7 +325,7 @@ const Contact = () => {
                     onClick={() => setIsSubmitted(false)}
                     className="bg-coral-500 text-white px-6 py-2 rounded-lg hover:bg-coral-600 transition-colors"
                   >
-                    Cerrar
+                    {language === 'es' ? 'Cerrar' : 'Close'}
                   </button>
                 </div>
               </motion.div>
@@ -317,8 +339,12 @@ const Contact = () => {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Otras formas de contacto</h2>
-                <p className="text-gray-600 mb-6">Elegí la forma que más te guste para conectar</p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  {language === 'es' ? 'Otras formas de contacto' : 'Other ways to contact'}
+                </h2>
+                <p className="text-gray-600 mb-6">
+                  {language === 'es' ? 'Elegí la forma que más te guste para conectar' : 'Choose the way you like best to connect'}
+                </p>
                 
                 <div className="space-y-6">
                   {/* WhatsApp */}
@@ -329,14 +355,16 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900 mb-1">WhatsApp</h3>
-                      <p className="text-gray-600 mb-3">Respuesta rápida para consultas urgentes</p>
+                      <p className="text-gray-600 mb-3">
+                        {language === 'es' ? 'Respuesta rápida para consultas urgentes' : 'Quick response for urgent inquiries'}
+                      </p>
                       <a
                         href="https://wa.me/59892934394"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-green-600 hover:text-green-700 font-semibold transition-colors"
                       >
-                        Enviar mensaje
+                        {language === 'es' ? 'Enviar mensaje' : 'Send message'}
                         <span className="ml-2">→</span>
                       </a>
                     </div>
@@ -349,7 +377,9 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900 mb-1">Email</h3>
-                      <p className="text-gray-600 mb-3">Para propuestas detalladas y documentos</p>
+                      <p className="text-gray-600 mb-3">
+                        {language === 'es' ? 'Para propuestas detalladas y documentos' : 'For detailed proposals and documents'}
+                      </p>
                       <a
                         href="mailto:jonaperez.dev@gmail.com"
                         className="inline-flex items-center text-coral-600 hover:text-coral-700 font-semibold transition-colors"
@@ -362,8 +392,12 @@ const Contact = () => {
 
                   {/* Redes Sociales */}
                   <div className="p-6 bg-wine-50 rounded-xl border border-wine-100">
-                    <h3 className="font-bold text-gray-900 mb-3">Seguime en redes</h3>
-                    <p className="text-gray-600 mb-4">Conocé mi proceso creativo y trabajos</p>
+                    <h3 className="font-bold text-gray-900 mb-3">
+                      {language === 'es' ? 'Seguime en redes' : 'Follow me on social media'}
+                    </h3>
+                    <p className="text-gray-600 mb-4">
+                      {language === 'es' ? 'Conocé mi proceso creativo y trabajos' : 'Discover my creative process and work'}
+                    </p>
                     <div className="flex space-x-3">
                       <a
                       href="https://linktr.ee/jonaperez10"
@@ -409,10 +443,14 @@ const Contact = () => {
                     </a>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">Agenda una llamada</h3>
-                      <p className="text-gray-600 mb-2">Conversación de 30 min para conocer tu proyecto</p>
+                      <h3 className="font-semibold text-gray-900">
+                        {language === 'es' ? 'Agenda una llamada' : 'Schedule a call'}
+                      </h3>
+                      <p className="text-gray-600 mb-2">
+                        {language === 'es' ? 'Conversación de 30 min para conocer tu proyecto' : '30-min conversation to learn about your project'}
+                      </p>
                       <button className="text-salmon-600 hover:text-salmon-700 font-medium">
-                        Próximamente →
+                        {language === 'es' ? 'Próximamente →' : 'Coming soon →'}
                       </button>
                     </div>
                   </div>
@@ -421,27 +459,41 @@ const Contact = () => {
 
               {/* Proceso */}
               <div className="bg-gray-50 p-6 rounded-xl">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">¿Qué sigue después?</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  {language === 'es' ? '¿Qué sigue después?' : 'What happens next?'}
+                </h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center text-white text-sm font-bold">1</div>
                     <div>
-                      <h4 className="font-medium text-gray-900">Respuesta en 24h</h4>
-                      <p className="text-gray-600 text-sm">Te contacto para agendar una llamada inicial</p>
+                      <h4 className="font-medium text-gray-900">
+                        {language === 'es' ? 'Respuesta en 24h' : 'Response in 24h'}
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        {language === 'es' ? 'Te contacto para agendar una llamada inicial' : 'I contact you to schedule an initial call'}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
                     <div>
-                      <h4 className="font-medium text-gray-900">Análisis del proyecto</h4>
-                      <p className="text-gray-600 text-sm">Conversamos sobre objetivos, alcance y timeline</p>
+                      <h4 className="font-medium text-gray-900">
+                        {language === 'es' ? 'Análisis del proyecto' : 'Project analysis'}
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        {language === 'es' ? 'Conversamos sobre objetivos, alcance y timeline' : 'We discuss objectives, scope and timeline'}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
                     <div>
-                      <h4 className="font-medium text-gray-900">Propuesta personalizada</h4>
-                      <p className="text-gray-600 text-sm">Recibe una cotización detallada en 48h</p>
+                      <h4 className="font-medium text-gray-900">
+                        {language === 'es' ? 'Propuesta personalizada' : 'Personalized proposal'}
+                      </h4>
+                      <p className="text-gray-600 text-sm">
+                        {language === 'es' ? 'Recibe una cotización detallada en 48h' : 'Receive a detailed quote in 48h'}
+                      </p>
                     </div>
                   </div>
                 </div>
