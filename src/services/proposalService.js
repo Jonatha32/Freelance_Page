@@ -1,6 +1,6 @@
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../config/firebase';
+import { db } from '../config/firebase';
+import { uploadToCloudinary } from '../config/cloudinary';
 
 export const submitProposal = async (formData, files = null, formType = 'services') => {
   try {
@@ -14,18 +14,18 @@ export const submitProposal = async (formData, files = null, formType = 'service
       console.log('Uploading files:', files.length);
       const uploadPromises = Array.from(files).map(async (file, index) => {
         try {
-          const fileName = `${Date.now()}_${index}_${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
-          const storageRef = ref(storage, `proposals/${proposalId}/references/${fileName}`);
+          const result = await uploadToCloudinary(file, `proposals/${proposalId}`);
           
-          const snapshot = await uploadBytes(storageRef, file);
-          const downloadURL = await getDownloadURL(snapshot.ref);
-          
-          return {
-            url: downloadURL,
-            name: file.name,
-            size: file.size,
-            type: file.type
-          };
+          if (result.success) {
+            return {
+              url: result.url,
+              publicId: result.publicId,
+              name: file.name,
+              size: file.size,
+              type: file.type
+            };
+          }
+          return null;
         } catch (error) {
           console.error('Error uploading file:', file.name, error);
           return null;

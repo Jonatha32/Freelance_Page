@@ -253,7 +253,7 @@ const Contact = () => {
                       id="file-upload-contact"
                     />
                     <label
-                      htmlFor="file-upload"
+                      htmlFor="file-upload-contact"
                       className="bg-coral-100 text-coral-700 px-4 py-2 rounded-lg cursor-pointer hover:bg-coral-200 transition-colors"
                     >
                       {language === 'es' ? 'Seleccionar archivos' : 'Select files'}
