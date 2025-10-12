@@ -2,44 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../components/LanguageSelector';
+import HeroSlider from '../components/HeroSlider';
 
 const Home = () => {
   const { language } = useLanguage();
   
   return (
     <div>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-mint-50 to-white section-padding">
-        <div className="container-max">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-5xl mx-auto"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-black mb-6">
-              {language === 'es' 
-                ? <>Jona — <span className="text-coral-500">artista y creador digital</span>.<br />Diseño experiencias, escribo historias y construyo sitios web <span className="text-wine-500">con intención.</span></>
-                : <>Jona — <span className="text-coral-500">artist and digital creator</span>.<br />I design experiences, write stories and build websites <span className="text-wine-500">with intention.</span></>
-              }
-            </h1>
-            <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-              {language === 'es' 
-                ? 'Un solo universo creativo: diseño, código, escritura y música. Trabajo para marcas que quieren ser memorables.'
-                : 'One creative universe: design, code, writing and music. I work for brands that want to be memorable.'
-              }
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contacto" className="inline-flex items-center hover:bg-coral-700 text-coral-700 px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group border-2 border-coral-700 hover:text-white">
-                {language === 'es' ? 'Empezar mi proyecto' : 'Start my project'}
-              </Link>
-              <Link to="/portfolio" className="border-2 border-wine-500 text-wine-500 hover:bg-wine-500 hover:text-white inline-flex items-center px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 group">
-                {language === 'es' ? 'Ver trabajos' : 'View work'}
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* Hero Slider */}
+      <HeroSlider />
 
       {/* Servicios Principales */}
       <section className="section-padding bg-white">
