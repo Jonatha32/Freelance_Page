@@ -266,6 +266,17 @@ const Contact = () => {
                   </div>
                 </div>
 
+                {/* Honeypot - Campo oculto para detectar spam */}
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website || ''}
+                  onChange={handleChange}
+                  style={{ display: 'none' }}
+                  tabIndex="-1"
+                  autoComplete="off"
+                />
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="contactMethod" className="block text-sm font-medium text-gray-700 mb-2">

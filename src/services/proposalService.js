@@ -1,9 +1,21 @@
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { uploadToCloudinary } from '../config/cloudinary';
+import { sendEmail, validateRecaptcha } from './emailService';
 
 export const submitProposal = async (formData, files = null, formType = 'services') => {
   try {
+    // Validar Honeypot
+    if (formData.website) {
+      throw new Error('Spam detectado');
+    }
+
+    // reCAPTCHA pausado hasta deploy público
+    // const recaptchaResult = await validateRecaptcha();
+    // if (!recaptchaResult.success) {
+    //   throw new Error('Error de verificación de seguridad');
+    // }
+
     // Generate unique proposal ID
     const proposalId = `${formType}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     
@@ -65,10 +77,14 @@ export const submitProposal = async (formData, files = null, formType = 'service
     // Save to Firestore
     const docRef = await addDoc(collection(db, 'proposals'), proposalData);
     
+    // Enviar email con EmailJS
+    const emailResult = await sendEmail(proposalData, formType);
+    
     return {
       success: true,
       id: docRef.id,
-      proposalId
+      proposalId,
+      emailSent: emailResult.success
     };
     
   } catch (error) {
