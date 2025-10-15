@@ -8,6 +8,8 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
+    country: '',
     project: '',
     customProject: '',
     budget: '',
@@ -35,17 +37,19 @@ const Contact = () => {
     try {
       // Prepare data for contact form
       const contactData = {
-        nombre: formData.name,
+        name: formData.name,
         email: formData.email,
-        descripcionProyecto: formData.message,
-        tipoProyecto: formData.project || formData.customProject,
-        presupuesto: formData.budget,
-        tiempoEntrega: formData.timeline,
-        opcionContacto: formData.contactMethod
+        phone: formData.phone,
+        country: formData.country,
+        message: formData.message,
+        project: formData.project || formData.customProject,
+        budget: formData.budget,
+        timeline: formData.timeline,
+        contactMethod: formData.contactMethod
       };
       
       // Basic validation
-      if (!contactData.nombre || !contactData.email || !contactData.descripcionProyecto) {
+      if (!contactData.name || !contactData.email || !contactData.message) {
         setSubmitError(language === 'es' 
           ? 'Por favor completa los campos obligatorios'
           : 'Please complete the required fields'
@@ -147,6 +151,52 @@ const Contact = () => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent"
                     placeholder={language === 'es' ? 'tu@email.com' : 'your@email.com'}
                   />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      {language === 'es' ? 'Teléfono (opcional)' : 'Phone (optional)'}
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent"
+                      placeholder={language === 'es' ? '+598 99 123 456' : '+1 234 567 8900'}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
+                      {language === 'es' ? 'País (opcional)' : 'Country (optional)'}
+                    </label>
+                    <select
+                      id="country"
+                      name="country"
+                      value={formData.country}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coral-500 focus:border-transparent"
+                    >
+                      <option value="">{language === 'es' ? 'Selecciona tu país' : 'Select your country'}</option>
+                      <option value="Argentina">Argentina</option>
+                      <option value="Uruguay">Uruguay</option>
+                      <option value="Chile">Chile</option>
+                      <option value="Brasil">Brasil</option>
+                      <option value="Colombia">Colombia</option>
+                      <option value="México">México</option>
+                      <option value="España">España</option>
+                      <option value="Estados Unidos">Estados Unidos</option>
+                      <option value="Canadá">Canadá</option>
+                      <option value="Reino Unido">Reino Unido</option>
+                      <option value="Alemania">Alemania</option>
+                      <option value="Francia">Francia</option>
+                      <option value="Italia">Italia</option>
+                      <option value="Otro">{language === 'es' ? 'Otro' : 'Other'}</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div>
