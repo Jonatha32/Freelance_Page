@@ -33,7 +33,7 @@ const HeroSlider = () => {
   const slides = useMemo(() => [
     {
       id: 'intro',
-      title: language === 'es' ? "Hola, soy Jona — Desarrollador Web y Artista Digital." : "Hi, I'm Jona — Web Developer & Digital Artist.",
+      title: language === 'es' ? "Hola, soy Jona — Desarrollador Web y Artista." : "Hi, I'm Jona — Web Developer & Artist.",
       subtitle: language === 'es' ? "Construyo sitios web rápidos e intencionales y creo arte que conecta." : "I build fast, intentional websites and create art that connects.",
       buttons: language === 'es' ? ["Ver mi trabajo", "Pedir cotización"] : ["See my work", "Get a quote"],
       buttonLinks: ["/portfolio", "/contacto"],
@@ -43,8 +43,8 @@ const HeroSlider = () => {
     {
       id: 'services',
       title: language === 'es' ? "Tu marca merece más que solo un sitio bonito." : "Your brand deserves more than just a pretty site.",
-      subtitle: language === 'es' ? "Diseño con propósito, rendimiento y corazón." : "I design with purpose, performance, and heart.",
-      buttons: language === 'es' ? ["Construyamos algo genial"] : ["Let's build something great"],
+      subtitle: language === 'es' ? "Diseño con propósito, rendimiento y visión." : "I design with purpose, performance, and vision.",
+      buttons: language === 'es' ? ["Construyamos algo épico"] : ["Let's build something epic"],
       buttonLinks: ["/contacto"],
       bg: 'bg-gradient-to-br from-blue-100 via-cyan-100 to-teal-200',
       textColor: 'text-gray-800'
@@ -118,7 +118,7 @@ const HeroSlider = () => {
   const socialIcons = [
     { 
       name: 'Instagram', 
-      url: '#',
+      url: 'https://www.instagram.com/jonathan_perez018/',
       color: 'from-pink-500 to-purple-600',
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -128,7 +128,7 @@ const HeroSlider = () => {
     },
     { 
       name: 'X', 
-      url: '#',
+      url: 'https://x.com/Jonatha88199578',
       color: 'from-gray-700 to-black',
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -138,7 +138,7 @@ const HeroSlider = () => {
     },
     { 
       name: 'YouTube', 
-      url: '#',
+      url: 'https://www.youtube.com/@JonathanP%C3%A9rez-uy',
       color: 'from-red-500 to-red-700',
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -148,7 +148,7 @@ const HeroSlider = () => {
     },
     { 
       name: 'LinkedIn', 
-      url: '#',
+      url: 'https://www.linkedin.com/in/jonathanperez-dev/',
       color: 'from-blue-500 to-blue-700',
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
