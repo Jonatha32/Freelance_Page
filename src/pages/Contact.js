@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../components/LanguageSelector';
 import { submitProposal, validateProposalData } from '../services/proposalService';
+import PaymentMethods from '../components/PaymentMethods';
+
 
 const Contact = () => {
   const { language } = useLanguage();
@@ -610,6 +612,9 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Payment Methods Section */}
+              <PaymentMethods />
             </motion.div>
           </div>
         </div>

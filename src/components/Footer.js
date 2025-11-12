@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from './LanguageSelector';
+import PaymentMethods from './PaymentMethods';
 
 const Footer = () => {
   const { language } = useLanguage();
@@ -91,6 +92,11 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Payment Methods */}
+        <div className="mt-16">
+          <PaymentMethods variant="footer" />
+        </div>
+
         {/* Divisor */}
         <div className="border-t border-gray-700/30 mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
@@ -112,7 +118,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-coral-500/10 to-wine-500/10 border border-coral-400/20 rounded-full">
-                <div className="w-2 h-2 bg-coral-400 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
                 <span className="text-coral-300 text-xs font-medium">
                   {language === 'es' ? 'Disponible para proyectos' : 'Available for projects'}
                 </span>
