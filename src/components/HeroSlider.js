@@ -159,7 +159,7 @@ const HeroSlider = () => {
   ];
 
   return (
-    <section className="relative min-h-[543px] overflow-hidden">
+    <section className="relative min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -202,16 +202,16 @@ const HeroSlider = () => {
           )}
 
           <div className="relative z-10 h-full flex items-center">
-            <div className="container mx-auto px-6 lg:px-12">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-8">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                <div className="lg:col-span-8 text-center lg:text-left">
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                   >
                     <motion.h1
-                      className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight ${slides[currentSlide].textColor}`}
+                      className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight ${slides[currentSlide].textColor}`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.3 }}
@@ -229,7 +229,7 @@ const HeroSlider = () => {
                     </motion.h1>
 
                     <motion.p
-                      className={`text-lg md:text-xl lg:text-2xl mb-8 opacity-90 max-w-3xl ${slides[currentSlide].textColor}`}
+                      className={`text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 opacity-90 max-w-3xl mx-auto lg:mx-0 ${slides[currentSlide].textColor}`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.4 }}
@@ -241,13 +241,13 @@ const HeroSlider = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.6 }}
-                      className="flex flex-col sm:flex-row gap-4"
+                      className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
                     >
                       {slides[currentSlide].buttons.map((button, index) => (
                         <Link
                           key={index}
                           to={slides[currentSlide].buttonLinks[index]}
-                          className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${
+                          className={`px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${
                             index === 0 ? 'bg-gray-800 text-white hover:bg-gray-900' : 'border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
                           }`}
                         >
@@ -304,12 +304,12 @@ const HeroSlider = () => {
                 </div>
 
                 {/* Inspirational Text Sidebar */}
-                <div className="lg:col-span-4">
+                <div className="lg:col-span-4 mt-8 lg:mt-0">
                   <motion.div
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className=""
+                    className="flex justify-center lg:justify-end"
                   >
                     <AnimatePresence mode="wait">
                       <motion.div
@@ -329,7 +329,7 @@ const HeroSlider = () => {
                             ]
                           }}
                           transition={{ duration: 2, repeat: Infinity }}
-                          className="text-lg font-medium"
+                          className="text-base sm:text-lg font-medium"
                         >
                           {motivationalPhrases[currentPhrase]}
                         </motion.div>
@@ -344,10 +344,10 @@ const HeroSlider = () => {
       </AnimatePresence>
 
       {/* Navigation Controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-6 z-20">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-3 sm:space-x-6 z-20">
         <button
           onClick={prevSlide}
-          className="p-3 rounded-full bg-black/20 hover:bg-black/30 text-white backdrop-blur-sm transition-all duration-200"
+          className="p-2 sm:p-3 rounded-full bg-black/20 hover:bg-black/30 text-white backdrop-blur-sm transition-all duration-200"
         >
           ←
         </button>
@@ -357,7 +357,7 @@ const HeroSlider = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-3 w-3 rounded-full transition-all duration-300 ${
+              className={`h-2 w-2 sm:h-3 sm:w-3 rounded-full transition-all duration-300 ${
                 index === currentSlide ? 'bg-black scale-125' : 'bg-black/40 hover:bg-black/60'
               }`}
             />
@@ -366,14 +366,14 @@ const HeroSlider = () => {
 
         <button
           onClick={nextSlide}
-          className="p-3 rounded-full bg-black/20 hover:bg-black/30 text-white backdrop-blur-sm transition-all duration-200"
+          className="p-2 sm:p-3 rounded-full bg-black/20 hover:bg-black/30 text-white backdrop-blur-sm transition-all duration-200"
         >
           →
         </button>
 
         <button
           onClick={() => setIsPlaying(!isPlaying)}
-          className="p-3 rounded-full bg-black/20 hover:bg-white/30 text-white backdrop-blur-sm transition-all duration-200"
+          className="p-2 sm:p-3 rounded-full bg-black/20 hover:bg-white/30 text-white backdrop-blur-sm transition-all duration-200"
         >
           {isPlaying ? '⏸' : '▶'}
         </button>

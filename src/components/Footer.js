@@ -8,10 +8,10 @@ const Footer = () => {
   
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white border-t border-gray-700/30">
-      <div className="container-max py-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="container-max py-12 md:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Descripción */}
-          <div className="md:col-span-2">
+          <div className="sm:col-span-2 lg:col-span-2">
             <div className="mb-6">
               <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-coral-400 to-wine-400 bg-clip-text text-white">
                 Jonathan Pérez
@@ -21,7 +21,7 @@ const Footer = () => {
               </p>
             </div>
             
-            <p className="text-gray-400 mb-8 leading-relaxed max-w-md">
+            <p className="text-gray-400 mb-6 md:mb-8 leading-relaxed max-w-md">
               {language === 'es'
                 ? 'Fusiono arte, tecnología y estrategia para crear experiencias digitales que conectan, convierten y trascienden.'
                 : 'I merge art, technology and strategy to create digital experiences that connect, convert and transcend.'
@@ -29,19 +29,23 @@ const Footer = () => {
             </p>
             
             {/* Redes Sociales */}
-            <div className="flex space-x-3">
+            <div className="flex flex-wrap gap-3">
               {[
                 { href: 'mailto:jonaperez.dev@gmail.com', icon: '📧', color: 'hover:bg-red-600', label: 'Email' },
                 { href: 'https://wa.me/59892934394', icon: '💬', color: 'hover:bg-green-600', label: 'WhatsApp' },
-                { href: '#', icon: '💼', color: 'hover:bg-blue-600', label: 'LinkedIn' },
-                { href: '#', icon: '⚡', color: 'hover:bg-purple-600', label: 'GitHub' }
+                { href: 'https://www.linkedin.com/in/jonathanperez-dev/', icon: '💼', color: 'hover:bg-blue-600', label: 'LinkedIn'},
+                { href: 'https://github.com/Jonatha32', icon: '⚡', color: 'hover:bg-purple-600', label: 'GitHub' }
               ].map((social) => (
-                <a key={social.label}
-                   href={social.href} 
-                   className={`w-12 h-12 bg-gray-800/30 ${social.color} rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg backdrop-blur-sm border border-gray-600/20 hover:border-coral-400/30`}
-                   title={social.label}>
-                  <span className="text-lg">{social.icon}</span>
-                </a>
+                <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className={`w-12 h-12 bg-gray-800/30 ${social.color} rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg backdrop-blur-sm border border-gray-600/20 hover:border-coral-400/30`}
+                    title={social.label}
+                  >
+                    <span className="text-lg">{social.icon}</span>
+                  </a>
               ))}
             </div>
           </div>
@@ -93,33 +97,39 @@ const Footer = () => {
         </div>
 
         {/* Payment Methods */}
-        <div className="mt-16">
+        <div className="mt-12 md:mt-16">
           <PaymentMethods variant="footer" />
         </div>
 
         {/* Divisor */}
-        <div className="border-t border-gray-700/30 mt-16 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 mb-4 md:mb-0 text-sm">
+        <div className="border-t border-gray-700/30 mt-12 md:mt-16 pt-6 md:pt-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+            <p className="text-gray-400 text-sm text-center lg:text-left">
               {language === 'es' 
                 ? '© 2025 Jona Pérez. Todos los derechos reservados.'
                 : '© 2025 Jona Pérez. All rights reserved.'
               }
             </p>
             
-            <div className="flex items-center space-x-8">
-              <div className="flex items-center space-x-4">
+            <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
                 <Link to="/privacidad" className="text-gray-400 hover:text-gray-300 transition-colors text-sm">
                   {language === 'es' ? 'Privacidad' : 'Privacy'}
                 </Link>
                 <Link to="/terminos" className="text-gray-400 hover:text-gray-300 transition-colors text-sm">
                   {language === 'es' ? 'Términos' : 'Terms'}
                 </Link>
+                <Link to="/reembolso" className="text-gray-400 hover:text-gray-300 transition-colors text-sm">
+                  {language === 'es' ? 'Reembolso' : 'Refund'}
+                </Link>
+                <Link to="/cookies" className="text-gray-400 hover:text-gray-300 transition-colors text-sm">
+                  {language === 'es' ? 'Cookies' : 'Cookies'}
+                </Link>
               </div>
               
-              <div className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-coral-500/10 to-wine-500/10 border border-coral-400/20 rounded-full">
+              <div className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-coral-500/10 to-wine-500/10 border border-coral-400/20 rounded-full">
                 <div className="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
-                <span className="text-coral-300 text-xs font-medium">
+                <span className="text-coral-300 text-xs font-medium whitespace-nowrap">
                   {language === 'es' ? 'Disponible para proyectos' : 'Available for projects'}
                 </span>
               </div>

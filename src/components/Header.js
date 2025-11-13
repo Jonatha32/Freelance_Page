@@ -13,6 +13,7 @@ const Header = () => {
     { name: language === 'es' ? 'Inicio' : 'Home', href: '/' },
     { name: language === 'es' ? 'Servicios' : 'Services', href: '/servicios' },
     { name: 'Portfolio', href: '/portfolio' },
+    { name: language === 'es' ? 'Tienda' : 'Shop', href: '/tienda' },
     { name: language === 'es' ? 'Sobre mí' : 'About', href: '/sobre-mi' },
     { name: 'Blog', href: '/blog' },
     { name: language === 'es' ? 'Contacto' : 'Contact', href: '/contacto' },

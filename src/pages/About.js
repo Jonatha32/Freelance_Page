@@ -62,8 +62,8 @@ const About = () => {
                 </h3>
                 <p className="text-gray-700 mb-4 leading-relaxed">
                   {language === 'es' 
-                    ? 'Todo comenzó con un piano. Quería crear algo que tocara el alma, y terminé descubriendo que el arte también puede vivir en el código.'
-                    : 'It all started with a piano. I wanted to create something that touched the soul, and I ended up discovering that art can also live in code.'
+                    ? 'Todo comenzó con un micrófono. Quería crear algo que tocara el alma, y terminé descubriendo que el arte también puede vivir en el código.'
+                    : 'It all started with a microphone. I wanted to create something that touched the soul, and I ended up discovering that art can also live in code.'
                   }
                 </p>
                 <p className="text-gray-700 mb-4 leading-relaxed">
@@ -247,7 +247,7 @@ const About = () => {
               {
                 category: 'Backend',
                 icon: '🔧',
-                tools: ['Node.js', 'PostgreSQL', 'REST APIs', 'Supabase']
+                tools: ['Node.js', 'Firebase', 'REST APIs', 'Python']
               },
               {
                 category: language === 'es' ? 'Diseño' : 'Design',

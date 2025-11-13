@@ -131,9 +131,12 @@ const PaymentMethods = ({ className = "", variant = "default" }) => {
                     {language === 'es' ? 'Latinoamérica' : 'Latin America'}
                   </p>
                 </div>
-                <div className="bg-blue-500 text-white px-2 py-1 rounded text-xs font-bold">
-                  MP
-                </div>
+                <img 
+                         src="/mercado-pago-logo-png_seeklogo-198430.png" 
+                  alt="Logo Mercado Pago"
+                  className={`h-14 w-auto`}
+                  loading="lazy"
+                 />
               </div>
             </div>
           </div>

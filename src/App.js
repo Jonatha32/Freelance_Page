@@ -10,6 +10,9 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import RefundPolicy from './pages/RefundPolicy';
+import CookiesPolicy from './pages/CookiesPolicy';
+import Shop from './pages/Shop';
 import LeRaffine from './pages/LeRaffine';
 import EmpresaFamiliar from './pages/EmpresaFamiliar';
 import Admin from './pages/Admin';
@@ -35,6 +38,9 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/privacidad" element={<Privacy />} />
               <Route path="/terminos" element={<Terms />} />
+              <Route path="/reembolso" element={<RefundPolicy />} />
+              <Route path="/cookies" element={<CookiesPolicy />} />
+              <Route path="/tienda" element={<Shop />} />
               <Route path="/le-raffine" element={<LeRaffine />} />
               <Route path="/empresa-familiar" element={<EmpresaFamiliar />} />
               <Route path="/admin" element={<Admin />} />
